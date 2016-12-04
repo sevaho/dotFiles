@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -latr"
 alias gpom="git push origin master"
+alias gitquick="git add .; git commit -m "git quick push"; git push origin master"
 
 alias docka="sudo docker run --rm -it alpine sh"
 #powerline
@@ -41,4 +42,5 @@ POWERLINE_GIT_RENAMED="➜"
 POWERLINE_GIT_UNMERGED="═"
 
 POWERLINE_RIGHT_A="date"
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:/home/sevaho/.vimpkg/bin
+
+export PATH=/home/sevaho/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:/home/sevaho/.vimpkg/bin
