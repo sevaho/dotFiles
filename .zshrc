@@ -1,7 +1,11 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/sevaho/.oh-my-zsh
 
+export TMOUT=1000
 ZSH_THEME="powerline"
+
+source /home/sevaho/powerline.zsh
+
 
 ENABLE_CORRECTION="true"
 
@@ -10,7 +14,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -23,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -latr"
 alias gpom="git push origin master"
-alias gitquick="git add .; git commit -m "git quick push"; gpom"
+alias gitquick="git add .; git commit -m 'git quick push'; git push origin master"
 
 alias docka="sudo docker run --rm -it alpine sh"
 #powerline
