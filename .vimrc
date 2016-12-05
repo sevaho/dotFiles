@@ -5,14 +5,26 @@ let NERDTreeShowHidden=1
 
 set t_Co=256
 colorscheme minimalist
+set showcmd
+set title
+set ruler
+ set cursorline
+" set cursorcolumn
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=3
 let g:airline_powerline_fonts = 1
-let g:syntastic_check_on_open = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_use_ultisnips_completer = 1
