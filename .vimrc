@@ -2,6 +2,7 @@ map <F3> : NERDTreeToggle<CR>
 map <F4> : bp<CR>
 map <F5> : bn<CR>
 syntax on
+set background=light
 let NERDTreeShowHidden=1
 
 set t_Co=256

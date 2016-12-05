@@ -41,7 +41,7 @@ hi Label            ctermfg=186     ctermbg=NONE    cterm=NONE      guifg=#D7D78
 hi LineNr           ctermfg=59      ctermbg=235     cterm=NONE      guifg=#5F5F5F       guibg=#262626   gui=NONE
 hi MatchParen       ctermfg=NONE    ctermbg=NONE    cterm=underline guifg=NONE          guibg=NONE      gui=underline
 hi NonText          ctermfg=234     ctermbg=234     cterm=NONE      guifg=#1C1C1C       guibg=#1C1C1C   gui=NONE
-hi Normal           ctermfg=231     ctermbg=234     cterm=NONE      guifg=#FFFFFF       guibg=#1C1C1C   gui=NONE
+hi Normal           ctermfg=131     ctermbg=134     cterm=NONE      guifg=#FFFFFF       guibg=#1C1C1C   gui=NONE
 hi Number           ctermfg=173     ctermbg=NONE    cterm=NONE      guifg=#D7875F       guibg=NONE      gui=NONE
 hi Operator         ctermfg=80      ctermbg=NONE    cterm=NONE      guifg=#5FD7D7       guibg=NONE      gui=NONE
 hi Pmenu            ctermfg=NONE    ctermbg=NONE    cterm=NONE      guifg=NONE          guibg=NONE      gui=NONE

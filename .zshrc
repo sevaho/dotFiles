@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/sevaho/.oh-my-zsh
 
-export TMOUT=1000
+export TMOUT=2000
 ZSH_THEME="powerline"
 
 source /home/sevaho/powerline.zsh
