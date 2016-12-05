@@ -1,6 +1,7 @@
 map <F3> : NERDTreeToggle<CR>
 map <F4> : bp<CR>
 map <F5> : bn<CR>
+
 syntax on
 set background=light
 let NERDTreeShowHidden=1
@@ -11,7 +12,6 @@ set showcmd
 set title
 set ruler
  set cursorline
-" set cursorcolumn
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -23,8 +23,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=3
+set softtabstop=3
 set tabstop=3
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
