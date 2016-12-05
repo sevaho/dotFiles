@@ -1,5 +1,6 @@
 map <F3> : NERDTreeToggle<CR>
-
+map <F4> : bp<CR>
+map <F5> : bn<CR>
 syntax on
 let NERDTreeShowHidden=1
 
