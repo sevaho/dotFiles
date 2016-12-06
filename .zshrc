@@ -10,21 +10,12 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 #alias
 
 alias ll="ls -latr"
 alias gpom="git push origin master"
 alias gitquick="git add .; git commit -m 'git automatic quick push'; git push origin master"
-
+alias gits="git status"
 alias docka="sudo docker run --rm -it alpine sh"
 
 #powerline

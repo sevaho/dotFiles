@@ -23,9 +23,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 set expandtab
-set shiftwidth=3
-set softtabstop=3
-set tabstop=3
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:ycm_collect_identifiers_from_tags_files = 1

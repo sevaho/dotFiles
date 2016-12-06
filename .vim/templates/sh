@@ -2,111 +2,54 @@
 
 # Author: Sebastiaan Van Hoecke
 
-#<<-----Bash settings
-# abort on nonzero exitstatus
 set -o errexit
-# don't hide errors within pipes
 set -o pipefail
-#nounset
 set -o nounset
-#----->>
 
-#<<-----Variables
+#variables
 readonly ARGS=1
 readonly VERSION=0.0.1
 readonly SCRIPT_NAME=$(basename "${0}")
 readonly SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 IFS=$'\t\n'   # Split on newlines and tabs (but not on spaces)
-#----->>
 
-#<<-----main
-main() {
-
-echo $SCRIPT_NAME
-echo $SCRIPT_DIR
-check_args "${@}"
-
-
+main(){
+  echo $SCRIPT_NAME
+  echo $SCRIPT_DIR
+  check_args "${@}"
 
 }
-#----->>
 
-#<<-----functions
-# Check if command line arguments are valid
-check_args() {
-if [ $# -eq $ARGS  ]  
-	then
-		if [ "$1" = "-h"  ] || [ "$1" = "--help"  ]
-			then 
+#functions
+check_args(){
+  if [ $# -eq $ARGS  ]  
+	  then
+		  if [ "$1" = "-h"  ] || [ "$1" = "--help"  ]
+			  then 
        	usage
-			exit 2
-		fi
-else
-	echo "Expected ${ARGS} argument(s), got ${#}" >&2
-	usage
-	exit 2
-fi
+			  exit 2
+		  fi
+  else
+	  echo "Expected ${ARGS} argument(s), got ${#}" >&2
+	  usage
+	  exit 2
+  fi
 }
 
-funcLoopTemplates(){
+usage(){
+  cat << _EOF_
+  Usage: ${0} []OPTIONS]... [ARGS]...
 
-#If
-count=99
-if [ $count -eq 100 ]
-then
-  echo "Count is 100"
-else
- if [ $count -gt 100 ]
-  then
-   echo "Count is greater than 100"
- else
-  echo "Count is less than 100"
- fi
-fi
-
-#For
-for i in 1 2 3 4 5
- do
-  echo "Welcome $i times"
- done
-
-#While
-COUNTER=0
-while [  $COUNTER -lt 10 ]
- do
-  echo The counter is $COUNTER
-  let COUNTER=COUNTER+1 
- done
-
-#Until
-COUNTER=20
-until [  $COUNTER -lt 10 ]
- do
-  echo COUNTER $COUNTER
-  let COUNTER-=1
- done
-
-}
-#----->>
-
-#<<-----Usage
-usage() {
-cat << _EOF_
-Usage: ${0} []OPTIONS]... [ARGS]...
-
-  description
+    description
 
 
-OPTIONS:
+  OPTIONS:
 
-EXAMPLES:
+  EXAMPLES:
 
 _EOF_
 }
-#----->>
 
-#<<-----Call main
 main "${@}"
-#----->>
 
-# cursor: 29 del   
+# cursor: 20 del   
