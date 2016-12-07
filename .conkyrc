@@ -95,5 +95,5 @@ $color5${hr 2}
 
 ${color #f0f5f5}Root: ${goto 65}${fs_bar 5,100 /} ${goto 177} ${fs_used_perc /}%
 ${color #f0f5f5}Home: ${goto 65}${fs_bar 5,100 /home} ${goto 177} ${fs_used_perc /home}%
-${color #FFFFFF}10GB: ${goto 65}${fs_bar 5,100 /boot} ${goto 177} ${fs_used_perc /boot}%
+${color #FFFFFF}Boot: ${goto 65}${fs_bar 5,100 /boot} ${goto 177} ${fs_used_perc /boot}%
 ]]
