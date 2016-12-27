@@ -52,3 +52,7 @@ map <right> <nop>
 execute pathogen#infect()
 call pathogen#helptags()
 
+hi SpellBad ctermfg=196 ctermbg=231
+hi SpellCap ctermfg=196 ctermbg=231
+
+
