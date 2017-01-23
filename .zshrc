@@ -15,7 +15,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -latr"
 alias gpom="git push origin master"
-alias gitquick="git add .; git commit -m 'git automatic quick push'; git push origin master"
 alias gits="git status"
 alias docka="sudo docker run --rm -it alpine sh"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
