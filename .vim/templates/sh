@@ -1,6 +1,6 @@
-#! /bin/bash
+#!/bin/bash
 
-# Author: Sebastiaan Van Hoecke
+#Author: Sebastiaan Van Hoecke
 
 set -o errexit
 set -o pipefail
@@ -8,10 +8,8 @@ set -o nounset
 
 #variables
 readonly ARGS=1
-readonly VERSION=0.0.1
 readonly SCRIPT_NAME=$(basename "${0}")
 readonly SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-IFS=$'\t\n'   # Split on newlines and tabs (but not on spaces)
 
 main(){
   echo "$SCRIPT_NAME"
