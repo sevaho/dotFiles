@@ -25,12 +25,21 @@ main(){
   #cp -rf ~/.dotFiles/. ~/
 
   ~/.fonts/install.sh
-  #fc-cache -f -v
+  fc-cache -f -v
+
+
+  #ZSH plugins
 
   env git clone --depth=1 git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || {
     printf "Error: git clone of zsh autosuggest\n"
     exit 1
   }
+
+  env git clone --depth=1 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || {
+    printf "Error: git clone of zsh syntax highlight\n"
+    exit 1
+  }
+
 
   echo "source .zshrc"
   sleep 5

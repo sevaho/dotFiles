@@ -2,8 +2,9 @@
 
 &nbsp;
 
-Needs powerline-fonts and reset the font-cache.
-It can happen that you need to reinstall auto-suggest.
+TODO:
+  
+- YCM support
 
 Install via wget
 
