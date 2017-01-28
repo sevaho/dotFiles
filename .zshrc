@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/sevaho/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 export TMOUT=5600
 export TERM="screen-256color"
@@ -35,4 +35,4 @@ POWERLINE_GIT_RENAMED="➜"
 POWERLINE_GIT_UNMERGED="═"
 POWERLINE_RIGHT_A="date"
 
-export PATH=/home/sevaho/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:/home/sevaho/.vimpkg/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin
