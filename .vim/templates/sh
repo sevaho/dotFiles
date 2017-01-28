@@ -36,7 +36,7 @@ check_args(){
 
 usage(){
   cat << _EOF_
-  Usage: ${0} [OPTIONS]... [ARGS]...
+  Usage: ${0} []OPTIONS]... [ARGS]...
 
     description
 
