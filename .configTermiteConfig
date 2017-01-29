@@ -1,0 +1,63 @@
+[options]
+
+resize_grip = false
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font =  Monospace 10
+scrollback_lines = 1000
+search_wrap = true
+cursor_blink = system
+cursor_shape = block
+
+[colors]
+
+# special
+foreground = #FFFFFF
+foreground_dim = #888888
+background = #353333
+cursor = #EEEEEC
+highlight = #555753
+
+# black
+color0  = #303030
+color8  = #50524E
+
+# red
+color1  = #F34F4F
+color9  = #993E3E
+
+# green
+color2  = #CAFF1F
+color10 = #78DD15
+
+# yellow
+color3  = #C4A000
+color11 = #FCE94F
+
+# blue
+color4  = #407EAE
+color12 = #9bbcd7
+
+# magenta
+color5  = #C421DE
+color13 = #C714B3
+
+# cyan
+color6  = #FFFFFF
+color14 = #76E8F1
+
+# white
+color7  = #FFFFFF
+color15 = #FFFFFF
+
+[hints]
+
+foreground = #FFFFFF
