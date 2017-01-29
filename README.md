@@ -5,6 +5,7 @@
 TODO:
   
 - YCM support
+- Shellcheck
 
 Install via wget
 
