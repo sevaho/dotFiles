@@ -58,6 +58,7 @@ let NERDTreeShowHidden=1
 " AIRLINE
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='minimalist'
 
 " YOUCOMPLETEME
 let g:ycm_collect_identifiers_from_tags_files = 1
