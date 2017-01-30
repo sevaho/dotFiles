@@ -43,6 +43,8 @@ install_configs(){
   apt-vim install -y https://github.com/vim-syntastic/syntastic.git
   apt-vim install -y https://github.com/Valloric/YouCompleteMe.git
   apt-vim install -y https://github.com/airblade/vim-gitgutter.git
+  mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
   #ZSH plugins
 
