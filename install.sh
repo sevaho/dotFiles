@@ -40,9 +40,9 @@ install_configs(){
   apt-vim install -y https://github.com/vim-airline/vim-airline-themes.git
   apt-vim install -y https://github.com/pangloss/vim-javascript.git
   apt-vim install -y https://github.com/digitaltoad/vim-pug.git
-  apt-vim install -y https://github.com/mhinz/vim-signify.git
   apt-vim install -y https://github.com/vim-syntastic/syntastic.git
   apt-vim install -y https://github.com/Valloric/YouCompleteMe.git
+  apt-vim install -y https://github.com/airblade/vim-gitgutter.git
 
   #ZSH plugins
 

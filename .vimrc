@@ -23,8 +23,9 @@ set title
 set ruler
 set cursorline
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set autoread                            " automatically reload the file when modified outside and not modified inside"
 set autowrite                           " write the modified file when switching to another file"
 set hidden                              " allow Vim to switch to another buffer while the current is not saved"
