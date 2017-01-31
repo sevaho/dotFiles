@@ -5,6 +5,7 @@ map <F5> : bn<CR>
 
 syntax on
 
+set path+=**                                  " able to search subdirs recursive"
 set nocompatible                              " no compatibility with old-skool vi
 set wildmenu                                  " show command line completions"
 set wildmode=longest:full                     " complete mode for wildmenu"

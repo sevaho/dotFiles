@@ -32,6 +32,7 @@ alias moer='more'
 alias moew='more'
 alias kk='ll'
 alias more='less'
+alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
 
 #Protect root
 if [ "$(id -ru)" -eq "0"  ]; then
