@@ -32,13 +32,14 @@ alias moer='more'
 alias moew='more'
 alias kk='ll'
 alias more='less'
+alias L='less'
 alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
 
 #Protect root
 if [ "$(id -ru)" -eq "0"  ]; then
-  alias rm='rm --interactive=once'
-  alias cp='cp --interactive=once'
-  alias mv='mv --interactive=once'
+  alias rm='rm -i'
+  alias cp='cp -i'
+  alias mv='mv -i'
 else
   alias cp='cp -r'
 fi

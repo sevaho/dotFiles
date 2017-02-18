@@ -46,6 +46,7 @@ set laststatus=2                        " always show the statusline"
 
 " COLORSCHEME
 colorscheme minimalist 
+"colorscheme wattslandia
 
 " PLUGINS
 " SYNTASTIC
