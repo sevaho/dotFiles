@@ -11,7 +11,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font =  Monospace 10
+font =  LiberationMono 9
 scrollback_lines = 1000
 search_wrap = true
 cursor_blink = system
@@ -39,7 +39,7 @@ color2  = #CAFF1F
 color10 = #78DD15
 
 # yellow
-color3  = #C4A000
+color3  = #FFE40D
 color11 = #FCE94F
 
 # blue
