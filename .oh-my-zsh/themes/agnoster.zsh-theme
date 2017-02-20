@@ -28,7 +28,6 @@
 CURRENT_BG='NONE'
 PRIMARY_FG=black
 
-
 # Characters
 SEGMENT_SEPARATOR="\ue0b0"
 PLUSMINUS="\u00b1"
@@ -73,9 +72,9 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "root" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment yellow black " %(!.%{%F{black}%}.)$user "
+    prompt_segment 69 white " %(!.%{%F{black}%}.)$user "
   else
-    prompt_segment red black " %(!.%{%F{black}%}.)$user "
+    prompt_segment 202 black " %(!.%{%F{black}%}.) $user "
   fi
 }
 
@@ -106,7 +105,7 @@ prompt_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue white ' %~ '
+  prompt_segment 242 white ' %~ '
 }
 
 # Status:

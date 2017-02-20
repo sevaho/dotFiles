@@ -11,7 +11,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font =  LiberationMono 9
+font = Roboto Mono for Powerline Regular 9
 scrollback_lines = 1000
 search_wrap = true
 cursor_blink = system
@@ -51,12 +51,12 @@ color5  = #C421DE
 color13 = #C714B3
 
 # cyan
-color6  = #FFFFFF
-color14 = #76E8F1
+color6 = #FFFFFF
+color14  = #00cccc
 
 # white
 color7  = #FFFFFF
-color15 = #FFFFFF
+color15 = #EEEEEE
 
 [hints]
 
