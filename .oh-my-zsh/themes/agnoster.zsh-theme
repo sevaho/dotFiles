@@ -107,6 +107,9 @@ prompt_git() {
 prompt_dir() {
   prompt_segment 242 white ' %~ '
 }
+prompt_end_dir(){
+  prompt_segment white white '.'
+}
 
 # Status:
 # - was there an error
@@ -139,6 +142,7 @@ prompt_agnoster_main() {
   prompt_context
   prompt_virtualenv
   prompt_dir
+  prompt_end_dir
   prompt_git
   prompt_end
 }
