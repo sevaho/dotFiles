@@ -84,11 +84,17 @@ prompt_git() {
   is_dirty() {
     test -n "$(git status --porcelain --ignore-submodules)"
   }
+  commitsAhead(){
+    test -n "$(git_commits_ahead)"
+  }
   ref="$vcs_info_msg_0_"
   if [[ -n "$ref" ]]; then
     if is_dirty; then
       color=red
       ref="${ref} $PLUSMINUS"
+    elif commitsAhead; then
+      color=202
+      ref="${ref} *"
     else
       color=green
       ref="${ref} "
