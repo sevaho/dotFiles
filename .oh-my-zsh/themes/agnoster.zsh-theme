@@ -93,7 +93,7 @@ prompt_git() {
       color=red
       ref="${ref} $PLUSMINUS"
     elif commitsAhead; then
-      color=202
+      color=208
       ref="${ref} *"
     else
       color=green
