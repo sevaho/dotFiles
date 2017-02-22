@@ -28,7 +28,7 @@ highlight = #555753
 
 # black
 color0  = #303030
-color8  = #50524E
+color8  = #28272C
 
 # red
 color1  = #F34F4F
@@ -43,12 +43,12 @@ color3  = #FFE40D
 color11 = #FCE94F
 
 # blue
-color4  = #407EAE
+color4 = #308BB3
 color12 = #9bbcd7
 
 # magenta
 color5  = #C421DE
-color13 = #C714B3
+color13 = #615D71
 
 # cyan
 color6 = #FFFFFF

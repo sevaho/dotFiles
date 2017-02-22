@@ -1,0 +1,1 @@
+/home/sevaho/github/Powerzeesh/powerzeesh.zsh-theme

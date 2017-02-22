@@ -13,7 +13,7 @@ setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 
 #ohmyzsh
-ZSH_THEME="agnoster"
+ZSH_THEME="powerzeesh"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
