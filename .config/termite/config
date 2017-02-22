@@ -28,7 +28,7 @@ highlight = #555753
 
 # black
 color0  = #303030
-color8  = #28272C
+color8  = #74737A
 
 # red
 color1  = #F34F4F
@@ -57,6 +57,9 @@ color14  = #00cccc
 # white
 color7  = #FFFFFF
 color15 = #EEEEEE
+
+#terminal
+color244 = #
 
 [hints]
 

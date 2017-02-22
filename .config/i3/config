@@ -2,6 +2,7 @@
 #background
 exec sh ~/.fehbg
 exec nm-applet
+exec compton --config ~/.config/compton.conf -b
 
 set $mod Mod1
 bindsym Mod1+Tab workspace next
