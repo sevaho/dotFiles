@@ -1,0 +1,7 @@
+#!/bin/bash
+
+CAPS=$(xset q | grep Caps | tr -s " " | cut -d " " -f 5)
+
+if [[ $CAPS = "on" ]]; then
+  echo " CAPS  "
+fi

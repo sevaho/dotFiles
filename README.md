@@ -14,4 +14,11 @@ Install via curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sevaho/dotFiles/master/install.sh)"
 ```
 
+##Fonts
+
+- Roboto
+- AIcons.ttf
+- fontawesome-webfont.ttf
+- clock and temperature fonts icons
+
 &nbsp;
