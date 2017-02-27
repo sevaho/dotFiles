@@ -34,6 +34,7 @@ alias kk='ll'
 alias more='less'
 alias L='less'
 alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
+alias browse='w3m -F -graph -o auto_image=TRUE'
 
 #Protect root
 if [ "$(id -ru)" -eq "0"  ]; then
