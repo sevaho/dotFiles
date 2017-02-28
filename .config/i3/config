@@ -3,6 +3,7 @@
 exec sh ~/.fehbg
 exec nm-applet
 exec compton --config ~/.config/compton.conf -b
+#exec ~/.config/i3/scripts/autoname-workspaces.py
 exec conky -c ~/.conkyrc.left -d
 exec conky -c ~/.conkyrc.right -d
 
