@@ -34,17 +34,19 @@ install_configs(){
   #VIM plugins
 
   curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
-  apt-vim install -y https://github.com/scrooloose/nerdtree.git
-  apt-vim install -y https://github.com/jiangmiao/auto-pairs.git
-  apt-vim install -y https://github.com/vim-airline/vim-airline.git
-  apt-vim install -y https://github.com/vim-airline/vim-airline-themes.git
-  apt-vim install -y https://github.com/pangloss/vim-javascript.git
-  apt-vim install -y https://github.com/digitaltoad/vim-pug.git
-  apt-vim install -y https://github.com/vim-syntastic/syntastic.git
-  apt-vim install -y https://github.com/Valloric/YouCompleteMe.git
-  apt-vim install -y https://github.com/airblade/vim-gitgutter.git
-  mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+  echo "install vim plugins manually"
+  sleep 5
+#  apt-vim install -y https://github.com/scrooloose/nerdtree.git
+#  apt-vim install -y https://github.com/jiangmiao/auto-pairs.git
+#  apt-vim install -y https://github.com/vim-airline/vim-airline.git
+#  apt-vim install -y https://github.com/vim-airline/vim-airline-themes.git
+#  apt-vim install -y https://github.com/pangloss/vim-javascript.git
+#  apt-vim install -y https://github.com/digitaltoad/vim-pug.git
+#  apt-vim install -y https://github.com/vim-syntastic/syntastic.git
+#  apt-vim install -y https://github.com/Valloric/YouCompleteMe.git
+#  apt-vim install -y https://github.com/airblade/vim-gitgutter.git
+#  mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+#  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
   #ZSH plugins
 
@@ -63,13 +65,12 @@ install_configs(){
   cp -vrf ~/.dotFiles/.conkyrc ~/
   cp -vrf ~/.dotFiles/.bashrc ~/
   cp -vrf ~/.dotFiles/.tmux.conf ~/
-  cp -vrf ~/.dotFiles/.oh-my-zsh/themes/agnoster.zsh-theme ~/.oh-my-zsh/themes/
   cp -vrf ~/.dotFiles/.vim/colors ~/.vim/
   cp -vrf ~/.dotFiles/.vim/plugin ~/.vim/
+  cp -vrf ~/.dotFiles/.vim/templates ~/.vim/
   cp -vrf ~/.dotFiles/.vim/ftdetect ~/.vim/
   cp -vrf ~/.dotFiles/.vimrc ~/
   cp -vrf ~/.dotFiles/.zshrc ~/
-  cp -vrf ~/.dotFiles/.notes ~/
   cp -rf ~/.dotFiles/.gitignore_global ~/
   #cp -rf ~/.dotFiles/. ~/
 
