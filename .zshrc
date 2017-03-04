@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 
 #alias
 alias ll='ls -latr'
+alias ra='ranger'
 alias gpom="git push origin master"
 alias gits="git status"
 alias docka="sudo docker run --rm -it alpine sh"

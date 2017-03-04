@@ -1,0 +1,18 @@
+remove
+cut
+cut remove
+set show_hidden false
+set show_hidden true
+search calendar.js
+search xinitrc
+chmod 555
+deletek
+shell chmod 777
+chmod 777
+rename d
+rename dd
+rename sshd.conf
+
+delete
+open_with vim
+open_with 
