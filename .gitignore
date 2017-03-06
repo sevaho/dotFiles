@@ -64,4 +64,5 @@ Thumbs.db
 *.swp
 *.swo
 
+dotFiles/.config/ranger/bookmarks
 

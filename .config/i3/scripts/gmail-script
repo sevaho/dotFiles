@@ -2,8 +2,10 @@ COUNT=$(~/.config/i3/scripts/gmail.py sebastiaan.vanhoecke@gmail.com)
 ECHO=""
 if [ "$COUNT" = "0" ]; then
   ECHO=" "
-else
+elif [ "$COUNT" -gt "0" ]; then
   ECHO="  $COUNT mail(s)!"
+else 
+  ECHO=" -"
 fi
 if [[ $BLOCK_BUTTON = "1" ]]; then
   /usr/bin/geary

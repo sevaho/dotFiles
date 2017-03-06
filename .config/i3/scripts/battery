@@ -42,9 +42,9 @@ $full_text = "";
 if ($status eq 'Discharging') {
   if ($percent lt 10) {
     $full_text .= " $percent% ";
-  } elsif ($percent lt 60) {
-    $full_text .= " $percent% ";
   } elsif ($percent lt 30) {
+    $full_text .= " $percent% ";
+  } elsif ($percent lt 60) {
     $full_text .= "  $percent% ";
   } elsif ($percent lt 85) { 
     $full_text .= " $percent% ";
