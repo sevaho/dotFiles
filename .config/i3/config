@@ -2,13 +2,16 @@ set $mod Mod1
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
 
-font pango:Terminus 8
+#font pango:Terminus 20
+#font Roboto Mono for Powerline Regular 20
+font pango:DejaVu Sans Mono 10
+
 
 bindsym --release Mod4+s exec --no-startup-id scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
 
 # Sound
-bindsym --release Mod4+F11 exec amixer -q sset Master 5%-
-bindsym --release Mod4+F12 exec amixer -q sset Master 5%+
+bindcode --release Mod4+61 exec amixer -c1 -q sset Master 5%+
+bindcode --release Mod4+21 exec amixer -c1 -q sset Master 5%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier Mod4
@@ -28,7 +31,8 @@ bindsym $mod+Return exec termite -e 'tmux'
 bindsym $mod+F4 kill
 
 # Program launcher
-bindsym $mod+d exec rofi -show run -font "Roboto 11" -opacity 97
+#bindsym $mod+d exec rofi -show run -font "Roboto 11" -opacity 97
+bindsym $mod+d exec dmenu_run
 
 # Change focus
 bindsym $mod+h focus left
@@ -120,7 +124,10 @@ bindsym $mod+r mode "resize"
 
 bar {
   status_command i3blocks -c ~/.config/i3/.i3blocks.conf
-  font pango:Source Sans Pro-10 9
+  font pango:Roboto Mono 10
+
+
+  tray_output primary
 
   position top 
   workspace_buttons yes 
@@ -129,18 +136,18 @@ bar {
     background #203030
     statusline #839496
     focused_workspace #586e75 #586e75  #FFFFFF
-    active_workspace #fdf6e3 #6c71c4 #fdf6e3
     inactive_workspace #002b36 #586e75 #002b36
+    active_workspace #002b36 #586e75 #002b36
     urgent_workspace #d33682 #d33682 #fdf6e3
   }
 }
-  client.focused #999999 #999999 #999999 #999999
-  client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
-  client.unfocused #073642 #073642 #93a1a1 #586e75
-  #client.urgent #FFFFFF #d33682 #fdf6e3 #dc322f
+client.focused #888888 #888888 #888888 #888888
+client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
+#client.unfocused #073642 #073642 #93a1a1 #586e75
+#client.urgent #FFFFFF #d33682 #fdf6e3 #dc322f
 
 # Autostart applications
-exec feh  --bg-scale '/home/sevaho/Pictures/background.jpg'
+exec feh  --bg-scale '/home/sevaho/Pictures/background.png'
 exec nm-applet
 exec compton --config ~/.config/compton.conf -b
 #exec ~/.config/i3/scripts/autoname-workspaces.py
@@ -148,5 +155,7 @@ exec conky -c ~/.conkyrc.left -d
 exec conky -c ~/.conkyrc.right -d
 exec numlockx on
 exec xset -b # turn off beeps
-exec redshift
+#exec redshift
+exec --no-startup-id dropbox
+exec --no-startup-id owncloud
 
