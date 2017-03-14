@@ -11,7 +11,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Roboto Mono for Powerline Regular 9
+font = hack 9
 scrollback_lines = 1000
 search_wrap = true
 cursor_blink = system
@@ -23,13 +23,13 @@ cursor_shape = block
 foreground = #839496
 foreground_dim = #888888
 foreground_bold = #eee8d5
-background = rgba(29,31,34,0.935555)
+background = rgba(29,31,34,0.905555)
 cursor = #93a1a1
 highlight = #555753
 
 # black
 color0  = #303030
-color8  = #42565b
+color8  = #536a70
 # red
 color9 = #cb4b16
 color1  = #ba4443

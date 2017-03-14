@@ -1,11 +1,27 @@
 set $mod Mod1
 bindsym Mod1+Tab workspace next
 bindsym Mod1+Shift+Tab workspace prev
+for_window [class="^.*"] border pixel 0
+
+gaps inner 5
+gaps outer 5
+smart_gaps on
+
 
 #font pango:Terminus 20
 #font Roboto Mono for Powerline Regular 20
-font pango:DejaVu Sans Mono 10
+font pango:Hack 10
 
+set $ws1  "1:  "
+set $ws2  "2:  "
+set $ws3  "3:  "
+set $ws4  "4:  "
+set $ws5  "5:  "
+set $ws6  "6:  "
+set $ws7  "7:  "
+set $ws8  "8:  "
+set $ws9  "9:  "
+set $ws10 "10:  "
 
 bindsym --release Mod4+s exec --no-startup-id scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
 
@@ -31,8 +47,7 @@ bindsym $mod+Return exec termite -e 'tmux'
 bindsym $mod+F4 kill
 
 # Program launcher
-#bindsym $mod+d exec rofi -show run -font "Roboto 11" -opacity 97
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
 
 # Change focus
 bindsym $mod+h focus left
@@ -124,7 +139,7 @@ bindsym $mod+r mode "resize"
 
 bar {
   status_command i3blocks -c ~/.config/i3/.i3blocks.conf
-  font pango:Roboto Mono 10
+  font pango:hack, FontAwesome 10
 
 
   tray_output primary
