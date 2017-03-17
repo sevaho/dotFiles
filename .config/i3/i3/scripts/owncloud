@@ -1,14 +1,19 @@
 #!/bin/bash
 
-DROP_STATUS="$(dropbox-cli status)"
+TODOOOO
+echo "TODO"
+echo
+exit 33
+
+DROP_STATUS="$(dropbox status)"
 
 # Define comparison strings
 SYNCED="Up to date"
 STOPPED="Dropbox isn't running!"
 if [ "$DROP_STATUS" == "$STOPPED" ]; then
-	echo "  ✗ "    # not in sync
+	echo "  ✗ "    # not in sync
 elif [ "$DROP_STATUS" == "$SYNCED" ]; then
-	echo "  ✔ "      # synced
+	echo "  ✔ "      # synced
 else
-	echo "  ⟳ "    # syncing
+	echo "  ⟳ "    # syncing
 fi
