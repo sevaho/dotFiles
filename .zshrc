@@ -1,7 +1,7 @@
 #exports
 export ZSH=~/.oh-my-zsh
 export TMOUT=5600
-export TERM="screen-256color"
+export TERM="tmux-256color"
 export PAGER=less
 export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin
 
