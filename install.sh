@@ -1,10 +1,5 @@
 #Author: Sebastiaan Van Hoecke
 
-main(){
-
-  check_installed_software
-  install_configs
-}
 check_installed_software(){
 
   echo "Have you installed vim, tmux, zsh, git and conky?' [Y/n]"
@@ -63,6 +58,8 @@ install_configs(){
   }
 
   cp -vrf ~/.dotFiles/.conkyrc ~/
+  cp -vrf ~/.dotFiles/.conkyrc_for_i3_right ~/
+  cp -vrf ~/.dotFiles/.conkyrc_for_i3_left ~/
   cp -vrf ~/.dotFiles/.bashrc ~/
   cp -vrf ~/.dotFiles/.tmux.conf ~/
   cp -vrf ~/.dotFiles/.vim/colors ~/.vim/
@@ -71,7 +68,11 @@ install_configs(){
   cp -vrf ~/.dotFiles/.vim/ftdetect ~/.vim/
   cp -vrf ~/.dotFiles/.vimrc ~/
   cp -vrf ~/.dotFiles/.zshrc ~/
-  cp -rf ~/.dotFiles/.gitignore_global ~/
+  cp -vrf ~/.dotFiles/.gitignore_global ~/
+  cp -vrf ~/.dotFiles/.config/* ~/.config
+  cp -vrf ~/.dotFiles/.Xresources ~/
+  cp -vrf ~/.dotFiles/.gtkrc-2.0 ~/
+  cp -vrf ~/.dotFiles/fonts/* ~/.fonts
   #cp -rf ~/.dotFiles/. ~/
 
   ~/.fonts/install.sh
@@ -79,6 +80,12 @@ install_configs(){
 
   echo "source .zshrc"
   sleep 5
+}
+
+main(){
+
+  check_installed_software
+  install_configs
 }
 
 main "${@}"
