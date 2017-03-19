@@ -21,4 +21,4 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sevaho/dotFiles/master/ins
 
 &nbsp;
 
-![DE](https://github.com/sevaho/dotFiles/img/DE.png)
+![DE](https://github.com/sevaho/dotFiles/blob/master/img/DE.png)
