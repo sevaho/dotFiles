@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+
+    title FIXME
+    
+    link(rel='stylesheet',href='css/wdBuddy.css')
+    link(rel='stylesheet',href='css/main.css')
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+
+  body
+    .main
+      
+      section
+        .container
+          .row
+            .col-md-12  
+
+
+    script(src='js/wdBuddy.js')      
+script.
+
+# cursor: 6 del

@@ -1,6 +1,6 @@
 #exports
 export ZSH=~/.oh-my-zsh
-export TMOUT=5600
+export TMOUT=9600
 export TERM="tmux-256color"
 export PAGER=less
 export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin
@@ -14,15 +14,15 @@ setopt EXTENDED_GLOB
 
 #ohmyzsh
 ZSH_THEME="powerzeesh"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
 
 #alias
-alias ll='ls -latr'
+alias ll='ls -latrFi'
 alias ra='ranger'
 alias gpom="git push origin master"
 alias gits="git status"
-alias gc="git commit"
+alias gc="git clone"
 alias docka="sudo docker run --rm -it alpine sh"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
 alias du='du -sh *' 
@@ -37,6 +37,12 @@ alias more='less'
 alias L='less'
 alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
 alias browse='w3m -F -graph -o auto_image=TRUE'
+alias imageburner='/usr/bin/Etcher-1.0.0-beta.19-linux-x64.AppImage'
+alias music='echo "press enter to play" && mocp -n -T alldefault'
+alias video='mpv'
+alias reddit='rtv'
+alias vim='nvim'
+
 
 #Protect root
 if [ "$(id -ru)" -eq "0"  ]; then
@@ -63,4 +69,5 @@ POWERLINE_RIGHT_A="date"
 
 #vim default
 export EDITOR="vim"
+
 

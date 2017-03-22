@@ -149,20 +149,13 @@ set $urgent-bg-color #E53935
 
 bar {
   status_command i3blocks -c ~/.config/i3/.i3blocks.conf
-  #status_command i3blocks
-  i3bar_command i3bar -t
 
-  #  status_command polybar Bar
-
-  font pango:hack, FontAwesome 10
-
+  font pango:hack 10
   height 30
-
   tray_output primary
-
-
   position top 
   workspace_buttons yes 
+
  	colors {
     separator #3a5656
     background $bg-color
@@ -185,8 +178,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color     
 exec_always feh  --bg-scale '/home/sevaho/.config/i3/wallpapers/foggymountains.jpg'
 exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
-exec conky -c ~/.conkyrc.left -d
-exec conky -c ~/.conkyrc.right -d
+exec conky -c ~/.config/conky/.conkyrc.left -d
+exec conky -c ~/.config/conky/.conkyrc.right -d
 exec numlockx on
 exec xset -b # turn off beeps
 #exec redshift

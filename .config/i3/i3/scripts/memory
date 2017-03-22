@@ -1,6 +1,0 @@
-mem=$(( $(free -k | grep 'Mem' | tr -s " " | cut -d " " -f3)+$(free -m | grep 'Mem' | tr -s " " | cut -d " " -f5) ))
-maxmem=$(cat /proc/meminfo | grep -i memtotal | tr -s " " | cut -d " " -f2)
-
-echo $mem
-echo $maxmem
-echo $(((mem / maxmem)))
