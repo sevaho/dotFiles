@@ -24,7 +24,6 @@ Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
 Plug 'https://github.com/PProvost/vim-ps1'
 Plug 'jwalton512/vim-blade'
-Plug 'alvan/vim-closetag'
 
 
 call plug#end()
