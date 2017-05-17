@@ -176,14 +176,16 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-c
 client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
 
 # Autostart applications
-exec_always feh  --bg-scale '/home/sevaho/.config/i3/wallpapers/foggymountains.jpg'
+exec_always feh  --bg-scale '~/$USER/.config/i3/wallpapers/foggymountains.jpg'
 exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
-exec conky -c ~/.conkyrc.left -d
-exec conky -c ~/.conkyrc.right -d
+#exec conky -c ~/.conkyrc.left -d
+#exec conky -c ~/.conkyrc.right -d
 exec numlockx on
 exec xset -b # turn off beeps
 exec redshift
 exec --no-startup-id dropbox
 exec --no-startup-id owncloud
+exec udiskie
+
 
