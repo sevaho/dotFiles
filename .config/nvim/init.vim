@@ -7,6 +7,8 @@ Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 Plug 'https://github.com/pangloss/vim-javascript.git'
 Plug 'https://github.com/digitaltoad/vim-pug.git'
+Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
+Plug 'https://github.com/Yggdroot/indentLine.git'
 "sudo pip install neovim to make ycm work
 "Plug 'https://github.com/Valloric/YouCompleteMe.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -20,6 +22,9 @@ Plug 'https://github.com/shawncplus/phpcomplete.vim'
 Plug 'https://github.com/carlitux/deoplete-ternjs'
 Plug 'https://github.com/lervag/vimtex'
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
+Plug 'https://github.com/PProvost/vim-ps1'
+Plug 'jwalton512/vim-blade'
+Plug 'alvan/vim-closetag'
 
 
 call plug#end()
@@ -29,9 +34,10 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:livepreview_previewer = 'mupdf'
 "
 " KEY BINDS
-map <F3> : NERDTreeToggle<CR>
-map <F4> : bp<CR>
-map <F5> : bn<CR>
+nnoremap <Space> : NERDTreeToggle<CR>
+nnoremap <s-f> : bp<CR>
+"nnoremap <s-d> : bn<CR>
+nnoremap <s-t> : bd<CR>
 
 syntax on
 
@@ -118,3 +124,23 @@ hi SpellBad ctermfg=196 ctermbg=231
 hi SpellCap ctermfg=196 ctermbg=231
 
 
+hi IndentGuidesOdd  guibg=red   ctermbg=3
+hi IndentGuidesEven guibg=green ctermbg=4
+let g:indentLine_color_tty_light = 200 " (default: 4)
+let g:indentLine_color_dark = 210 " (default: 2)
+
+"functions
+autocmd FileType python call AutoCmd_python()
+  fun! AutoCmd_python()
+        "setlocal other options for python, then:
+  nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+endf
+
+set autoindent " always set autoindenting on"
+set smartindent " use smart indent if there is no indent file"
+set tabstop=2 " <tab> inserts 4 spaces"
+set softtabstop=2 " <BS> over an autoindent deletes 4 spaces."
+set smarttab " Handle tabs more intelligently"
+set expandtab " Use spaces, not tabs, for autoindent/tab key."
+set shiftwidth=2 " an indent level is 4 spaces wide."
+set shiftround " rounds indent to a multiple of shiftwidth"
