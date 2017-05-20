@@ -1,66 +1,101 @@
 
+" SEE PLUGINS FOLDER
+" -----------------------------------------------------------------------------------------------------------------------------
+
+" -----------------------------------------------------------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'https://github.com/scrooloose/nerdtree.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-Plug 'https://github.com/pangloss/vim-javascript.git'
-Plug 'https://github.com/digitaltoad/vim-pug.git'
-Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
-Plug 'https://github.com/Yggdroot/indentLine.git'
-Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://github.com/shawncplus/phpcomplete.vim'
-Plug 'https://github.com/lervag/vimtex'
+" SYNTAX
 Plug 'https://github.com/PProvost/vim-ps1'
+Plug 'https://github.com/digitaltoad/vim-pug.git'
+Plug 'https://github.com/lervag/vimtex'
+" Plug 'gko/vim-coloresque' " colors colors but cant function with indentline
+Plug 'https://github.com/pangloss/vim-javascript.git'
+
+" NERDTREE
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" AIRLINE
+Plug 'https://github.com/vim-airline/vim-airline.git'
+Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+
+" auto close brackets, quotes...
+Plug 'https://github.com/jiangmiao/auto-pairs.git'
+
+" indent
+Plug 'https://github.com/Yggdroot/indentLine.git'
+
+Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'jwalton512/vim-blade'
 Plug 'tomtom/tcomment_vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'gko/vim-coloresque'
+" match html tags/xml
 Plug 'Valloric/MatchTagAlways' " ADD PHP TO 
+
+" linting
 Plug 'https://github.com/w0rp/ale.git'
+
+" snippets
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-
 " AUTOCOMPLETES
+Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/Shougo/deoplete.nvim'
 Plug 'https://github.com/davidhalter/jedi-vim'
 Plug 'https://github.com/zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'https://github.com/ervandew/supertab'
-Plug 'padawan-php/deoplete-padawan'
+" Plug 'mkusher/padawan.vim' INSTALL THIS ONCE AND COMMENT
+Plug 'padawan-php/deoplete-padawan' " composer global require mkusher/padawan
+Plug 'https://github.com/shawncplus/phpcomplete.vim'
+
+" FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " THEMES
 Plug 'mhartington/oceanic-next'
 Plug 'https://github.com/dikiaap/minimalist'
+Plug '/mhinz/vim-janah'
+			
+" OTHER
+" Plug 'wincent/terminus'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mhinz/vim-signify' " vcs tracker
+Plug 'mhinz/vim-startify' " nice start page
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
 call plug#end()
 
-let g:tern_request_timeout = 1
+" -----------------------------------------------------------------------------------------------------------------------------
+" KEY BINDS / MAPPINGS
+" -----------------------------------------------------------------------------------------------------------------------------
 
-set rtp^=~/.config/nvim
-let g:UltiSnipsExpandTrigger="<c-w>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDirectories='~/.config/nvim/UltiSnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-let g:deoplete#enable_at_startup = 1
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:livepreview_previewer = 'mupdf'
-
-" KEY BINDS
 nnoremap <Space> : NERDTreeToggle<CR>
 nnoremap <s-f> : bp<CR>
-"nnoremap <s-d> : bn<CR>
+nnoremap <s-m> : bn<CR>
 nnoremap <s-t> : bd<CR>
+nnoremap H 0
+nnoremap L g_
+nnoremap K 5k
+nnoremap J 5j
+nnoremap ; :
+" No need to ex mode and macros
+nnoremap Q <nop>
+map q <Nop>
+vmap < <gv
+vmap > >gv
+vnoremap <c-/> :Tcomment<cr>
+map <esc> :noh<cr>
+
+" -----------------------------------------------------------------------------------------------------------------------------
+" VIM SETTINGS
+" -----------------------------------------------------------------------------------------------------------------------------
 
 syntax on
-
+set rtp^=~/.config/nvim
 set mouse-=a                                  " disable mouse
 set path+=**                                  " able to search subdirs recursive
 set nocompatible                              " no compatibility with old-skool vi
@@ -94,34 +129,28 @@ set softtabstop=2                             " number of spaces that a tab coun
 set tabstop=2                                 " number of spaces that a tab counts for
 set number
 set laststatus=2                        " always show the statusline
-set autoindent " always set autoindenting on"
 set smartindent " use smart indent if there is no indent file"
-set tabstop=2 " <tab> inserts 4 spaces"
-set softtabstop=2 " <BS> over an autoindent deletes 4 spaces."
 set smarttab " Handle tabs more intelligently"
-set expandtab " Use spaces, not tabs, for autoindent/tab key."
-set shiftwidth=2 " an indent level is 4 spaces wide."
 set shiftround " rounds indent to a multiple of shiftwidth"
 set omnifunc=syntaxcomplete#Complete
 filetype plugin on
 
-
-" Highlight trailing whitespace and TAB characters
-" source: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-"match ExtraWhitespace /\s\+$\| \+\ze\t\|\t/
-
+" -----------------------------------------------------------------------------------------------------------------------------
 " COLORSCHEME
-colorscheme minimalist 
-"colorscheme OceanicNext
+" -----------------------------------------------------------------------------------------------------------------------------
 
-" PLUGINS
+colorscheme minimalist 
+" colorscheme OceanicNext
+
+" -----------------------------------------------------------------------------------------------------------------------------
+" PLUGIN SETTINGS
+" -----------------------------------------------------------------------------------------------------------------------------
 
 " ALE
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>'
 let g:ale_sign_warning = '-'
+let g:tern_request_timeout = 1
 
 " AIRLINE
 let g:airline_powerline_fonts = 1
@@ -143,26 +172,55 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 let g:indentLine_color_tty_light = 200 " (default: 4)
 let g:indentLine_color_dark = 210 " (default: 2)
 
+" SUPERTAB
+" automatic close preview (scratch buffer)
+let g:SuperTabClosePreviewOnPopupClose = 1
+" if you want that the scratch buffer never pops do:
+" autocmd FileType python setlocal completeopt-=preview
+" autocmd FileType javascript setlocal completeopt-=preview
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" DEOPLETE
+let g:deoplete#enable_at_startup = 1
+
 " NEOSNIPPET
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 " let g:neosnippet#disable_runtime_snippets
+imap <expr><CR> neosnippet#expandable() ? "\<Plug> (neosnippet_expand)" : "\<CR>"
 
-" imap <expr><CR> neosnippet#expandable_or_jumpable() ?
-"       \ "\<Plug> (neosnippet_expand_target)" : "\<CR>"
-" imap <expr><CR> neosnippet#expandable() ? "\<Plug> (neosnippet_expand)" : "\<CR>"
-imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
-
-
-
+" -----------------------------------------------------------------------------------------------------------------------------
 " COLORS
+" -----------------------------------------------------------------------------------------------------------------------------
+
 hi SpellBad ctermfg=196 ctermbg=231
 hi SpellCap ctermfg=196 ctermbg=231
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
+hi  CursorLineNr guifg=yellow ctermfg=3
 
+" -----------------------------------------------------------------------------------------------------------------------------
 " FUNCTIONS
+" -----------------------------------------------------------------------------------------------------------------------------
+
+" pressing F9 compiles python in vim and outputs to buffer
 autocmd FileType python call AutoCmd_python()
   fun! AutoCmd_python()
         "setlocal other options for python, then:
   nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 endf
+
+" remember cursor position between vim sessions
+autocmd BufReadPost *
+			\ if line("'\'") > 0 && line ("'\"") <= line("$") |
+			\		exe "normal! g'\"" |
+			\ endif
+autocmd BufRead * normal zz
+
+" shift e will tell you some information about the code
+nnoremap <s-e> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
