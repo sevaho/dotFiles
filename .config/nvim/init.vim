@@ -23,6 +23,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 
 " auto close brackets, quotes...
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
+" Plug 'Townk/vim-autoclose'
 
 " indent
 Plug 'https://github.com/Yggdroot/indentLine.git'
@@ -73,7 +74,6 @@ call plug#end()
 " KEY BINDS / MAPPINGS
 " -----------------------------------------------------------------------------------------------------------------------------
 
-nnoremap <Space> : NERDTreeToggle<CR>
 nnoremap <s-f> : bp<CR>
 nnoremap <s-m> : bn<CR>
 nnoremap <s-t> : bd<CR>
@@ -132,8 +132,9 @@ set laststatus=2                        " always show the statusline
 set smartindent " use smart indent if there is no indent file"
 set smarttab " Handle tabs more intelligently"
 set shiftround " rounds indent to a multiple of shiftwidth"
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 filetype plugin on
+let mapleader = " "
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORSCHEME
@@ -167,6 +168,7 @@ let NERDTreeCascadeSingleChildDir=0
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
+nnoremap <leader>f : NERDTreeToggle<CR>
 
 " INDENTLINE
 let g:indentLine_color_tty_light = 200 " (default: 4)
@@ -184,9 +186,13 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:deoplete#enable_at_startup = 1
 
 " NEOSNIPPET
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+" let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 " let g:neosnippet#disable_runtime_snippets
-imap <expr><CR> neosnippet#expandable() ? "\<Plug> (neosnippet_expand)" : "\<CR>"
+imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
+
+
+" FZF
+nnoremap <leader>j : FZF<CR>
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORS
