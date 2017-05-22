@@ -22,8 +22,9 @@ Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 
 " auto close brackets, quotes...
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
+" Plug 'https://github.com/jiangmiao/auto-pairs.git'
 " Plug 'Townk/vim-autoclose'
+" Plug 'spf13/vim-autoclose'
 
 " indent
 Plug 'https://github.com/Yggdroot/indentLine.git'
@@ -43,7 +44,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
 " AUTOCOMPLETES
-Plug 'https://github.com/ervandew/supertab'
+" Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/Shougo/deoplete.nvim'
 Plug 'https://github.com/davidhalter/jedi-vim'
 Plug 'https://github.com/zchee/deoplete-jedi'
@@ -89,6 +90,10 @@ vmap < <gv
 vmap > >gv
 vnoremap <c-/> :Tcomment<cr>
 map <esc> :noh<cr>
+" auto close
+inoremap { {}<Left>
+inoremap ( ()<Left> 
+
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " VIM SETTINGS
@@ -174,22 +179,37 @@ nnoremap <leader>f : NERDTreeToggle<CR>
 let g:indentLine_color_tty_light = 200 " (default: 4)
 let g:indentLine_color_dark = 210 " (default: 2)
 
-" SUPERTAB
+" SUPERTAB " I use the neosnippet command see below
 " automatic close preview (scratch buffer)
-let g:SuperTabClosePreviewOnPopupClose = 1
+" let g:SuperTabClosePreviewOnPopupClose = 1
 " if you want that the scratch buffer never pops do:
 " autocmd FileType python setlocal completeopt-=preview
 " autocmd FileType javascript setlocal completeopt-=preview
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" DEOPLETE
-let g:deoplete#enable_at_startup = 1
+" DEOPLETE & NEOSNIPPET
 
 " NEOSNIPPET
-" let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 " let g:neosnippet#disable_runtime_snippets
-imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : "\<CR>"
+let g:deoplete#enable_at_startup = 1
 
+imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
+\ "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <TAB>
+                \ pumvisible() ? "\<C-n>" :
+                \ <SID>check_back_space() ? "\<TAB>" :
+                \ deoplete#mappings#manual_complete()
+                function! s:check_back_space() abort "{{{
+                let col = col('.') - 1
+                return !col || getline('.')[col - 1]  =~ '\s'
+                endfunction"}}}
+	imap <expr><TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ neosnippet#expandable_or_jumpable() ?
+	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " FZF
 nnoremap <leader>j : FZF<CR>
@@ -198,8 +218,8 @@ nnoremap <leader>j : FZF<CR>
 " COLORS
 " -----------------------------------------------------------------------------------------------------------------------------
 
-hi SpellBad ctermfg=196 ctermbg=231
-hi SpellCap ctermfg=196 ctermbg=231
+hi SpellBad ctermfg=1 ctermbg=234
+hi SpellCap ctermfg=1 ctermbg=234
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 hi  CursorLineNr guifg=yellow ctermfg=3
@@ -230,3 +250,4 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
