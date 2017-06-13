@@ -4,12 +4,90 @@
 ! Use extended color scheme
 rofi.color-enabled:                  true
 ! Color scheme for normal row
-rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #FAC863 ,  #1B2B34
+rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #536a70  ,  #1B2B34
 ! Color scheme for urgent row
 rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
 ! Color scheme for active row
 rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
 ! Color scheme window
-rofi.color-window:                   argb:ee222222,  #FAC863 ,  #FAC863
+rofi.color-window:                   argb:ee222222,  #536a70  ,  #536a70 
 ! Separator style (none, dash, solid)
 rofi.separator-style:                solid
+
+! x config
+Xcursor.theme: gentoo
+Xcursor.size: 24
+
+! URxvt
+
+! General settings
+URxvt.saveLines: 100000
+
+URxvt.scrollBar: False
+URxvt.scrollstyle: rxvt
+URxvt*termName: rxvt-256color
+URxvt.urgentOnBell: True
+URxvt.cursorBlink: True
+URxvt.cursorUnderline: true
+URxvt.iso14755: False
+URxvt.internalBorder: 8
+! urls
+URxvt*depth: 32
+!URxvt.transparent: true
+!URxvt.shading: 10
+
+! Extensions
+!URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
+URxvt.urlLauncher: xdg-open
+URxvt.urlButton: 1
+URxvt.underlineURLs: True
+
+
+URxvt.copyCommand:  xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.perl-ext-common: selection-to-clipboard
+
+! Keybindings
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Mod4-c: perl:clipboard:copy
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
+!URxvt.keysym.M-c: perl:clipboard:copy
+!URxvt.keysym.M-v: perl:clipboard:paste
+!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-u: perl:url-select:select_next
+
+! Font
+
+URxvt.font: xft:hack:pixelsize=13,style=regular xft:hack:pixelsize=9 xft:hack:pixelsize=9 xft:hack:pixelsize=9 xft:unicode:pixelsize=14
+URxvt.boldFont: xft:Hack:pixelsize=14,style=bold  
+URxvt.letterSpace: -1
+Xft*dpi: 96
+Xft*antialias: True
+Xft*hinting: Full
+
+! colors
+
+!URxvt*background: rgba(29,31,34,0.90555)
+URxvt.foreground: #839496
+URxvt*background: [91]#1d2226
+
+URxvt.color0  : #303030
+URxvt.color8  : #536a70
+URxvt.color9  : #cb4b16 
+URxvt.color1  : #ba4443 
+URxvt.color2  : #859900 
+URxvt.color10 : #586e75 
+URxvt.color3  : #b58900
+URxvt.color11 : #657b83
+URxvt.color4  : #268bd2
+URxvt.color12 : #8da9bf
+URxvt.color5  : #d33682
+URxvt.color13 : #6c71c4
+URxvt.color6  : #2aa198 
+URxvt.color14 : #93a1a1 
+URxvt.color7  : #eee8d5 
+URxvt.color15 : #fdf6e3 

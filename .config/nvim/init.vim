@@ -11,6 +11,7 @@ Plug 'https://github.com/digitaltoad/vim-pug.git'
 Plug 'https://github.com/lervag/vimtex'
 " Plug 'gko/vim-coloresque' " colors colors but cant function with indentline
 Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'https://github.com/Glench/Vim-Jinja2-Syntax.git'
 
 " NERDTREE
 Plug 'https://github.com/scrooloose/nerdtree.git'
@@ -41,12 +42,12 @@ Plug 'https://github.com/w0rp/ale.git'
 
 " snippets
 Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet-snippets'
 
 " AUTOCOMPLETES
 " Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/Shougo/deoplete.nvim'
-Plug 'https://github.com/davidhalter/jedi-vim'
+"Plug 'https://github.com/davidhalter/jedi-vim'
 Plug 'https://github.com/zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " Plug 'mkusher/padawan.vim' INSTALL THIS ONCE AND COMMENT
@@ -71,6 +72,7 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
 call plug#end()
 
+
 " -----------------------------------------------------------------------------------------------------------------------------
 " KEY BINDS / MAPPINGS
 " -----------------------------------------------------------------------------------------------------------------------------
@@ -92,7 +94,8 @@ vnoremap <c-/> :Tcomment<cr>
 map <esc> :noh<cr>
 " auto close
 inoremap { {}<Left>
-inoremap ( ()<Left> 
+inoremap [ []<Left>
+" inoremap ( ()<Left> 
 
 
 " -----------------------------------------------------------------------------------------------------------------------------
@@ -100,6 +103,7 @@ inoremap ( ()<Left>
 " -----------------------------------------------------------------------------------------------------------------------------
 
 syntax on
+filetype plugin on
 set rtp^=~/.config/nvim
 set mouse-=a                                  " disable mouse
 set path+=**                                  " able to search subdirs recursive
@@ -138,7 +142,6 @@ set smartindent " use smart indent if there is no indent file"
 set smarttab " Handle tabs more intelligently"
 set shiftround " rounds indent to a multiple of shiftwidth"
 " set omnifunc=syntaxcomplete#Complete
-filetype plugin on
 let mapleader = " "
 
 " -----------------------------------------------------------------------------------------------------------------------------
@@ -191,7 +194,11 @@ let g:indentLine_color_dark = 210 " (default: 2)
 
 " NEOSNIPPET
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-" let g:neosnippet#disable_runtime_snippets
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#disable_runtime_snippets = {
+		\   '_' : 1,
+		\ }
+
 let g:deoplete#enable_at_startup = 1
 
 imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
@@ -228,6 +235,8 @@ hi  CursorLineNr guifg=yellow ctermfg=3
 " FUNCTIONS
 " -----------------------------------------------------------------------------------------------------------------------------
 
+autocmd Filetype python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2 
+
 " pressing F9 compiles python in vim and outputs to buffer
 autocmd FileType python call AutoCmd_python()
   fun! AutoCmd_python()
@@ -236,6 +245,7 @@ autocmd FileType python call AutoCmd_python()
 endf
 
 " remember cursor position between vim sessions
+
 autocmd BufReadPost *
 			\ if line("'\'") > 0 && line ("'\"") <= line("$") |
 			\		exe "normal! g'\"" |
@@ -250,4 +260,7 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 

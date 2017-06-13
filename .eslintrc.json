@@ -7,10 +7,16 @@
         "node": true
     },
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
         "indent": [
             "error",
             2
+        ],
+        "no-console": [
+            0
         ],
         "linebreak-style": [
             "error",
@@ -22,7 +28,7 @@
         ],
         "semi": [
             "error",
-            "always"
+            "never"
         ]
     }
 }

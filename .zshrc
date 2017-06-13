@@ -3,7 +3,7 @@ export ZSH=~/.oh-my-zsh
 export TMOUT=9600
 export TERM="tmux-256color"
 export PAGER=less
-export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin
 
 #options
 ENABLE_CORRECTION="true"
@@ -38,11 +38,12 @@ alias L='less'
 alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
 alias browse='w3m -F -graph -o auto_image=TRUE'
 alias imageburner='/usr/bin/Etcher-1.0.0-beta.19-linux-x64.AppImage'
-alias music='echo "press enter to play" && mocp -n -T alldefault'
+alias music='echo "press enter to play" && mocp -n -T ~/themes/alldefault'
 alias video='mpv'
 alias reddit='rtv'
 alias vim='nvim'
 
+# nmap
 alias nmap_open_ports="nmap --open"
 alias nmap_list_interfaces="nmap --iflist"
 alias nmap_slow="nmap -sS -v -T1"
@@ -85,3 +86,7 @@ POWERLINE_RIGHT_A="date"
 export EDITOR="vim"
 
 
+xset s off
+xset s off -dpms	
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
