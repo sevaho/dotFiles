@@ -197,4 +197,5 @@ exec redshift
 exec --no-startup-id dropbox
 exec --no-startup-id owncloud
 exec udiskie
+exec sxhkd
 

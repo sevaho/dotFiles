@@ -1,0 +1,2 @@
+alt + t
+    tdrop -a -w 50% -h 30% -y 35% -x 25% -s dropdown termite
