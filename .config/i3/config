@@ -9,12 +9,7 @@ smart_gaps on
 
 font pango:Hack 9
 
-#bindsym --release Mod4+s exec --no-startup-id scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
 bindsym Print exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
-
-# Sound
-bindcode --release Mod4+61 exec amixer -c1 -q sset Master 5%+
-bindcode --release Mod4+21 exec amixer -c1 -q sset Master 5%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -78,32 +73,29 @@ bindsym $mod+space focus mode_toggle
 # Focus the parent container
 bindsym $mod+q focus parent
 
-# Focus the child container
-#bindsym $mod+d focus child
-
 set $ws1  "1: "
 set $ws2  "2: "
-set $ws3  "3: "
-set $ws4  "4:  "
+set $ws3  "3: "
+set $ws4  "4: "
 set $ws5  "5: "
 set $ws6  "6: "
 set $ws7  "7: "
 set $ws8  "8: "
 set $ws9  "9: "
-set $ws10  "10: "
+set $ws10  "10: "
 
 
 # Switch to workspace
-bindsym $mod+ampersand workspace $ws1
-bindsym $mod+eacute workspace $ws2
-bindsym $mod+quotedbl workspace $ws3
-bindsym $mod+apostrophe workspace $ws4
-bindsym $mod+parenleft workspace $ws5
-bindsym $mod+section workspace $ws6
-bindsym $mod+egrave workspace $ws7
-bindsym $mod+exclam workspace $ws8
-bindsym $mod+ccedilla workspace $ws9
-bindsym $mod+agrave workspace $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -117,22 +109,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# NOT FKNG WORKING
-exec --no-startup-id urxvt -name metask
-for_window [instance="metask"] floating enable;
-for_window [instance="metask"] move scratchpad; [instance="metask"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
-bindsym $mod+t [instance="metask"] scratchpad show
-
-bindsym $mod+u [instance="dropdown"] scratchpad show
-
 assign [class="Geary"] $ws9
 assign [class="Spotify"] $ws10
 assign [class="Google-chrome"] $ws3
+assign [class="Firefox"] $ws3
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+x exec ~/.config/i3/i3lock.sh
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
         bindsym j resize shrink width 5 px or 5 ppt
@@ -188,14 +172,10 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-c
 client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
 
 # Autostart applications
-exec_always feh  --bg-scale '/home/sevaho/.config/i3/wallpapers/foggymountains.jpg'
+exec_always feh  --bg-scale ~/.config/i3/wallpapers/foggymountains.jpg
 exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
-exec numlockx on
 exec xset -b # turn off beeps
 exec redshift
-exec --no-startup-id dropbox
-exec --no-startup-id owncloud
 exec udiskie
 exec sxhkd
-

@@ -1,17 +1,15 @@
-
 " SEE PLUGINS FOLDER
 " -----------------------------------------------------------------------------------------------------------------------------
-
 " -----------------------------------------------------------------------------------------------------------------------------
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " SYNTAX
 Plug 'https://github.com/PProvost/vim-ps1'
 Plug 'https://github.com/digitaltoad/vim-pug.git'
 Plug 'https://github.com/lervag/vimtex'
-" Plug 'gko/vim-coloresque' " colors colors but cant function with indentline
 Plug 'https://github.com/pangloss/vim-javascript.git'
-Plug 'https://github.com/Glench/Vim-Jinja2-Syntax.git'
+Plug 'jwalton512/vim-blade'
 
 " NERDTREE
 Plug 'https://github.com/scrooloose/nerdtree.git'
@@ -22,16 +20,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 
-" auto close brackets, quotes...
-" Plug 'https://github.com/jiangmiao/auto-pairs.git'
-" Plug 'Townk/vim-autoclose'
-" Plug 'spf13/vim-autoclose'
-
 " indent
 Plug 'https://github.com/Yggdroot/indentLine.git'
 
+" git
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'jwalton512/vim-blade'
+
+" commenting with g <
 Plug 'tomtom/tcomment_vim'
 
 " match html tags/xml
@@ -42,15 +37,12 @@ Plug 'https://github.com/w0rp/ale.git'
 
 " snippets
 Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
 
 " AUTOCOMPLETES
 " Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/Shougo/deoplete.nvim'
-"Plug 'https://github.com/davidhalter/jedi-vim'
 Plug 'https://github.com/zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-" Plug 'mkusher/padawan.vim' INSTALL THIS ONCE AND COMMENT
 Plug 'padawan-php/deoplete-padawan' " composer global require mkusher/padawan
 Plug 'https://github.com/shawncplus/phpcomplete.vim'
 
@@ -59,14 +51,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " THEMES
-Plug 'mhartington/oceanic-next'
 Plug 'https://github.com/dikiaap/minimalist'
-Plug '/mhinz/vim-janah'
 			
 " OTHER
 " Plug 'wincent/terminus'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'mhinz/vim-signify' " vcs tracker
+Plug 'mhinz/vim-signify' " vcs tracker for Fossil fe.
 Plug 'mhinz/vim-startify' " nice start page
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
@@ -80,11 +70,16 @@ call plug#end()
 nnoremap <s-f> : bp<CR>
 nnoremap <s-m> : bn<CR>
 nnoremap <s-t> : bd<CR>
-nnoremap H 0
-nnoremap L g_
 nnoremap K 5k
 nnoremap J 5j
+nnoremap L 5l
+nnoremap H 5h
+vnoremap K 5k
+vnoremap J 5j
+vnoremap H 5h
+vnoremap L 5l
 nnoremap ; :
+
 " No need to ex mode and macros
 nnoremap Q <nop>
 map q <Nop>
@@ -95,7 +90,6 @@ map <esc> :noh<cr>
 " auto close
 inoremap { {}<Left>
 inoremap [ []<Left>
-" inoremap ( ()<Left> 
 
 
 " -----------------------------------------------------------------------------------------------------------------------------
@@ -133,9 +127,9 @@ set autowrite                           " write the modified file when switching
 set hidden                              " allow Vim to switch to another buffer while the current is not saved
 set expandtab                                 " expand tabs to spaces
 set formatoptions+=r                          " automatic formatting: auto insert current comment leader after enter
-set shiftwidth=2                              " number of spaces to use for each step of indent
-set softtabstop=2                             " number of spaces that a tab counts for while editing
-set tabstop=2                                 " number of spaces that a tab counts for
+set shiftwidth=4                              " number of spaces to use for each step of indent
+set softtabstop=4                             " number of spaces that a tab counts for while editing
+set tabstop=4                                 " number of spaces that a tab counts for
 set number
 set laststatus=2                        " always show the statusline
 set smartindent " use smart indent if there is no indent file"
@@ -148,8 +142,9 @@ let mapleader = " "
 " COLORSCHEME
 " -----------------------------------------------------------------------------------------------------------------------------
 
-colorscheme minimalist 
-" colorscheme OceanicNext
+nnoremap <leader>c : colorscheme mayansmoke
+nnoremap <leader>C : colorscheme minimalist
+colorscheme minimalist
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
@@ -157,8 +152,8 @@ colorscheme minimalist
 
 " ALE
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '>'
-let g:ale_sign_warning = '-'
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '*'
 let g:tern_request_timeout = 1
 
 " AIRLINE
@@ -169,7 +164,7 @@ let g:airline_theme='minimalist'
 " NERDTREE
 let NERDTreeShowHidden=1
 let NERDTreeHijackNetrw=0
-let g:NERDTreeWinSize=45
+let g:NERDTreeWinSize=30
 let g:NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeCascadeSingleChildDir=0
@@ -182,17 +177,7 @@ nnoremap <leader>f : NERDTreeToggle<CR>
 let g:indentLine_color_tty_light = 200 " (default: 4)
 let g:indentLine_color_dark = 210 " (default: 2)
 
-" SUPERTAB " I use the neosnippet command see below
-" automatic close preview (scratch buffer)
-" let g:SuperTabClosePreviewOnPopupClose = 1
-" if you want that the scratch buffer never pops do:
-" autocmd FileType python setlocal completeopt-=preview
-" autocmd FileType javascript setlocal completeopt-=preview
-" let g:SuperTabDefaultCompletionType = "<c-n>"
-
 " DEOPLETE & NEOSNIPPET
-
-" NEOSNIPPET
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#disable_runtime_snippets = {
@@ -235,8 +220,6 @@ hi  CursorLineNr guifg=yellow ctermfg=3
 " FUNCTIONS
 " -----------------------------------------------------------------------------------------------------------------------------
 
-autocmd Filetype python setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2 
-
 " pressing F9 compiles python in vim and outputs to buffer
 autocmd FileType python call AutoCmd_python()
   fun! AutoCmd_python()
@@ -261,6 +244,6 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" auto close buffer
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-

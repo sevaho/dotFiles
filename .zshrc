@@ -18,6 +18,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux)
 source $ZSH/oh-my-zsh.sh
 
 #alias
+alias m='cd /run/media/sevaho/'
 alias ll='ls -latrFi'
 alias ra='ranger'
 alias gpom="git push origin master"
@@ -42,6 +43,8 @@ alias music='echo "press enter to play" && mocp -n -T ~/themes/alldefault'
 alias video='mpv'
 alias reddit='rtv'
 alias vim='nvim'
+alias v='nvim'
+alias sudo='sudo '
 
 # nmap
 alias nmap_open_ports="nmap --open"
@@ -59,34 +62,7 @@ alias nmap_traceroute="nmap -sP -PE -PS22,25,80 -PA21,23,80,3389 -PU -PO --trace
 alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25,80,113,31339 -PA80,113,443,10042 -PO --script all " 
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
-#Protect root
-if [ "$(id -ru)" -eq "0"  ]; then
-  alias rm='rm -i'
-  alias cp='cp -i'
-  alias mv='mv -i'
-else
-  alias cp='cp -r'
-fi
-
-#powerline
-POWERLINE_RIGHT_A="mixed"
-POWERLINE_HIDE_USER_NAME="true"
-POWERLINE_SHORT_HOST_NAME="true"
-POWERLINE_GIT_CLEAN="✔"
-POWERLINE_GIT_DIRTY="✘"
-POWERLINE_GIT_ADDED=red
-POWERLINE_GIT_MODIFIED=red
-POWERLINE_GIT_DELETED=red
-POWERLINE_GIT_UNTRACKED=red
-POWERLINE_GIT_RENAMED="➜"
-POWERLINE_GIT_UNMERGED="═"
-POWERLINE_RIGHT_A="date"
-
 #vim default
 export EDITOR="vim"
-
-
-xset s off
-xset s off -dpms	
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

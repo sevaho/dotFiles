@@ -1,8 +1,8 @@
 #!/bin/bash
 
-VOLUME=$(amixer -c1 sget Master | egrep -o -m 1 "[0-9]+%")
+VOLUME=$(amixer sget Master | egrep -o -m 1 "[0-9]+%")
 
-STATE=$(amixer -c1 sget Master | egrep -m 1 'Playback.*?\[o' | egrep -o '\[o.+\]')
+STATE=$(amixer sget Master | egrep -m 1 'Playback.*?\[o' | egrep -o '\[o.+\]')
 
 # # What to display in i3bar:
 if [[ $STATE == '[off]' ]]; then
