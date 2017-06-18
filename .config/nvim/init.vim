@@ -139,12 +139,13 @@ set shiftround " rounds indent to a multiple of shiftwidth"
 let mapleader = " "
 
 " -----------------------------------------------------------------------------------------------------------------------------
-" COLORSCHEME
+" OLORSCHEME
 " -----------------------------------------------------------------------------------------------------------------------------
 
-nnoremap <leader>c : colorscheme mayansmoke
-nnoremap <leader>C : colorscheme minimalist
-colorscheme minimalist
+nnoremap <leader>c : colorscheme mayansmoke <cr>
+nnoremap <leader>C : colorscheme minimalist <cr>
+
+colorscheme mayansmoke
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
@@ -181,8 +182,8 @@ let g:indentLine_color_dark = 210 " (default: 2)
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#disable_runtime_snippets = {
-		\   '_' : 1,
-		\ }
+        \   '_' : 1,
+        \ }
 
 let g:deoplete#enable_at_startup = 1
 
@@ -196,12 +197,12 @@ inoremap <silent><expr> <TAB>
                 let col = col('.') - 1
                 return !col || getline('.')[col - 1]  =~ '\s'
                 endfunction"}}}
-	imap <expr><TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ neosnippet#expandable_or_jumpable() ?
-	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    imap <expr><TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ neosnippet#expandable_or_jumpable() ?
+    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " FZF
 nnoremap <leader>j : FZF<CR>
@@ -222,26 +223,26 @@ hi  CursorLineNr guifg=yellow ctermfg=3
 
 " pressing F9 compiles python in vim and outputs to buffer
 autocmd FileType python call AutoCmd_python()
-  fun! AutoCmd_python()
+fun! AutoCmd_python()
         "setlocal other options for python, then:
-  nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 endf
 
 " remember cursor position between vim sessions
 
 autocmd BufReadPost *
-			\ if line("'\'") > 0 && line ("'\"") <= line("$") |
-			\		exe "normal! g'\"" |
-			\ endif
+            \ if line("'\'") > 0 && line ("'\"") <= line("$") |
+            \		exe "normal! g'\"" |
+            \ endif
 autocmd BufRead * normal zz
 
 " shift e will tell you some information about the code
 nnoremap <s-e> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
+if !exists("*synstack")
     return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endif
+echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 " auto close buffer
