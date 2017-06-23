@@ -91,12 +91,21 @@ map <esc> :noh<cr>
 inoremap { {}<Left>
 inoremap [ []<Left>
 
+" clipboard
+vnoremap  y  "+y
+nnoremap  yy  "+yy
+
+nnoremap p "+p
+vnoremap p "+p
+
+
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " VIM SETTINGS
 " -----------------------------------------------------------------------------------------------------------------------------
 
 syntax on
+set clipboard+=unnamedplus
 filetype plugin on
 set rtp^=~/.config/nvim
 set mouse-=a                                  " disable mouse
