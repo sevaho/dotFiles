@@ -145,7 +145,7 @@ let mapleader = " "
 nnoremap <leader>c : colorscheme mayansmoke <cr>
 nnoremap <leader>C : colorscheme minimalist <cr>
 
-colorscheme minimalist
+colorscheme mayansmoke
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS

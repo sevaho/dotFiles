@@ -14,7 +14,7 @@ setopt EXTENDED_GLOB
 
 #ohmyzsh
 ZSH_THEME="powerzeesh"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux fossil) 
 source $ZSH/oh-my-zsh.sh
 
 #alias
@@ -24,6 +24,7 @@ alias ra='ranger'
 alias gpom="git push origin master"
 alias gits="git status"
 alias gc="git clone"
+alias gda="git diff -a"
 alias docka="sudo docker run --rm -it alpine sh"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
 alias du='du -sh *' 
@@ -41,10 +42,13 @@ alias browse='w3m -F -graph -o auto_image=TRUE'
 alias imageburner='/usr/bin/Etcher-1.0.0-beta.19-linux-x64.AppImage'
 alias music='echo "press enter to play" && mocp -n -T ~/themes/alldefault'
 alias video='mpv'
-alias reddit='rtv'
+alias reddit='rtv --enable-media'
+alias rtv='rtv --enable-media'
 alias vim='nvim'
 alias v='nvim'
+alias r='ranger'
 alias sudo='sudo '
+alias df='dfc'
 
 # nmap
 alias nmap_open_ports="nmap --open"
@@ -63,6 +67,6 @@ alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
 #vim default
-export EDITOR="vim"
+export EDITOR="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

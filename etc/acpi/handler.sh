@@ -28,7 +28,6 @@ case "$1" in
         case "$2" in
             MUTE)
                 logger 'volume mute pressed'
-                 amixer -q sset Master mute 
                 ;;
             *)
                 logger "ACPI action undefined: $2"

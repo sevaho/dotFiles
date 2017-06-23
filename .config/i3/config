@@ -32,6 +32,11 @@ bindsym $mod+F4 kill
 # Program launcher
 bindsym $mod+d exec rofi -show run -lines 20 -eh 2 -width 100 -padding 800 -font "Hack 11"
 
+bindsym $mod+c exec ~/scripts/changeColors
+bindsym $mod+F1 exec amixer -D pulse set Master toggle
+bindsym $mod+F2 exec amixer -D pulse set Master 5%-
+bindsym $mod+F3 exec amixer -D pulse set Master 5%+
+
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -144,27 +149,28 @@ set $text-color #eeeeee
 set $inactive-text-color #676E7D
 set $urgent-bg-color #E53935
 
-bar {
-  status_command i3blocks -c ~/.config/i3/.i3blocks.conf
+# bar {
+#   status_command i3blocks -c ~/.config/i3/.i3blocks.conf
 
-  font pango:hack 10
-  height 30
-  tray_output primary
-  position top 
-  workspace_buttons yes 
+#   font pango:hack 10
+#   height 30
+#   tray_output primary
+#   position top 
+#   workspace_buttons yes 
 
- 	colors {
-    separator #3a5656
-    background $bg-color
-    statusline #839496
+#  	colors {
+#     separator #3a5656
+#     background $bg-color
+#     statusline #839496
     #                     border              background          text
-    focused_workspace     $bg-color           $bg-color           $text-color
-    inactive_workspace    $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-    active_workspace      $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-    urgent_workspace      $urgent-bg-color    $urgent-bg-color     $text-color
+#     focused_workspace     $bg-color           $bg-color           $text-color
+#     inactive_workspace    $inactive-bg-color  $inactive-bg-color  $inactive-text-color
+#     active_workspace      $inactive-bg-color  $inactive-bg-color  $inactive-text-color
+#     urgent_workspace      $urgent-bg-color    $urgent-bg-color     $text-color
 
-  }
-}
+#   }
+# }
+
 #                       border              background          text                  indicator
 client.focused          $active-bg-color    $active-bg-color    $active-bg-color      #586e75
 client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
@@ -172,6 +178,7 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-c
 client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
 
 # Autostart applications
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always feh  --bg-scale ~/.config/i3/wallpapers/foggymountains.jpg
 exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
