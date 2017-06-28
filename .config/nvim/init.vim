@@ -66,7 +66,6 @@ call plug#end()
 " -----------------------------------------------------------------------------------------------------------------------------
 " KEY BINDS / MAPPINGS
 " -----------------------------------------------------------------------------------------------------------------------------
-
 nnoremap <s-f> : bp<CR>
 nnoremap <s-m> : bn<CR>
 nnoremap <s-t> : bd<CR>
@@ -78,6 +77,7 @@ vnoremap K 5k
 vnoremap J 5j
 vnoremap H 5h
 vnoremap L 5l
+vnoremap A <esc>ggVG<CR>
 nnoremap ; :
 
 " No need to ex mode and macros
