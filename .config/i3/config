@@ -24,7 +24,7 @@ hide_edge_borders smart
 popup_during_fullscreen smart
 
 # Start a terminal
-bindsym $mod+Return exec termite -e tmux
+bindsym $mod+Return exec urxvt
 
 # Kill focused window
 bindsym $mod+F4 kill

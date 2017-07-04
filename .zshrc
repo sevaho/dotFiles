@@ -50,6 +50,7 @@ alias sudo='sudo '
 alias df='dfc'
 alias ll='ls -latrFi'
 alias we='curl wttr.in/Gent'
+alias pdf='mupdf'
 
 # one letter aliasses
 alias l='ls -latrFi'

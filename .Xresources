@@ -14,10 +14,6 @@ rofi.color-window:                   argb:ee222222,  #536a70  ,  #536a70
 ! Separator style (none, dash, solid)
 rofi.separator-style:                solid
 
-! x config
-Xcursor.theme: gentoo
-Xcursor.size: 24
-
 ! URxvt
 
 ! General settings
@@ -30,7 +26,6 @@ URxvt.urgentOnBell: True
 URxvt.cursorBlink: True
 URxvt.cursorUnderline: true
 URxvt.iso14755: False
-URxvt.internalBorder: 8
 ! urls
 URxvt*depth: 32
 !URxvt.transparent: true
@@ -43,32 +38,19 @@ URxvt.urlButton: 1
 URxvt.underlineURLs: True
 
 
-URxvt.copyCommand:  xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.copyCommand:  xsel -b -selection clipboard
+URxvt.pasteCommand: xsel -o -selection clipboard
 URxvt.perl-ext-common: selection-to-clipboard
 
 ! Keybindings
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.keysym.Mod4-c: perl:clipboard:copy
-URxvt.keysym.Mod4-v: perl:clipboard:paste
-URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
-!URxvt.keysym.M-c: perl:clipboard:copy
-!URxvt.keysym.M-v: perl:clipboard:paste
-!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.C-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-u: perl:url-select:select_next
-
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+URxvt.keysym.Control-Shift-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! Font
 
-URxvt.font: xft:hack:pixelsize=13,style=regular xft:hack:pixelsize=9 xft:hack:pixelsize=9 xft:hack:pixelsize=9 xft:unicode:pixelsize=14
-URxvt.boldFont: xft:Hack:pixelsize=14,style=bold  
+URxvt.font: xft:hack:size=9
 URxvt.letterSpace: -1
-Xft*dpi: 96
-Xft*antialias: True
-Xft*hinting: Full
-
 ! colors
 
 !URxvt*background: rgba(29,31,34,0.90555)
