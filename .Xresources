@@ -18,18 +18,20 @@ rofi.separator-style:                solid
 
 ! General settings
 URxvt.saveLines: 100000
-
 URxvt.scrollBar: False
 URxvt.scrollstyle: rxvt
 URxvt*termName: rxvt-256color
+URxvt*pointerBlank: True
 URxvt.urgentOnBell: True
 URxvt.cursorBlink: True
-URxvt.cursorUnderline: true
+URxvt.cursorUnderline: False
 URxvt.iso14755: False
-! urls
+URxvt*insecure: false
 URxvt*depth: 32
-!URxvt.transparent: true
-!URxvt.shading: 10
+
+! clickable links
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 ! Extensions
 !URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
@@ -40,7 +42,7 @@ URxvt.underlineURLs: True
 
 URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand: xsel -o -selection clipboard
-URxvt.perl-ext-common: selection-to-clipboard
+URxvt.perl-ext-common: selection-to-clipboard,default,matcher
 
 ! Keybindings
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy

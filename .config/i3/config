@@ -186,3 +186,4 @@ exec xset -b # turn off beeps
 exec redshift
 exec udiskie
 exec sxhkd
+exec transmission-daemon
