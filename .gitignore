@@ -72,5 +72,6 @@ Thumbs.db
 .muttrc
 
 # misc
-dotFiles/.config/ranger/bookmarks
+.config/ranger/bookmarks
+bookmarks
 
