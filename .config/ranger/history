@@ -1,0 +1,14 @@
+shell mv rtv.png
+rename rtv.png
+rename Desktop
+open_with l
+fasd
+fzf_select downloads
+find 
+rename wallpapers
+
+open_with mpv
+open_with 
+jkj
+open_with j
+delete

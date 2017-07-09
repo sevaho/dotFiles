@@ -4,7 +4,7 @@ export TMOUT=9600
 export TERM="tmux-256color"
 export PAGER=less
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 
 export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin
 
@@ -47,7 +47,7 @@ alias reddit='rtv --enable-media'
 alias rtv='rtv --enable-media'
 alias vim='nvim'
 alias sudo='sudo '
-alias df='dfc'
+alias df='dfc -T'
 alias ll='ls -latrFi'
 alias we='curl wttr.in/Gent'
 alias pdf='mupdf'

@@ -1,11 +1,7 @@
-#ranger
-history
-bookmarks
-tagged
-#Backup files
+# backup files
 *.bak
 
-#Packages
+# packages
 i*.7z
 *.dmg
 *.gz
@@ -15,7 +11,7 @@ i*.7z
 *.tar
 *.zip
 
-#Compiled Object files
+# compiled object files
 *.slo
 *.lo
 *.o
@@ -23,12 +19,12 @@ i*.7z
 *.out
 *.bin
 
-#VMs
+# vms
 *.box
 *.vmdx
 *.ova
 
-#OS generated files
+# ds generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -37,36 +33,44 @@ i*.7z
 ehthumbs.db
 Thumbs.db
 
-#Precompiled Headers
+# precompiled headers
 *.gch
 *.pch
 
-#Compiled Dynamic libraries
+# compiled dynamic libraries
 *.so
 *.dylib
 *.dll
 
-#Fortran module files
+# fortran module files
 *.mod
 *.smod
 
-#Compiled Static libraries
+# compiled static libraries
 *.lai
 *.la
 *.a
 *.lib
 
-#Executables
+# exe
 *.exe
 *.out
 *.app
 
-#ISO
+# iso
 *.iso
 
-#VIM
+# vim
 *.swp
 *.swo
 
+# laravel
+.env
+
+# mutt
+.mutt
+.muttrc
+
+# misc
 dotFiles/.config/ranger/bookmarks
 

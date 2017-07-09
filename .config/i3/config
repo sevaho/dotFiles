@@ -179,7 +179,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color     
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always feh  --bg-scale ~/.config/i3/wallpapers/foggymountains.jpg
+exec_always feh  --bg-scale ~/.config/i3/wallpaper.jpg
 exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
 exec xset -b # turn off beeps
