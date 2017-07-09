@@ -7,31 +7,40 @@ readonly ARGS=1
 readonly SCRIPT_NAME=$(basename "${0}")
 readonly SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-main(){
-  echo "$SCRIPT_NAME"
-  echo "$SCRIPT_DIR"
-  check_args "${@}"
+main () {
+
+    echo "$SCRIPT_NAME"
+    echo "$SCRIPT_DIR"
+    check_args "${@}"
 
 }
 
-#functions
-check_args(){
-  if [ $# -eq $ARGS  ]  
-	  then
-		  if [ "$1" = "-h"  ] || [ "$1" = "--help"  ]
-			  then 
-       	usage
-			  exit 2
-		  fi
-  else
-	  echo "Expected ${ARGS} argument(s), got ${#}" >&2
-	  usage
-	  exit 2
-  fi
+check_args () {
+
+    if [ $# -eq $ARGS  ]; then
+
+        if [ "$1" = "-h"  ] || [ "$1" = "--help"  ]; then 
+
+            usage
+
+            exit 2
+
+        fi
+
+    else
+
+        echo "Expected ${ARGS} argument(s), got ${#}" >&2
+        usage
+
+        exit 2
+
+    fi
+
 }
 
-usage(){
-  cat << _EOF_
+usage () {
+
+cat << _EOF_
   Usage: ${0} [OPTIONS]... [ARGS]...
 
     description
@@ -42,6 +51,7 @@ usage(){
   EXAMPLES:
 
 _EOF_
+
 }
 
 main "${@}"
