@@ -6,14 +6,13 @@ bindsym Mod1+Shift+Tab workspace prev
 gaps inner 4
 gaps outer 1
 smart_gaps on
-
 font pango:Hack 9
 
 bindsym Print exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-  hide_edge_borders both
+hide_edge_borders both
 focus_follows_mouse no
 mouse_warping none
 bindsym button1 nop
@@ -80,7 +79,7 @@ bindsym $mod+q focus parent
 
 set $ws1  "1: "
 set $ws2  "2: "
-set $ws3  "3: "
+set $ws3  "3:3 "
 set $ws4  "4: "
 set $ws5  "5: "
 set $ws6  "6: "
@@ -124,20 +123,22 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+x exec ~/.config/i3/i3lock.sh
 
 mode "resize" {
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym m resize grow width 5 px or 5 ppt
 
-        # Same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+    bindsym j resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym l resize shrink height 5 px or 5 ppt
+    bindsym m resize grow width 5 px or 5 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # Same bindings, but for the arrow keys
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+
 }
 
 bindsym $mod+r mode "resize"
@@ -149,29 +150,6 @@ set $text-color #eeeeee
 set $inactive-text-color #676E7D
 set $urgent-bg-color #E53935
 
-# bar {
-#   status_command i3blocks -c ~/.config/i3/.i3blocks.conf
-
-#   font pango:hack 10
-#   height 30
-#   tray_output primary
-#   position top 
-#   workspace_buttons yes 
-
-#  	colors {
-#     separator #3a5656
-#     background $bg-color
-#     statusline #839496
-    #                     border              background          text
-#     focused_workspace     $bg-color           $bg-color           $text-color
-#     inactive_workspace    $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-#     active_workspace      $inactive-bg-color  $inactive-bg-color  $inactive-text-color
-#     urgent_workspace      $urgent-bg-color    $urgent-bg-color     $text-color
-
-#   }
-# }
-
-#                       border              background          text                  indicator
 client.focused          $active-bg-color    $active-bg-color    $active-bg-color      #586e75
 client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
 client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
@@ -185,5 +163,6 @@ exec compton -f --config ~/.config/compton.conf -b
 exec xset -b # turn off beeps
 exec redshift
 exec udiskie
-exec sxhkd
+# exec sxhkd
 exec transmission-daemon
+exec transmission-remote -u 100

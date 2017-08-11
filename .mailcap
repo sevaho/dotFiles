@@ -63,3 +63,6 @@ video/*; wget '%s' -O - | mplayer -cache 8192 -vo caca -quiet -; needsterminal
 
 # html
 text/html; w3m -I %{charset} -F -graph -o auto_image=TRUE -T text/html; copiousoutput;
+
+#pdf
+application/pdf; mupdf %s ; copiousoutput

@@ -60,6 +60,7 @@ alias i='feh --geometry 400x400'
 alias m='mutt'
 alias n='cd /run/media/sevaho/'
 alias c="clear"
+alias t="tree"
 
 ## nmap
 alias nmap_open_ports="nmap --open"
