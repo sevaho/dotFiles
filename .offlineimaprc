@@ -1,0 +1,191 @@
+[general]
+
+pythonfile = ~/.offlineimap.py
+accounts = gmail,hotmail,hogent
+
+# -----------------------------------------------------------------------
+# --------------------------------HOTMAIL-------------------------------- 
+# -----------------------------------------------------------------------
+
+[Account hotmail]
+
+localrepository = local-hotmail
+remoterepository = remote-hotmail
+
+[Repository local-hotmail]
+
+type = Maildir
+localfolders = ~/.mail/hotmail
+
+nametrans = lambda folder: {
+
+    'inbox':    'Inbox',
+    'sent':     'Sent',
+    'drafts':   'Drafts',
+    'spam':     'Junk',
+    'bin':      'Trash',
+    'deleted':  'Deleted',
+    'outbox':   'Outbox',
+
+    }.get(folder,folder)
+
+[Repository remote-hotmail]
+
+type = IMAP
+remoteusereval = get_pass("outlook/hotmail/user")
+remotepasseval = get_pass("outlook/hotmail/pass")
+remotehost = imap-mail.outlook.com
+remoteport = 993
+realdelete = no
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+realdelete = no
+
+nametrans = lambda folder: {
+    
+    'Inbox':    'inbox',
+    'Sent':     'sent',
+    'Drafts':   'drafts',
+    'Junk':     'spam',
+    'Trash':    'bin',
+    'Deleted':  'deleted',
+    'Outbox':   'outbox',
+
+    }.get(folder,folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    'Archive',
+    'Archief',
+    'Calendar',
+    'Contacts',
+    'Outlook',
+    '[Hotmail]',
+    '[Hotmail].Drafts',
+    'Tasks',
+    'Notes',
+    'Journal',
+
+    ]
+
+# ----------------------------------------------------------------------
+# --------------------------------HOGENT-------------------------------- 
+# ----------------------------------------------------------------------
+
+[Account hogent]
+
+localrepository = local-hogent
+remoterepository = remote-hogent
+
+[Repository local-hogent]
+
+type = Maildir
+localfolders = ~/.mail/hogent
+
+nametrans = lambda folder: {
+
+    'inbox':    'INBOX',
+    'sent':     'Sent Items',
+    'drafts':   'Drafts',
+    'spam':     'Junk Email',
+    'bin':      'Trash',
+    'deleted':  'Deleted Items',
+    'outbox':   'Outbox',
+
+    }.get(folder,folder)
+
+[Repository remote-hogent]
+
+type = IMAP
+remoteusereval = get_pass("outlook/student.hogent/user")
+remotepasseval = get_pass("outlook/student.hogent/pass")
+remotehost = outlook.office365.com
+remoteport = 993
+realdelete = no
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+realdelete = no
+
+nametrans = lambda folder: {
+
+    'INBOX':        'inbox',
+    'Sent Items':   'sent',
+    'Drafts':       'drafts',
+    'Junk Email':   'spam',
+    'Trash':        'bin',
+    'Deleted Items':'deleted',
+    'Outbox':       'outbox',
+
+    }.get(folder,folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    'Archive',
+    'Archive1',
+    'Calendar',
+    'Contacts',
+    'Tasks',
+    'Sent',
+    'Notes',
+    'Journal',
+
+    ]
+
+# ---------------------------------------------------------------------
+# --------------------------------GMAIL-------------------------------- 
+# ---------------------------------------------------------------------
+
+[Account gmail]
+
+localrepository = local-gmail
+remoterepository = remote-gmail
+
+[Repository local-gmail]
+
+type = Maildir
+localfolders = ~/.mail/gmail
+nametrans = lambda folder: {
+
+    'inbox':   'INBOX',
+    'sent':    '[Gmail]/Sent Mail',
+    'drafts':  '[Gmail]/Drafts',
+    'spam':    '[Gmail]/Spam',
+    'bin':     '[Gmail]/Bin',
+
+    }.get(folder, folder)
+
+[Repository remote-gmail]
+
+type = Gmail
+remoteusereval = get_pass("google/gmail/user")
+remotepasseval = get_pass("google/gmail/pass")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+realdelete = no
+
+nametrans = lambda folder: {
+
+    '[Gmail]/Drafts':    'drafts',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Spam':      'spam',
+    '[Gmail]/Bin':       'bin',
+    'INBOX':     'inbox',
+
+    }.get(folder, folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    '[Gmail]/Junk',
+    '[Gmail]/Important',
+    '[Gmail]/Starred',
+    '[Gmail]/All Mail'
+    '[Gmail].All Mail'
+    'flagged'
+    'archive'
+    'Archive'
+
+    ]
+
+; vim:ft=dosini
