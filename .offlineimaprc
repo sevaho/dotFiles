@@ -188,4 +188,4 @@ folderfilter = lambda folder: folder not in [
 
     ]
 
-; vim:ft=dosini
+# vim:ft=dosini
