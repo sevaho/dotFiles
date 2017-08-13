@@ -1,22 +1,37 @@
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-! Use extended color scheme
-rofi.color-enabled:                  true
-! Color scheme for normal row
-rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #536a70  ,  #1B2B34
-! Color scheme for urgent row
-rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
-! Color scheme for active row
-rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
-! Color scheme window
-rofi.color-window:                   argb:ee222222,  #536a70  ,  #536a70 
-! Separator style (none, dash, solid)
-rofi.separator-style:                solid
+! -----------------------------------------------------------------------------------------------------------------------------
+! ROFI COLORS
+! -----------------------------------------------------------------------------------------------------------------------------
 
-! URxvt
+!! enable all colors
 
-! General settings
+rofi.color-enabled:     true
+
+!! color scheme for normal row
+
+rofi.color-normal:      argb:00000000,  #D8DEE9 , argb:00000000,  #536a70  ,  #1B2B34
+
+!! color scheme for urgent row
+
+rofi.color-urgent:      argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
+
+!! color scheme for active row
+
+rofi.color-active:      argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
+
+!! color scheme window
+
+rofi.color-window:      argb:ee222222,  #536a70  ,  #536a70 
+
+!! separator style (none, dash, solid)
+
+rofi.separator-style:   solid
+
+! -----------------------------------------------------------------------------------------------------------------------------
+! URXVT
+! -----------------------------------------------------------------------------------------------------------------------------
+
+!! general settings
+
 URxvt.saveLines: 100000
 URxvt.scrollBar: False
 URxvt.scrollstyle: rxvt
@@ -29,12 +44,13 @@ URxvt.iso14755: False
 URxvt*insecure: false
 URxvt*depth: 32
 
-! clickable links
+!! clickable links
+
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-! Extensions
-!URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
+!! extensions
+
 URxvt.urlLauncher: xdg-open
 URxvt.urlButton: 1
 URxvt.underlineURLs: True
@@ -44,50 +60,36 @@ URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand: xsel -o -selection clipboard
 URxvt.perl-ext-common: selection-to-clipboard,default,matcher
 
-! Keybindings
+!! keybindings
+
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy
 URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-! Font
+
+!! font
 
 URxvt.font: xft:Hack:size=9,xft:FontAwesome
 URxvt.letterSpace: -1
-! colors
 
-!URxvt*background: rgba(29,31,34,0.90555)
 URxvt.foreground: #839496
 URxvt*background: [91]#1d2226   
 
-! black
+!! colors
+
 URxvt.color0  : #303030
-! red
 URxvt.color1  : #ba4443 
-! green
 URxvt.color2  : #859900 
-! yellow
 URxvt.color3  : #b58900
-! blue
 URxvt.color4  : #268bd2
-! magenta
 URxvt.color5  : #d33682
-! cyan
 URxvt.color6  : #2aa198 
-! white
 URxvt.color7  : #eee8d5 
-! black
 URxvt.color8  : #536a70
-! red
 URxvt.color9  : #cb4b16 
-! green
 URxvt.color10 : #a3be8c
-! yellow
 URxvt.color11 : #657b83
-! blue
 URxvt.color12 : #8da9bf
-! magenta
 URxvt.color13 : #6c71c4
-! cyan
 URxvt.color14 : #93a1a1 
-! white
 URxvt.color15 : #fdf6e3 

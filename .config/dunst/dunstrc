@@ -1,5 +1,5 @@
-
 [global]
+
     font = Hack 10
     
     allow_markup = yes
@@ -12,6 +12,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
+
     format = "<b>%s</b>\n%b"
     
     sort = yes
@@ -42,27 +43,31 @@
     transparency = 100
 
 [frame]
+
     width = 5
     transparency = 100
     color = "#dfdfdf"
 
 [shortcuts]
+
     close = ctrl+space
     close_all = ctrl+shift+space
 
 [urgency_low]
+
     background = "#303030"
     foreground = "#dfdfdf"
     timeout = 6
 
 [urgency_normal]
+
     background = "#303030"
     foreground = "#dfdfdf"
     timeout = 6
 
 [urgency_critical]
+
     background = "#303030"
     frame_color = "#ff0000"
     foreground = "#dfdfdf"
     timeout = 6
-

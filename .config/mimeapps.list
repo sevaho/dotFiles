@@ -1,11 +1,13 @@
-
 [Default Applications]
+
 image/jpeg=feh.desktop
 text/plain=nvim.desktop
 text/x=nvim.desktop
 application/pdf=mupdf.desktop
-text/html=firefox.desktop
+text/html=qutebrowser.desktop
 x-scheme-handler/http=qutebrowser.desktop
 x-scheme-handler/https=qutebrowser.desktop
 x-scheme-handler/about=qutebrowser.desktop
 x-scheme-handler/unknown=qutebrowser.desktop
+
+# vim:ft=dosini

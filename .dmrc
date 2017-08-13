@@ -1,3 +1,6 @@
 [Desktop]
+
 Language=en_US.utf8
 Session=i3
+
+# vim:ft=dosini

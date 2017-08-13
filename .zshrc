@@ -1,26 +1,37 @@
-# exports
+# -----------------------------------------------------------------------------------------------------------------------------
+# ENVIRONMENT_VARIABLES
+# -----------------------------------------------------------------------------------------------------------------------------
+
 export ZSH=~/.oh-my-zsh
 export TMOUT=9600
 export TERM="tmux-256color"
 export PAGER=less
 export EDITOR="nvim"
 export BROWSER="qutebrowser"
-
 export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin
 
-# options
+# -----------------------------------------------------------------------------------------------------------------------------
+# GENERAL
+# -----------------------------------------------------------------------------------------------------------------------------
+#
 ENABLE_CORRECTION="true"
 setopt AUTO_CD
 setopt NO_BEEP
 setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 
+# -----------------------------------------------------------------------------------------------------------------------------
 # ohmyzsh
+# -----------------------------------------------------------------------------------------------------------------------------
+
 ZSH_THEME="powerzeesh"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux fossil) 
 source $ZSH/oh-my-zsh.sh
 
+# -----------------------------------------------------------------------------------------------------------------------------
 # aliasses
+# -----------------------------------------------------------------------------------------------------------------------------
+
 alias ra='ranger'
 alias gpom="git push origin master"
 alias gits="git status"
@@ -53,6 +64,7 @@ alias we='curl wttr.in/Gent'
 alias pdf='mupdf'
 
 ## one letter aliasses
+
 alias l='ls -latrFi'
 alias r='ranger'
 alias v='nvim'
@@ -63,6 +75,7 @@ alias c="clear"
 alias t="tree"
 
 ## nmap
+
 alias nmap_open_ports="nmap --open"
 alias nmap_list_interfaces="nmap --iflist"
 alias nmap_slow="nmap -sS -v -T1"
@@ -78,7 +91,10 @@ alias nmap_traceroute="nmap -sP -PE -PS22,25,80 -PA21,23,80,3389 -PU -PO --trace
 alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25,80,113,31339 -PA80,113,443,10042 -PO --script all " 
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
+# -----------------------------------------------------------------------------------------------------------------------------
 # functions
+# -----------------------------------------------------------------------------------------------------------------------------
+
 tsm-clearcompleted () {
 
     transmission-remote -l | grep 100% | grep Done | awk '{print $1}' | xargs -n 1 -I % transmission-remote -t % -r

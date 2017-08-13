@@ -19,7 +19,6 @@ cursor_shape = block
 
 [colors]
 
-# special
 foreground = #839496
 foreground_dim = #888888
 foreground_bold = #eee8d5
@@ -64,3 +63,5 @@ color244 = #
 [hints]
 
 foreground = #FFFFFF
+
+# vim:ft=dosini

@@ -2,6 +2,10 @@
 
 &nbsp;
 
+##Install
+
+DEPRECATED   
+
 Install via wget
 
 ```bash

@@ -6,13 +6,11 @@ fasd
 fzf_select downloads
 find 
 rename wallpapers
-
 open_with mpv
 jkj
 open_with j
 open_with `
 mkdir music
-delete
 mv green-cube.jpg
 shell mv green-cube.jpg
 open_with 
@@ -20,3 +18,5 @@ rename feh_021376_000002_78aQNDH.jpg
 rename green-cube.jpg
 open_with k
 open_with nvim
+delete
+
