@@ -2,36 +2,29 @@
 ! ROFI COLORS
 ! -----------------------------------------------------------------------------------------------------------------------------
 
-!! enable all colors
-
+! enable all colors
 rofi.color-enabled:     true
 
-!! color scheme for normal row
-
+! color scheme for normal row
 rofi.color-normal:      argb:00000000,  #D8DEE9 , argb:00000000,  #536a70  ,  #1B2B34
 
-!! color scheme for urgent row
-
+! color scheme for urgent row
 rofi.color-urgent:      argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
 
-!! color scheme for active row
-
+! color scheme for active row
 rofi.color-active:      argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
 
-!! color scheme window
-
+! color scheme window
 rofi.color-window:      argb:ee222222,  #536a70  ,  #536a70 
 
-!! separator style (none, dash, solid)
-
+! separator style (none, dash, solid)
 rofi.separator-style:   solid
 
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
 ! -----------------------------------------------------------------------------------------------------------------------------
 
-!! general settings
-
+! general settings
 URxvt.saveLines: 100000
 URxvt.scrollBar: False
 URxvt.scrollstyle: rxvt
@@ -44,13 +37,11 @@ URxvt.iso14755: False
 URxvt*insecure: false
 URxvt*depth: 32
 
-!! clickable links
-
+! clickable links
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-!! extensions
-
+! extensions
 URxvt.urlLauncher: xdg-open
 URxvt.urlButton: 1
 URxvt.underlineURLs: True
@@ -60,23 +51,20 @@ URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand: xsel -o -selection clipboard
 URxvt.perl-ext-common: selection-to-clipboard,default,matcher
 
-!! keybindings
-
+! keybindings
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy
 URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
-!! font
-
+! font
 URxvt.font: xft:Hack:size=9,xft:FontAwesome
 URxvt.letterSpace: -1
 
 URxvt.foreground: #839496
 URxvt*background: [91]#1d2226   
 
-!! colors
-
+! colors
 URxvt.color0  : #303030
 URxvt.color1  : #ba4443 
 URxvt.color2  : #859900 
