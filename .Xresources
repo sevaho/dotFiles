@@ -58,26 +58,72 @@ URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! font
-URxvt.font: xft:Hack:size=9,xft:FontAwesome
+URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
 URxvt.letterSpace: -1
 
 URxvt.foreground: #839496
 URxvt*background: [91]#1d2226   
 
-! colors
+colors
 URxvt.color0  : #303030
 URxvt.color1  : #ba4443 
 URxvt.color2  : #859900 
 URxvt.color3  : #b58900
 URxvt.color4  : #268bd2
-URxvt.color5  : #d33682
+! URxvt.color5  : #d33682
 URxvt.color6  : #2aa198 
 URxvt.color7  : #eee8d5 
 URxvt.color8  : #536a70
 URxvt.color9  : #cb4b16 
 URxvt.color10 : #a3be8c
-URxvt.color11 : #657b83
-URxvt.color12 : #8da9bf
-URxvt.color13 : #6c71c4
-URxvt.color14 : #93a1a1 
+! URxvt.color11 : #657b83
+! URxvt.color12 : #8da9bf
+! URxvt.color13 : #6c71c4
+! URxvt.color14 : #93a1a1 
 URxvt.color15 : #fdf6e3 
+
+! base16 colors
+! #define base01 #393939
+! #define base02 #515151
+! #define base03 #747369
+! #define base04 #a09f93
+! #define base05 #d3d0c8
+! #define base06 #e8e6df
+! #define base07 #f2f0ec
+! #define base08 #f2777a
+! #define base09 #f99157
+#define base0A #ffcc66
+! #define base0B #99cc99
+ #define base0C #66cccc
+ #define base0D #6699cc
+#define base0E #cc99cc
+! #define base0F #d27b53
+!
+! URxvt*.foreground:   base05
+! URxvt*.cursorColor:  base05
+!
+! URxvt*.color0:       #000000
+! URxvt*.color1:       base08
+! URxvt*.color2:       base0B
+! URxvt*.color3:       base0A
+! URxvt*.color4:       base0D
+URxvt*.color5:       base0E
+! URxvt*.color6:       base0C
+! URxvt*.color7:       base05
+!
+! URxvt*.color8:       base03
+! URxvt*.color9:       base08
+! URxvt*.color10:      base0B
+URxvt*.color11:      base0A
+ URxvt*.color12:      base0D
+ URxvt*.color13:      base0E
+ URxvt*.color14:      base0C
+! URxvt*.color15:      base07
+!
+! URxvt*.color16:      base09
+! URxvt*.color17:      base0F
+! URxvt*.color18:      base01
+! URxvt*.color19:      base02
+! URxvt*.color20:      base04
+! URxvt*.color21:      base06
+

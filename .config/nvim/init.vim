@@ -4,30 +4,30 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'https://github.com/PProvost/vim-ps1'                      " syntax colors
-Plug 'https://github.com/digitaltoad/vim-pug.git'               " syntax colors
-Plug 'https://github.com/lervag/vimtex'                         " syntax colors
-Plug 'https://github.com/pangloss/vim-javascript.git'           " syntax colors
+Plug 'PProvost/vim-ps1'                                         " syntax colors
+Plug 'digitaltoad/vim-pug'                                      " syntax colors
+Plug 'lervag/vimtex'                                            " syntax colors
+Plug 'pangloss/vim-javascript'                                  " syntax colors
 Plug 'jwalton512/vim-blade'                                     " syntax colors
-Plug 'https://github.com/scrooloose/nerdtree.git'               " nerdtree
+Plug 'scrooloose/nerdtree'                                      " nerdtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                  " nerdtree colors
 Plug 'Xuyuanp/nerdtree-git-plugin'                              " nerdtree git
-Plug 'https://github.com/vim-airline/vim-airline.git'           " airline
-Plug 'https://github.com/vim-airline/vim-airline-themes.git'    " airline themes
-Plug 'https://github.com/Yggdroot/indentLine.git'               " indent
-Plug 'https://github.com/airblade/vim-gitgutter.git'            " gitgutter
+Plug 'vim-airline/vim-airline'                                  " airline
+Plug 'vim-airline/vim-airline-themes'                           " airline themes
+Plug 'Yggdroot/indentLine'                                      " indent
+Plug 'airblade/vim-gitgutter'                                   " gitgutter
 Plug 'tomtom/tcomment_vim'                                      " commenting with g <
 Plug 'Valloric/MatchTagAlways'                                  " match tags, add this also to php
-Plug 'https://github.com/w0rp/ale.git'                          " linting
+Plug 'w0rp/ale'                                                 " linting
 Plug 'Shougo/neosnippet'                                        " snippets
-Plug 'https://github.com/Shougo/deoplete.nvim'                  " autocomplete
-Plug 'https://github.com/zchee/deoplete-jedi'                   " autocomplete python
+Plug 'Shougo/deoplete.nvim'                                     " autocomplete
+Plug 'zchee/deoplete-jedi'                                      " autocomplete python
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'padawan-php/deoplete-padawan'                             " autocomplete php, composer global require mkusher/padawan
-Plug 'https://github.com/shawncplus/phpcomplete.vim'            " autocomplete php
+Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
+Plug 'shawncplus/phpcomplete.vim'                               " autocomplete php
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'https://github.com/dikiaap/minimalist'                    " theme
+Plug 'dikiaap/minimalist'                                       " theme
 Plug 'mhinz/vim-signify'                                        " vcs tracker for Fossil fe.
 Plug 'mhinz/vim-startify'                                       " nice start page
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
@@ -54,6 +54,7 @@ nnoremap L 5l
 nnoremap H 5h
 nnoremap p "+p
 nnoremap ; :
+nnoremap W w
 nnoremap Q <nop>
 nnoremap yy "+yy
 
@@ -68,6 +69,11 @@ vnoremap p "+p
 
 inoremap { {}<Left>
 inoremap [ []<Left>
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " VIM SETTINGS
@@ -193,7 +199,7 @@ hi SpellCap ctermfg=1 ctermbg=234
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 hi CursorLineNr guifg=yellow ctermfg=3
-hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=11
+hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " FUNCTIONS

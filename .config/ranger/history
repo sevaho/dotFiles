@@ -13,10 +13,11 @@ open_with `
 mkdir music
 mv green-cube.jpg
 shell mv green-cube.jpg
-open_with 
 rename feh_021376_000002_78aQNDH.jpg
 rename green-cube.jpg
 open_with k
-open_with nvim
-delete
 
+open_with 
+h
+delete
+open_with nvim

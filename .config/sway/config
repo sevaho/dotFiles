@@ -1,20 +1,45 @@
+# -----------------------------------------------------------------------------------------------------------------------------
+# GENERAL
+# -----------------------------------------------------------------------------------------------------------------------------
+
 set $mod Mod1
 
-# Home row direction keys, like vim
+font pango:Hack 9
 
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term urxvt
-# Your preferred application launcher
+border 1pixel
+
+set $left   h
+set $down   j
+set $up     k
+set $right  l
+
+set $term termite
 set $menu dmenu_run
+
+hide_edge_borders both
+floating_modifier $mod
+focus_follows_mouse no
+mouse_warping none
+
+new_window pixel 
+workspace_layout default
+
+hide_edge_borders smart
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# GAPS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+gaps                inner 4
+gaps                outer 1
+smart_gaps          on
+
+bindsym $mod+n              split       h
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/sway/)
-output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.config/sway/wallpaper.jpg fill
 #
 # Example configuration:
 #
@@ -57,7 +82,7 @@ output * bg /usr/share/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     floating_modifier $mod normal
 
     # reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # exit sway (logs you out of your wayland session)
     bindsym $mod+Shift+e exit
@@ -187,4 +212,18 @@ bar {
     }
 }
 
-include /etc/sway/config.d/*
+# -----------------------------------------------------------------------------------------------------------------------------
+# COLORS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+set $bg-color               #203030
+set $active-bg-color        #999999
+set $inactive-bg-color      #203030
+set $text-color             #eeeeee
+set $inactive-text-color    #676E7D
+set $urgent-bg-color        #E53935
+
+client.focused          $active-bg-color    $active-bg-color    $active-bg-color      #586e75
+client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
+client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
