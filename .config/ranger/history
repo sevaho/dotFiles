@@ -19,5 +19,5 @@ open_with k
 
 open_with 
 h
-delete
 open_with nvim
+delete

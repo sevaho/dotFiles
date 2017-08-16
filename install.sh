@@ -54,8 +54,6 @@ copy_dotFiles () {
 
     done
 
-    exit 1
-
 }
 
 copy_dotFiles_server () { 
