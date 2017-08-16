@@ -26,9 +26,7 @@ declare -a SERVER_FILES_ONLY=(
     $DIR/.zshrc
     $DIR/.vimrc
     $DIR/.oh-my-zsh
-    $DIR/.config/nvim
-    $DIR/.config/ranger
-    $DIR/.config/htop
+    $DIR/.config
 
 )
 
@@ -52,9 +50,11 @@ copy_dotFiles () {
     for f in $DIR/*; do
 
 
-        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || printf '%s\n' "$f copied" &&  exit 1 # cp -vrf "$f" ~/
+        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || cp -vrf "$f" ~/
 
     done
+
+    exit 1
 
 }
 
