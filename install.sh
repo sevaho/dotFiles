@@ -122,7 +122,10 @@ _EOF_
 
 main () {
 
-    if [[ $1 = "-d" ]]; then
+    echo "Desktop or server?' [D/S]"
+    read -r ANSWER
+
+    if [[ $ANSWER = "D" || $ANSWER = "d" ]]; then
 
         rm -vrf $DIR
 
@@ -133,7 +136,7 @@ main () {
         echo "removing $DIR"
         rm -rf $DIR
 
-    elif [[ $1 = "-s" ]]; then
+    elif [[ $ANSWER = "S"  || $ANSWER = "s" ]]; then
 
         rm -vrf $DIR
 
