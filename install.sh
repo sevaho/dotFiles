@@ -34,7 +34,7 @@ declare -a SERVER_FILES_ONLY=(
 # FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-dowload_git_repo () { 
+download_git_repo () { 
 
     env git clone --depth=1 https://github.com/sevaho/dotFiles.git $DIR || {
 
@@ -134,7 +134,7 @@ main () {
 
         rm -vrf $DIR
 
-        dowload_git_repo
+        download_git_repo
         copy_dotFiles
         post_installs
 
@@ -145,7 +145,7 @@ main () {
 
         rm -vrf $DIR
 
-        dowload_git_repo
+        download_git_repo
         copy_dotFiles_server
         post_installs
 
