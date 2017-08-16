@@ -51,7 +51,7 @@ copy_dotFiles () {
     for f in $DIR/*; do
 
 
-        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || printf '%s\n' "$f copied" && cp -vrf "$f" ~/
+        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || printf '%s\n' "$f copied" &&  exit 1 # cp -vrf "$f" ~/
 
     done
 
