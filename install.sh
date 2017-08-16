@@ -20,7 +20,7 @@ declare -A FILES_TO_IGNORE=(
 
 )
 
-SERVER_FILES_ONLY=(
+declare -a SERVER_FILES_ONLY=(
 
     $DIR/.zshrc
     $DIR/.vimrc
@@ -59,7 +59,7 @@ copy_dotFiles () {
 
 copy_dotFiles_server () { 
 
-    for f in $SERVER_FILES_ONLY; do
+    for f in "${SERVER_FILES_ONLY[@]}"; do
 
         echo "$f"
         cp -vrf "$f" ~/
