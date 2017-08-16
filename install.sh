@@ -1,41 +1,76 @@
-#Author: Sebastiaan Van Hoecke
+#!/bin/bash
 
-check_installed_software () {
+# enables to grab hidden files
+shopt -s dotglob
 
-    echo "Have you installed vim, tmux, zsh, git and conky?' [Y/n]"
-    read -r answer
+# -----------------------------------------------------------------------------------------------------------------------------
+# VARIABLES
+# -----------------------------------------------------------------------------------------------------------------------------
 
-    if [[ $answer = "n" ]]; then
+DIR="/tmp/dotFiles"
 
-        exit 2
+declare -A FILES_TO_IGNORE=( 
 
-    fi
+    [$DIR/*]=1  
+    [$DIR/img]=1  
+    [$DIR/etc]=1  
+    [$DIR/.gitignore]=1  
+    [$DIR/README.md]=1  
+    [$DIR/install.sh]=1  
 
-}
+)
 
-install_configs () {
+SERVER_FILES_ONLY=(
 
-    rm -ivr ~/.dotFiles
-    rm -ivr ~/.fonts
+    $DIR/.zshrc
+    $DIR/.vimrc
+    $DIR/.oh-my-zsh
+    $DIR/.config/nvim
+    $DIR/.config/ranger
+    $DIR/.config/htop
 
-    env git clone --depth=1 https://github.com/sevaho/dotFiles.git ~/.dotFiles || {
+)
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# FUNCTIONS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+dowload_git_repo () { 
+
+    env git clone --depth=1 https://github.com/sevaho/dotFiles.git $DIR || {
 
         printf "Error: git clone of dotFiles\n"
         exit 1
 
     }
 
-    env git clone --depth=1 https://github.com/powerline/fonts.git  ~/.fonts || {
+}
 
-        printf "Error: git clone of fonts\n"
-        exit 1
+copy_dotFiles () { 
 
-    }
+    for f in $DIR/*; do
+
+
+        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || printf '%s\n' "$f copied" && cp -vrf "$f" ~/
+
+    done
+
+}
+
+copy_dotFiles_server () { 
+
+    for f in $SERVER_FILES_ONLY; do
+
+        echo "$f"
+        cp -vrf "$f" ~/
+
+    done
+
+}
+
+post_installs () { 
 
     #ZSH plugins
-
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
-
     env git clone --depth=1 git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || {
 
         printf "Error: git clone of zsh autosuggest\n"
@@ -50,38 +85,77 @@ install_configs () {
 
     }
 
-    cp -vrf ~/.dotFiles/.conkyrc ~/
-    cp -vrf ~/.dotFiles/.conkyrc_for_i3_right ~/
-    cp -vrf ~/.dotFiles/.conkyrc_for_i3_left ~/
-    cp -vrf ~/.dotFiles/.bashrc ~/
-    cp -vrf ~/.dotFiles/.tmux.conf ~/
-    cp -vrf ~/.dotFiles/.vim/colors ~/.vim/
-    cp -vrf ~/.dotFiles/.vim/plugin ~/.vim/
-    cp -vrf ~/.dotFiles/.vim/templates ~/.vim/
-    cp -vrf ~/.dotFiles/.vim/ftdetect ~/.vim/
-    cp -vrf ~/.dotFiles/.vimrc ~/
-    cp -vrf ~/.dotFiles/.zshrc ~/
-    cp -vrf ~/.dotFiles/.gitignore_global ~/
-    cp -vrf ~/.dotFiles/.config/* ~/.config
-    cp -vrf ~/.dotFiles/.Xresources ~/
-    cp -vrf ~/.dotFiles/.gtkrc-2.0 ~/
-    cp -vrf ~/.dotFiles/fonts/* ~/.fonts
-    #cp -rf ~/.dotFiles/. ~/
+    #powerzeesh theme
+    env git clone --depth=1 git://github.com/sevaho/Powerzeesh ~/.oh-my-zsh/themes || {
 
-    ~/.fonts/install.sh
-    fc-cache -f -v
+        printf "Error: git clone of powerzeesh\n"
+        exit 1
 
-    echo "source .zshrc"
-    sleep 5
+    }
+
+}
+
+usage () {
+
+cat <<- _EOF_
+
+Usage: ${0} [OPTIONS]... 
+
+Install script for sevaho/dotFiles from Github.
+
+OPTIONS:
+    -h, *           display the help and exit
+    -d              install for a desktop/laptop
+    -s              install for a server
+    
+EXAMPLES:
+    install -d
+    install -s
+
+NOTE:
+   The difference between desktop and server is that on a server you don't need X config files and other
+   GUI related files.
+
+_EOF_
 
 }
 
 main () {
 
-    check_installed_software
-    install_configs
+    if [[ $1 = "-d" ]]; then
 
+        rm -vrf $DIR
+
+        dowload_git_repo
+        copy_dotFiles
+        post_installs
+
+        echo "removing $DIR"
+        rm -rf $DIR
+
+    elif [[ $1 = "-s" ]]; then
+
+        rm -vrf $DIR
+
+        dowload_git_repo
+        copy_dotFiles_server
+        post_installs
+
+        echo "removing $DIR"
+        rm -rf $DIR
+
+    else
+
+        usage
+        exit 1
+
+    fi
 }
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# MAIN
+# -----------------------------------------------------------------------------------------------------------------------------
 
 main "${@}"
 
+shopt -u dotglob
