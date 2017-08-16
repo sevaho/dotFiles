@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # enables to grab hidden files
 shopt -s dotglob
