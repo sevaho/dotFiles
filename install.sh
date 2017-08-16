@@ -70,15 +70,19 @@ copy_dotFiles_server () {
 
 post_installs () { 
 
+    local PLUGIN_DIR="$HOME/.oh-my-zsh/custom/plugins"
+
     #ZSH plugins
-    env git clone --depth=1 git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions || {
+    rm -rvf "$PLUGIN_DIR/zsh-autosuggestions"
+    env git clone --depth=1 git://github.com/zsh-users/zsh-autosuggestions "$PLUGIN_DIR/zsh-autosuggestions" || {
 
         printf "Error: git clone of zsh autosuggest\n"
         exit 1
 
     }
 
-    env git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting || {
+    rm -rvf "$PLUGIN_DIR/zsh-syntax-highlighting"
+    env git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git "$PLUGIN_DIR/zsh-syntax-highlighting" || {
 
         printf "Error: git clone of zsh syntax highlight\n"
         exit 1
@@ -86,6 +90,8 @@ post_installs () {
     }
 
     #powerzeesh theme
+    rm -rvf "$HOME/.oh-my-zsh/themes"
+    mkdir -p "$HOME/.oh-my-zsh/themes"
     env git clone --depth=1 git://github.com/sevaho/Powerzeesh ~/.oh-my-zsh/themes || {
 
         printf "Error: git clone of powerzeesh\n"
