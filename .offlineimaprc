@@ -1,7 +1,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = gmail,hotmail,hogent
+accounts = gmail,hotmail,hogent,meritel
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -185,6 +185,71 @@ folderfilter = lambda folder: folder not in [
     'flagged'
     'archive'
     'Archive'
+
+    ]
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# MERITEL
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[Account meritel]
+
+localrepository = local-meritel
+remoterepository = remote-meritel
+
+[Repository local-meritel]
+
+type = Maildir
+localfolders = ~/.mail/meritel
+
+nametrans = lambda folder: {
+
+    'inbox':    'INBOX',
+    'sent':     'Sent Items',
+    'drafts':   'Drafts',
+    'spam':     'Junk Email',
+    'bin':      'Trash',
+    'deleted':  'Deleted Items',
+    'outbox':   'Outbox',
+
+    }.get(folder,folder)
+
+[Repository remote-meritel]
+
+type = IMAP
+remoteusereval = get_pass("meritel/mail/user")
+remotepasseval = get_pass("meritel/mail/pass")
+remotehost = mail.meritel.be
+remoteport = 143
+realdelete = no
+ssl = no
+starttls = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+realdelete = no
+
+nametrans = lambda folder: {
+
+    'INBOX':        'inbox',
+    'Sent Items':   'sent',
+    'Sent':         'sent',
+    'Drafts':       'drafts',
+    'Junk Email':   'spam',
+    'Trash':        'bin',
+    'Deleted Items':'deleted',
+    'Outbox':       'outbox',
+
+    }.get(folder,folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    'Archive',
+    'Archive1',
+    'Calendar',
+    'Contacts',
+    'Tasks',
+    'Notes',
+    'Journal',
 
     ]
 

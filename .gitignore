@@ -73,6 +73,7 @@ Thumbs.db
 
 # misc
 .config/ranger/bookmarks
+.config/ranger/history
 bookmarks
 .netrwhist
 
