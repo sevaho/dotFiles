@@ -17,6 +17,7 @@ declare -A FILES_TO_IGNORE=(
     [$DIR/.gitignore]=1  
     [$DIR/README.md]=1  
     [$DIR/install.sh]=1  
+    [$DIR/.git]=1  
 
 )
 
