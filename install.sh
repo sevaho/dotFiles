@@ -103,8 +103,9 @@ post_installs () {
 
 post_server_installs () {
 
-    sed -i -e 's/powerzeesh/powerzeesh_server/g' "$HOME/.zshrc"
-
+    rm -rf "$HOME/.config/systemd/user/default.target.wants/offlineimap.timer"
+    rm -rf "$HOME/.config/systemd/user/offlineimap.timer"
+    rm -rf "$HOME/.config/systemd/user/offlineimap.service"
 }
 
 usage () {
