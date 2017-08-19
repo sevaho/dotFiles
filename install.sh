@@ -24,6 +24,7 @@ declare -A FILES_TO_IGNORE=(
 declare -a SERVER_FILES_ONLY=(
 
     $DIR/.zshrc
+    $DIR/.tmux.conf
     $DIR/.vimrc
     $DIR/.oh-my-zsh
     $DIR/.config
@@ -50,7 +51,7 @@ copy_dotFiles () {
     for f in $DIR/*; do
 
 
-        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || cp -vrf "$f" ~/
+        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || cp -vrf "$f" "$HOME/"
 
     done
 
@@ -61,7 +62,7 @@ copy_dotFiles_server () {
     for f in "${SERVER_FILES_ONLY[@]}"; do
 
         echo "$f"
-        cp -vrf "$f" ~/
+        cp -vrf "$f" "$HOME/"
 
     done
 
@@ -91,12 +92,18 @@ post_installs () {
     #powerzeesh theme
     rm -rvf "$HOME/.oh-my-zsh/themes"
     mkdir -p "$HOME/.oh-my-zsh/themes"
-    env git clone --depth=1 git://github.com/sevaho/Powerzeesh ~/.oh-my-zsh/themes || {
+    env git clone --depth=1 git://github.com/sevaho/Powerzeesh "$HOME/.oh-my-zsh/themes" || {
 
         printf "Error: git clone of powerzeesh\n"
         exit 1
 
     }
+
+}
+
+post_server_installs () {
+
+    sed -i -e 's/powerzeesh/powerzeesh_server/g' "$HOME/.zshrc"
 
 }
 
@@ -148,6 +155,7 @@ main () {
         download_git_repo
         copy_dotFiles_server
         post_installs
+        post_server_installs
 
         echo "removing $DIR"
         rm -rf $DIR
