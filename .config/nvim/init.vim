@@ -198,7 +198,7 @@ hi SpellBad ctermfg=1 ctermbg=234
 hi SpellCap ctermfg=1 ctermbg=234
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
-hi CursorLineNr guifg=yellow ctermfg=3
+hi CursorLineNr guifg=yellow ctermfg=11
 hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
 
 " -----------------------------------------------------------------------------------------------------------------------------

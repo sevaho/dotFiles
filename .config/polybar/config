@@ -1,0 +1,357 @@
+# -----------------------------------------------------------------------------------------------------------------------------
+# COLORS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[colors]
+
+background      = #bb1d1f22
+background-alt  = #444
+foreground      = #dfdfdf
+foreground-alt  = #555
+primary         = #ffb52a
+secondary       = #e60053
+alert           = #bd2c40
+
+# black
+color0          = #303030
+color8          = #536a70
+
+# red
+color1          = #cb4b16
+color9          = #ba4443
+
+# green
+color2          = #AFD787
+color10         = #98c379 
+
+# yellow        
+color3          = #ffaf5f
+color11         = #e5c07b
+
+# blue
+color4          = #87D7FF
+color12         = #5fafd7
+
+# magent        
+color5          = #cc99cc
+color13         = #b777e0
+
+# cyan
+color6          = #66cccc
+color14         = #2aa198
+
+# white
+color7          = #abb2bf
+color15         = #ddd6e3
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# BAR SETTINGS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[bar/mybar]
+
+width = 100%
+height = 26
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+
+line-size   = 2
+line-color  = #f00
+
+border-color = #00000000
+
+padding-right = 1
+
+dim-value = 1
+
+font-0 = Hack::antialias=true:size=10;1
+font-1 = FontAwesome:size=9:dpi=138;2
+
+module-margin-left  = 1
+module-margin-right = 1
+modules-left        = i3 wlan ssid
+modules-center      = date
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
+
+tray-position       = right
+tray-padding        = 2
+tray-background     = ${colors.background}
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# SETTINGS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[settings]
+
+screenchange-reload = true
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# GLOBAL SETTINGS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[global/wm]
+
+margin-top      = 0
+margin-bottom   = 0
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# MODULES
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[module/i3]
+
+type			= internal/i3
+format			= <label-state>
+index-sort		= true
+pin-workspaces  = true
+strip-wsnumbers	= true
+fuzzy-match		= true
+
+label-visible               = %icon%
+label-visible-foreground    = #aaaaaa
+label-visible-padding       = 1
+label-visible-underline     = #eee8d5
+
+label-focused               = %icon%
+label-focused-foreground    = #eee8d5
+label-focused-padding       = 1
+label-focused-underline     = #eee8d5
+label-focused-background    = #e11d1f22
+
+label-unfocused             = %icon%
+label-unfocused-foreground  = #eee8d5
+
+label-unfocused-padding	    = 1
+
+label-urgent		        = %icon%
+label-urgent-foreground	    = #FF5F5F
+label-urgent-padding	    = 1
+
+ws-icon-0		= 1;  
+ws-icon-1		= 2; 
+ws-icon-2		= 3; 
+ws-icon-3		= 4; 
+ws-icon-4		= 5; 
+ws-icon-5		= 6; 
+ws-icon-6		= 7; 
+ws-icon-7		= 8; 
+ws-icon-8		= 9; 
+ws-icon-9		= 10; 
+
+[module/wlan]
+
+type        = internal/network
+interface   = wlp4s0
+interval    = 3
+
+format-connected                = <label-connected>
+format-connected-foreground     = ${colors.color12}
+format-disconnected-underline   = ${colors.alert}
+
+label-connected                 = " %local_ip%  %downspeed%  %upspeed%"
+label-disconnected              = "OFFLINE"
+label-disconnected-foreground   = ${colors.alert}
+ramp-signal-foreground          = ${colors.foreground-alt}
+
+[module/ssid]
+
+type = custom/script
+exec = echo "$(iw dev wlp4s0 link | grep SSID | cut -d " " -f 2- | cut -c1-20)"
+
+format-foreground = ${colors.color3}
+
+[module/date]
+
+type = internal/date
+interval = 10
+
+date = %a %d-%m-%Y
+date-alt = "%a %Y-%m-%d"
+
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+format-foreground = ${colors.color15}
+
+label = %date% %time%
+format =  <label>
+
+[module/kernel]
+
+type = custom/script
+format-prefix-foreground = ${colors.foreground-alt}
+exec = uname -r | cut -c1-8
+label = " %output%"
+format = <label>
+format-foreground = ${colors.color3}
+
+[module/filesystem]
+
+type = internal/fs
+interval = 60
+
+mount-0 = /
+
+label-mounted = %{F#cc99cc}%mountpoint%%{F-} : %{F#cc99cc}%percentage_used%%%{F-}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+format=<label-mounted>
+
+[module/mail]
+
+type = custom/script
+interval = 25
+label = "%output%"
+format-prefix-foreground = ${colors.foreground-alt}
+exec = $HOME/scripts/eml
+format-foreground = ${colors.color12}
+
+[module/checkforupdates]
+
+type = custom/script
+interval = 120
+format-prefix-foreground = ${colors.foreground-alt}
+exec = [[ $(checkupdates) == "" ]] && echo " 0" || echo "%{u#ba4443}%{F#cb4b16} $(checkupdates | wc -l)"
+label = "%output%"
+format-foreground = ${colors.color12}
+
+[module/memory]
+
+type = internal/memory
+interval = 2
+format-prefix-foreground = ${colors.foreground-alt}
+format-foreground = ${colors.color12}
+format = <bar-used>
+
+bar-used-indicator =
+bar-used-width = 13
+bar-used-foreground-0 = #a3be8c
+bar-used-foreground-1 = #ffcc66
+bar-used-foreground-2 = #ba4443
+bar-used-foreground-3 = #cb4b16
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #555
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format-padding = 1
+
+format = <ramp-coreload>
+format-prefix-foreground = ${colors.foreground-alt}
+# label = " %percentage%%"
+format-foreground = ${colors.color12}
+
+ramp-coreload-0-foreground = #a3be8c
+ramp-coreload-1-foreground = #859900
+ramp-coreload-2-foreground = #859900
+ramp-coreload-3-foreground = #ffcc66
+ramp-coreload-4-foreground = #ffcc66
+ramp-coreload-5-foreground = #ba4443
+ramp-coreload-6-foreground = #ba4443
+ramp-coreload-7-foreground = #cb4b16
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/temperature]
+
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <label>
+format-foreground= ${colors.color12}
+format-warn = <label-warn>
+format-warn-underline = ${colors.color9}
+
+label = " %temperature%"
+label-warn =  %temperature%
+label-warn-foreground = ${colors.color1}
+
+[module/battery]
+
+type = internal/battery
+battery = BAT0
+full-at = 99
+
+time-format = %H:%M
+adapter = AC0
+
+poll-interval = 20
+
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%% %time%
+label-full = %percentage%
+format-charging-padding = 1
+format-discharging-padding = 1
+format-full-padding = 1
+
+; ramp-capacity-0-foreground = #a3be8c
+; ramp-capacity-1-foreground = #859900
+; ramp-capacity-2-foreground = #ffcc66
+; ramp-capacity-3-foreground = #ba4443
+; ramp-capacity-4-foreground = #cb4b16
+
+format-foreground= ${colors.color12}
+format-discharging-foreground=${colors.color10}
+format-charging-foreground=${colors.color2}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/volume]
+
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = ♪
+label-volume-foreground = ${colors.color7}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.color5}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.color2}
+bar-volume-foreground-1 = ${colors.color2}
+bar-volume-foreground-2 = ${colors.color2}
+bar-volume-foreground-3 = ${colors.color10}
+bar-volume-foreground-4 = ${colors.color3}
+bar-volume-foreground-5 = ${colors.color11}
+bar-volume-foreground-6 = ${colors.color1}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+; vim:ft=dosini

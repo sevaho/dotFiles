@@ -54,6 +54,7 @@ bindsym $mod+Shift+r        restart
 # -----------------------------------------------------------------------------------------------------------------------------
 
 bindsym $mod+Return         exec urxvt
+bindsym $mod+Shift+Return         exec termite -c "tmux"
 bindsym $mod+d              exec rofi -show run -lines 20 -eh 2 -width 100 -padding 800 -font "Hack 10"
 bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
 bindsym Print               exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
@@ -161,5 +162,3 @@ exec compton -f --config ~/.config/compton.conf -b
 exec xset -b
 exec redshift
 exec udiskie
-exec transmission-daemon
-exec transmission-remote -u 100

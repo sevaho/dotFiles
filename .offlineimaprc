@@ -1,7 +1,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = gmail,hotmail,hogent,meritel
+accounts = gmail,hotmail,hogent,meritel,sevaho.com
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -40,7 +40,6 @@ realdelete = no
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 2
-realdelete = no
 
 nametrans = lambda folder: {
     
@@ -106,7 +105,6 @@ realdelete = no
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 2
-realdelete = no
 
 nametrans = lambda folder: {
 
@@ -209,8 +207,6 @@ nametrans = lambda folder: {
     'drafts':   'Drafts',
     'spam':     'Junk Email',
     'bin':      'Trash',
-    'deleted':  'Deleted Items',
-    'outbox':   'Outbox',
 
     }.get(folder,folder)
 
@@ -226,7 +222,124 @@ ssl = no
 starttls = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 2
+
+nametrans = lambda folder: {
+
+    'INBOX':        'inbox',
+    'Sent Items':   'sent',
+    'Drafts':       'drafts',
+    'Junk Email':   'spam',
+    'Trash':        'bin',
+
+    }.get(folder,folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    'N1-Snoozed',
+    'Archive',
+    'INBOX,INBOX.Sent',
+    'INBOX,INBOX.Drafts',
+    'INBOX,INBOX.Trash',
+    'INBOX,INBOX.Junk',
+    'Calendar',
+    'Contacts',
+    'Tasks',
+    'Notes',
+    'Journal',
+
+    ]
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# SEVAHO.COM
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[Account sevaho.com]
+
+localrepository = local-sevaho.com
+remoterepository = remote-sevaho.com
+
+[Repository local-sevaho.com]
+
+type = Maildir
+localfolders = ~/.mail/sevaho.com
+
+nametrans = lambda folder: {
+
+    'inbox':    'INBOX',
+    'sent':     'INBOX.INBOX.Sent',
+    'drafts':   'INBOX.INBOX.Drafts',
+    'spam':     'INBOX.INBOX.Junk',
+    'bin':      'INBOX.INBOX.Trash',
+
+    }.get(folder,folder)
+
+[Repository remote-sevaho.com]
+
+type = IMAP
+remoteusereval = get_pass("sevaho.com/mail/user")
+remotepasseval = get_pass("sevaho.com/mail/pass")
+remotehost = SSL0.OVH.NET
+remoteport = 993
 realdelete = no
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+
+nametrans = lambda folder: {
+
+    'INBOX':                'inbox',
+    'INBOX.INBOX.Sent':     'sent',
+    'INBOX.INBOX.Drafts':   'drafts',
+    'INBOX.INBOX.Junk':     'spam',
+    'INBOX.INBOX.Trash':    'bin',
+
+    }.get(folder,folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    'INBOX.N1-Snoozed',
+    'INBOX.Sent Items',
+    'INBOX.Trash',
+    'INBOX.Junk',
+    'INBOX.Drafts',
+
+    ]
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# SEVAHO.IO
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[Account sevaho.io]
+
+localrepository = local-sevaho.io
+remoterepository = remote-sevaho.io
+
+[Repository local-sevaho.io]
+
+type = Maildir
+localfolders = ~/.mail/sevaho.io
+
+nametrans = lambda folder: {
+
+    'inbox':    'INBOX',
+    'sent':     'INBOX.INBOX.Sent',
+    'drafts':   'INBOX.INBOX.Drafts',
+    'spam':     'INBOX.INBOX.Junk',
+    'bin':      'INBOX,INBOX,Trash',
+
+    }.get(folder,folder)
+
+[Repository remote-sevaho.io]
+
+type = IMAP
+remoteusereval = get_pass("sevaho.io/mail/user")
+remotepasseval = get_pass("sevaho.io/mail/pass")
+remotehost = 
+remoteport = 993
+realdelete = no
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
 
 nametrans = lambda folder: {
 
