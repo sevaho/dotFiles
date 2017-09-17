@@ -1,7 +1,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = gmail,hotmail,hogent,meritel,sevaho.com
+accounts = gmail,hotmail,hogent,meritel,sevaho.com,sevaho.io
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -322,10 +322,10 @@ localfolders = ~/.mail/sevaho.io
 nametrans = lambda folder: {
 
     'inbox':    'INBOX',
-    'sent':     'INBOX.INBOX.Sent',
+    'sent':     'Sent',
     'drafts':   'INBOX.INBOX.Drafts',
     'spam':     'INBOX.INBOX.Junk',
-    'bin':      'INBOX,INBOX,Trash',
+    'bin':      'Trash',
 
     }.get(folder,folder)
 
@@ -334,7 +334,7 @@ nametrans = lambda folder: {
 type = IMAP
 remoteusereval = get_pass("sevaho.io/mail/user")
 remotepasseval = get_pass("sevaho.io/mail/pass")
-remotehost = 
+remotehost = mail.gandi.net
 remoteport = 993
 realdelete = no
 ssl = yes
@@ -343,26 +343,21 @@ maxconnections = 2
 
 nametrans = lambda folder: {
 
-    'INBOX':        'inbox',
-    'Sent Items':   'sent',
-    'Sent':         'sent',
-    'Drafts':       'drafts',
-    'Junk Email':   'spam',
-    'Trash':        'bin',
-    'Deleted Items':'deleted',
-    'Outbox':       'outbox',
+    'INBOX':                'inbox',
+    'Sent':                 'sent',
+    'INBOX.INBOX.Drafts':   'drafts',
+    'INBOX.INBOX.Junk':     'spam',
+    'Trash':                'bin',
 
     }.get(folder,folder)
 
 folderfilter = lambda folder: folder not in [ 
 
-    'Archive',
-    'Archive1',
-    'Calendar',
-    'Contacts',
-    'Tasks',
-    'Notes',
-    'Journal',
+    'INBOX.N1-Snoozed',
+    'INBOX.Sent Items',
+    'INBOX.Trash',
+    'INBOX.Junk',
+    'INBOX.Drafts',
 
     ]
 

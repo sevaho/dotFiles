@@ -34,7 +34,7 @@ hi IncSearch        ctermfg=234     ctermbg=75      cterm=NONE      guifg=#1C1C1
 hi LineNr           ctermfg=59      ctermbg=none     cterm=NONE      guifg=#5F5F5F       guibg=#1C1C1C   gui=NONE
 hi MatchParen       ctermfg=NONE    ctermbg=NONE    cterm=underline guifg=NONE          guibg=NONE      gui=underline
 hi NonText          ctermfg=234     ctermbg=none     cterm=NONE      guifg=#1C1C1C       guibg=#1C1C1C   gui=NONE
-hi Normal           ctermfg=255     ctermbg=none     cterm=NONE      guifg=#EEEEEE       guibg=#1C1C1C   gui=NONE
+hi Normal           ctermfg=7     ctermbg=none     cterm=NONE      guifg=#EEEEEE       guibg=#1C1C1C   gui=NONE
 hi Pmenu            ctermfg=NONE    ctermbg=NONE    cterm=NONE      guifg=NONE          guibg=NONE      gui=NONE
 hi PmenuSel         ctermfg=NONE    ctermbg=59      cterm=NONE      guifg=NONE          guibg=#5F5F5F   gui=NONE
 hi Search           ctermfg=NONE    ctermbg=NONE    cterm=underline guifg=NONE          guibg=NONE      gui=underline

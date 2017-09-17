@@ -49,7 +49,7 @@ URxvt.underlineURLs: True
 
 URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand:  xsel -o -selection clipboard
-URxvt.perl-ext-common: selection-to-clipboard,default,matcher
+URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font
 
 ! keybindings
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy
@@ -94,6 +94,7 @@ URxvt*.color6 : #66cccc
 URxvt.color14 : #2aa198  
 
 ! white
-URxvt.color7  : #abb2bf 
+URxvt.color7  : #e8e8de
+!URxvt.color7 : #E2E2D8
 URxvt.color15 : #fdf6e3 
 

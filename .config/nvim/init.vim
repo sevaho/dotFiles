@@ -170,6 +170,7 @@ let g:neosnippet#disable_runtime_snippets = {
 
 let g:deoplete#enable_at_startup = 1
 
+inoremap <c-space> pumvisible() ? "\<C-n>" : "\<Tab>"
 imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
 \ "\<C-y>" : "\<CR>"
 inoremap <silent><expr> <TAB>

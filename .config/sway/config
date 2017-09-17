@@ -204,6 +204,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    font pango:Hack 9
     position top
     colors {
         statusline #ffffff

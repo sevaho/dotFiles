@@ -7,16 +7,16 @@ application/msword;antiwordxp.rb %s | less ; nametemplate=%s.doc; copiousoutput
 application/pdf; mupdf %s ; copiousoutput
 application/ms-tnef; tnef %s ; copiousoutput
 
+video/gif; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+video/webm; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+video/*; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+video/x-youtube; youtube-dl -q -o - '%s' | mpv - --autofit 640x480; test=test -n "$DISPLAY"
+
+image/gif; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
 image/*; feh -g 640x480 '%s'; test=test -n "$DISPLAY"
 image/x-imgur-album; feh -g 640x480 %s; test=test -n "$DISPLAY"
 image/*; curl -s '%s' | convert -resize 80x80 - jpg:/tmp/rtv.jpg && img2xterm /tmp/rtv.jpg; needsterminal; copiousoutput
 image/*; curl -s '%s' | convert - jpg:/tmp/rtv.jpg && img2txt -f utf8 /tmp/rtv.jpg; needsterminal; copiousoutput
 image/jpeg; feh %s; copiousoutput
 image/png; feh %s; copiousoutput
-image/gif; feh %s; copiousoutput
 image/x-imgur-album; echo
-
-
-video/webm; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
-video/*; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
-video/x-youtube; youtube-dl -q -o - '%s' | mpv - --autofit 640x480; test=test -n "$DISPLAY"
