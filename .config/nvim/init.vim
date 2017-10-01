@@ -4,6 +4,7 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'qpkorr/vim-bufkill'
 Plug 'PProvost/vim-ps1'                                         " syntax colors
 Plug 'digitaltoad/vim-pug'                                      " syntax colors
 Plug 'lervag/vimtex'                                            " syntax colors
@@ -22,6 +23,7 @@ Plug 'w0rp/ale'                                                 " linting
 Plug 'Shougo/neosnippet'                                        " snippets
 Plug 'Shougo/deoplete.nvim'                                     " autocomplete
 Plug 'zchee/deoplete-jedi'                                      " autocomplete python
+Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
 Plug 'shawncplus/phpcomplete.vim'                               " autocomplete php
@@ -46,17 +48,23 @@ vmap > >gv
 
 nnoremap <s-f> : bp<CR>
 nnoremap <s-m> : bn<CR>
-nnoremap <s-t> : bd<CR>
+nnoremap <s-t> : BD<CR>
 nnoremap qq : <esc>:x<CR>
 nnoremap K 5k
 nnoremap J 5j
 nnoremap L 5l
 nnoremap H 5h
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 nnoremap p "+p
 nnoremap ; :
 nnoremap W w
 nnoremap Q <nop>
 nnoremap yy "+yy
+nnoremap <c-f> :Tags<cr>
+nnoremap <c-s> :so %<cr>
 
 vnoremap K 5k
 vnoremap J 5j
@@ -70,10 +78,13 @@ vnoremap p "+p
 inoremap { {}<Left>
 inoremap [ []<Left>
 
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! Wa wa
+:command! WA wa
+:command! W w
+:command! Q q
+
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " VIM SETTINGS
@@ -111,22 +122,33 @@ set formatoptions+=r                            " automatic formatting: auto ins
 set shiftwidth=4                                " number of spaces to use for each step of indent
 set softtabstop=4                               " number of spaces that a tab counts for while editing
 set tabstop=4                                   " number of spaces that a tab counts for
-set number
+set number relativenumber
 set laststatus=2                                " always show the statusline
 set smartindent                                 " use smart indent if there is no indent file"
 set smarttab                                    " Handle tabs more intelligently"
 set shiftround                                  " rounds indent to a multiple of shiftwidth"
+set tags=./tags;
+set splitright
+set splitbelow
 
 syntax on
 filetype plugin on
 let mapleader = " "
 
+nnoremap <leader>t :exec 'tag' expand('<cword>')<cr>
+nnoremap <leader>T :Tags<cr>
+nnoremap <leader>c <c-w>c
+nnoremap <leader>s :split <cr>
+nnoremap <leader>S :vsplit <cr>
+nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>
+nnoremap <leader>g : FZF<CR>
+
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORSCHEME
 " -----------------------------------------------------------------------------------------------------------------------------
 
-nnoremap <leader>c : colorscheme mayansmoke <cr>
-nnoremap <leader>C : colorscheme minimalist <cr>
+" nnoremap <leader>c : colorscheme mayansmoke <cr>
+" nnoremap <leader>C : colorscheme minimalist <cr>
 
 colorscheme minimalist
 
@@ -161,6 +183,10 @@ nnoremap <leader>f : NERDTreeToggle<CR>
 let g:indentLine_color_tty_light = 200  " (default: 4)
 let g:indentLine_color_dark = 210       " (default: 2)
 
+" clang
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+let g:deoplete#sources#clang#clang_header = "/lib/clang"
+
 " deoplete and neosnippet
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -188,8 +214,6 @@ inoremap <silent><expr> <TAB>
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" fzf
-nnoremap <leader>j : FZF<CR>
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORS
@@ -235,3 +259,5 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " buffers the file
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
+
+autocmd BufWritePost .config/nvim/init.vim source %

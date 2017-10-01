@@ -8,4 +8,4 @@ After=network.target
 Type=oneshot
 ExecStart=/usr/bin/offlineimap -o -q -u quiet
 
-TimeoutStartSec=1min30s
+TimeoutStartSec=2min30s
