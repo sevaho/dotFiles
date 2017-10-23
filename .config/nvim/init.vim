@@ -19,7 +19,7 @@ Plug 'Yggdroot/indentLine'                                      " indent
 Plug 'airblade/vim-gitgutter'                                   " gitgutter
 Plug 'tomtom/tcomment_vim'                                      " commenting with g <
 Plug 'Valloric/MatchTagAlways'                                  " match tags, add this also to php
-Plug 'w0rp/ale'                                                 " linting
+Plug 'w0rp/ale'                                                 " linting flake8 for python
 Plug 'Shougo/neosnippet'                                        " snippets
 Plug 'Shougo/deoplete.nvim'                                     " autocomplete
 Plug 'zchee/deoplete-jedi'                                      " autocomplete python
@@ -28,6 +28,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
 Plug 'shawncplus/phpcomplete.vim'                               " autocomplete php
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'junegunn/fzf.vim'
 Plug 'dikiaap/minimalist'                                       " theme
 Plug 'mhinz/vim-signify'                                        " vcs tracker for Fossil fe.
@@ -155,6 +156,13 @@ colorscheme minimalist
 " -----------------------------------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -----------------------------------------------------------------------------------------------------------------------------
+
+" PYTHON
+
+
+" GO
+
+let g:deoplete#sources#go#gocode_binary = '/home/sevaho/.go/bin/gocode'
 
 " ALE
 let g:ale_sign_column_always = 1
