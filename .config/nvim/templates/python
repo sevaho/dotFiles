@@ -3,4 +3,16 @@
 import os
 
 
-# cursor: 5 del 
+class Main(object):
+
+    def __init__(self):
+
+        print("")
+
+
+if __name__ == "__main__":
+
+    main = Main()
+
+
+# cursor: 3 del 

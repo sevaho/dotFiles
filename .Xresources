@@ -15,10 +15,25 @@ rofi.color-urgent:      argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B
 rofi.color-active:      argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
 
 ! color scheme window
-rofi.color-window:      argb:ee222222,  #536a70  ,  #536a70 
+!rofi.color-window:      argb:ee222222,  #536a70  ,  #536a70 
+rofi.color-window: argb:c71d2226, #536a70, #536a70
 
 ! separator style (none, dash, solid)
+!rofi.separator-style:   solid
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! rofi.color-normal: #0015262c, #ECB3FF, #0015262c, #ECB3FF, #182e3e
+! rofi.color-active: #0015262c, #38acd6, #0015262c, #38acd6, #15262c
+! rofi.color-urgent: #0015262c, #dc322f, #005262c, #dc322f, #15262c
+
+rofi.hide-scrollbar: 	true
+rofi.font:  			Hack 9
 rofi.separator-style:   solid
+rofi.bw: 			2
+rofi.widht: 5000
+rofi.columns:		1
+rofi.sidebar-mode:  true
 
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
@@ -59,6 +74,10 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! font
 URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
+st.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
+
+st.opacity:      255
+
 URxvt.letterSpace: -1
 
 URxvt.foreground: #839496

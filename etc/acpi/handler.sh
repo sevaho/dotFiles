@@ -60,7 +60,7 @@ case "$1" in
         case "$2" in
             BRTUP)
                 logger 'brightnessup pressed'
-                echo $((($(cat /sys/class/backlight/intel_backlight/brightness) + 60))) > /sys/class/backlight/intel_backlight/brightness 2> logger
+                echo $((($(cat /sys/class/backlight/intel_backlight/brightness) + 60))) > /sys/class/backlight/intel_backlight/brightness
 
                 ;;
         esac
