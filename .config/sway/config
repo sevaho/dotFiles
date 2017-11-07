@@ -4,17 +4,15 @@
 
 font pango:Hack 9
 
-set $mod Mod1
-set $term urxvt
-set $menu rofi -show run -modi run
-
-border 0pixel
-
+set $mod    Mod1 
+set $term   termite
+set $menu   dmenu_run -fn 'Hack-9' #rofi -show run -modi run
 set $left   h
 set $down   j
 set $up     k
 set $right  l
 
+#border 0pixel
 hide_edge_borders both
 floating_modifier $mod
 focus_follows_mouse no
@@ -24,7 +22,6 @@ new_window pixel
 
 hide_edge_borders smart
 
-output * bg ~/.config/sway/wallpaper.jpg fill
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GAPS
@@ -35,44 +32,18 @@ gaps                outer 1
 smart_gaps          on
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# BINDS
+# KEY BINDS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym $mod+n      split       h
+bindsym $mod+F1             exec amixer -D pulse set Master toggle
+bindsym $mod+F2             exec amixer -D pulse set Master 5%-
+bindsym $mod+F3             exec amixer -D pulse set Master 5%+
 
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
-# Basics:
-#
-    # start a terminal
-    bindsym $mod+Return exec $term
-
-    # kill focused window
-    bindsym $mod+f4 kill
-
-    # start your launcher
-    bindsym $mod+d exec $menu
+bindsym $mod+n          split       h
+bindsym $mod+Return     exec        $term       # start a terminal
+bindsym $mod+f4         kill                    # kill focused window
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+x exec ~/.config/i3/i3lock.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -89,40 +60,38 @@ bindsym $mod+n      split       h
 #
 # Moving around:
 #
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
-    # _move_ the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
 # Workspaces:
-#
-set $ws1  " "
-set $ws2  " "
-set $ws3  " "
-set $ws4  " "
-set $ws5  " "
-set $ws6  " "
-set $ws7  " "
-set $ws8  " "
-set $ws9  " "
-set $ws10 " "
+
+set $ws1  "1 "
+set $ws2  "2 "
+set $ws3  "3 "
+set $ws4  "4 "
+set $ws5  "5 "
+set $ws6  "6 "
+set $ws7  "7 "
+set $ws8  "8 "
+set $ws9  "9 "
+set $ws10 "0 "
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -145,11 +114,7 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -209,37 +174,11 @@ mode "resize" {
 }
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# BAR
-# -----------------------------------------------------------------------------------------------------------------------------
-
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-
-    status_command i3blocks -c /home/sevaho/.config/i3/.i3blocks.conf
-    # status_command py3status -c /home/sevaho/p3status.conf
-
-    font pango:Hack 9
-    position top
-
-    colors {
-
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-
-    }
-
-}
-
-# -----------------------------------------------------------------------------------------------------------------------------
 # COLORS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-set $bg-color               #203030
+set $bg-color               #323232
+set $fg-color               #dfdfdf
 set $active-bg-color        #999999
 set $inactive-bg-color      #203030
 set $text-color             #eeeeee
@@ -251,10 +190,35 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-c
 client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
 client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
 
+# -----------------------------------------------------------------------------------------------------------------------------
+# BAR
+# -----------------------------------------------------------------------------------------------------------------------------
+
+bar {
+
+    status_command i3blocks -c /home/sevaho/.config/sway/blocks.conf
+
+    font pango:Hack 9
+    position top
+
+    colors {
+
+        background $bg-color
+        inactive_workspace $bg-color $bg-color $fg-color
+        focused_workspace #444444 #111111 $fg-color
+        active_workspace $bg-color $bg-color $fg-color
+        binding_mode $bg-color $bg-color $fg-color
+        urgent_workspace #32323200 $urgent-bg-color #5c5c5c
+
+    }
+
+}
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # INPUTS / OUTPUTS
 # -----------------------------------------------------------------------------------------------------------------------------
+
+output * bg ~/.config/sway/wallpaper.jpg fill
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
     
@@ -263,8 +227,14 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     natural_scroll disabled
     pointer_accel 0.7
 
-
 }
 
-exec startup sway
+# -----------------------------------------------------------------------------------------------------------------------------
+# AUTOSTART
+# -----------------------------------------------------------------------------------------------------------------------------
+
+exec udiskie
+exec redshift
+exec dunst
 exec xrdb ~/.Xresources
+exec termite

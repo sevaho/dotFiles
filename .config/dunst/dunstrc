@@ -1,8 +1,7 @@
 [global]
 
 font = Hack 10
-
-allow_markup = yes
+markup = yes
 
 # The format of the message.  Possible variables are:
 #   %a  appname
@@ -22,7 +21,6 @@ bounce_freq = 0
 show_age_threshold = 90
 word_wrap = yes
 ignore_newline = no
-geometry = "300x5-30+50"
 shrink = no
 transparency = 0
 idle_threshold = 120
@@ -40,13 +38,11 @@ separator_color = frame
 startup_notification = true
 browser = /usr/bin/firefox -new-tab
 icon_position = off
-transparency = 100
+transparency = 50
+geometry = "300x5-20+20"
 
-[frame]
-
-width = 5
-transparency = 100
-color = "#dfdfdf"
+frame_width = 5
+frame_color = "#dfdfdf"
 
 [shortcuts]
 

@@ -34,27 +34,27 @@ color9  = #cb4b16
 color1  = #ba4443
 
 # green
-color2  = #859900
-color10 = #586e75
+color2  = #AFD787
+color10 = #98c379
 
 # yellow
-color3  = #b58900
-color11 = #657b83
+color3  = #ffcc66
+color11 = #e5c07b
 
 # blue
-color4  = #268bd2
-color12 = #8da9bf
+color4  = #87D7FF
+color12 = #5fafd7
 
 # magenta
-color5  = #d33682
-color13 = #6c71c4
+color5  = #cc99cc
+color13 = #b777e0
 
 # cyan
-color6  = #2aa198
-color14 = #93a1a1
+color6  = #66cccc
+color14 = #2aa198
 
 # white
-color7  = #eee8d5
+color7  = #e8e8de
 color15 = #fdf6e3
 
 [hints]

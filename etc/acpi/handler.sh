@@ -28,6 +28,7 @@ case "$1" in
         case "$2" in
             MUTE)
                 logger 'volume mute pressed'
+                amixer -D pulse set Master toggle
                 ;;
             *)
                 logger "ACPI action undefined: $2"
