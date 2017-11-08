@@ -54,6 +54,7 @@ bindsym $mod+Shift+x exec ~/.config/i3/i3lock.sh
 
     # reload the configuration file
     bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+l exec ~/scripts/lockscreen
 
     # exit sway (logs you out of your wayland session)
     bindsym $mod+Shift+e exit
@@ -206,9 +207,10 @@ bar {
         background $bg-color
         inactive_workspace $bg-color $bg-color $fg-color
         focused_workspace #444444 #111111 $fg-color
-        active_workspace $bg-color $bg-color $fg-color
-        binding_mode $bg-color $bg-color $fg-color
+
         urgent_workspace #32323200 $urgent-bg-color #5c5c5c
+        binding_mode #32323200 $urgent-bg-color #5c5c5c
+        active_workspace #32323200 $urgent-bg-color #5c5c5c
 
     }
 
@@ -237,4 +239,5 @@ exec udiskie
 exec redshift
 exec dunst
 exec xrdb ~/.Xresources
-exec termite
+exec termite -e "offlineimap"
+exec termite 

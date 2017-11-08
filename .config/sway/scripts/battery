@@ -1,0 +1,78 @@
+#! /usr/bin/python
+
+import subprocess
+import re
+import colors
+
+
+class Battery(object):
+
+    __charging = False
+    __percentage = 0
+    __time_left = ""
+
+    def __init__ (self):
+
+        acpi = subprocess.check_output(["acpi", "-b"])
+        self.charging = bool(re.search(b"Charging", acpi))
+        percentage = re.search(b"[0-9]+(?=%)", acpi)
+        time_left = re.search(b"[0-9]+:[0-9]+:[0-9]+", acpi)
+
+        if (bool(time_left)):
+            self.time_left = time_left.group().decode("utf-8")
+
+        if percentage:
+            self.percentage = int(percentage.group())
+        else:
+            self.percentage = 100
+
+        if (not self.charging and self.percentage <= 5):
+            subprocess.call(['notify-send', '--urgency=critical', 'Battery running critically low'])
+
+    def read(self):
+
+        charging_icons = [" ", " ", " ", " ", " "]
+
+        if self.charging:
+
+                print("%s %s%s" % (charging_icons[0], self.percentage, "%"))
+                print("%s %s%s" % (charging_icons[0], self.percentage, "%"))
+                print(colors.color[4])
+
+        else:
+
+            if (self.percentage > 80):
+
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(colors.color[2])
+
+            elif (self.percentage > 60):
+
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(colors.color[10])
+
+            elif (self.percentage > 40):
+
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(colors.color[11])
+
+            elif (self.percentage > 20):
+
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(colors.color[3])
+
+            else:
+
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(" %s%s %s" % (self.percentage, "%", self.time_left))
+                print(colors.color[1])
+
+
+if __name__ == "__main__":
+
+    battery = Battery()
+    battery.read()

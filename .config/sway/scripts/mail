@@ -1,0 +1,43 @@
+#! /usr/bin/python
+
+import os
+import colors
+
+DIR = "/home/sevaho/.mail/"
+ICON = ""
+
+
+class Mail(object):
+
+    def __init__ (self):
+
+        return
+
+    def check (self):
+
+        mails = 0
+
+        for d in (os.listdir(DIR)):
+
+            if ((d == ".notmuch") or (d == "saved")):
+                continue
+            else:
+                mails += len(os.listdir(DIR+d+"/inbox/new/"))
+
+        if (mails > 0):
+
+            print("%s %s" % (ICON, mails))
+            print("%s %s" % (ICON, mails))
+            print(colors.color[1])
+
+        else:
+
+            print("%s %s" % (ICON, 0))
+            print("%s %s" % (ICON, 0))
+            print(colors.color[12])
+
+
+if __name__ == "__main__":
+
+    mail = Mail()
+    mail.check()

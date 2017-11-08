@@ -1,11 +1,12 @@
 #!/bin/bash
+
 # if [[ $WAYLAND_DISPLAY == "" ]]; then
 #
-	scrot /tmp/screen.png
+# 	scrot /tmp/screen.png
 #
 # else  
 
-	swaygrab /tmp/screen.png
+	# swaygrab /tmp/screen.png
 
 # fi
 

@@ -1,0 +1,73 @@
+#! /usr/bin/python
+
+import subprocess
+import re
+import colors
+import time
+import math
+
+
+class Volume(object):
+
+    __mute = False
+    __percentage = 0
+
+    def __init__ (self):
+
+        amixer = subprocess.check_output(["amixer", "sget", "Master"])
+        self.percentage = re.search(b"[0-9]+%", amixer).group().decode("utf-8")
+        mute = re.search(b"\[o.+\]", amixer).group().decode("utf-8")
+
+        if (mute == "[on]"):
+            self.mute = False
+        else:
+            self.mute = True
+
+    def read(self):
+
+        if (self.mute):
+            
+            print("%s" % ("MUTE"))
+            print("%s" % ("MUTE"))
+            print(colors.color[4])
+
+        else:
+
+            mp = math.floor(int(self.percentage[:-1]) / 10)
+            bar = (mp * '=')+((10-mp) * '-') 
+
+            if (mp > 8):
+
+                print("%s" % (bar))
+                print("%s" % (bar))
+                print(colors.color[1])
+
+            elif (mp > 6):
+
+                print("%s" % (bar))
+                print("%s" % (bar))
+                print(colors.color[3])
+
+            elif (mp > 4):
+
+                print("%s" % (bar))
+                print("%s" % (bar))
+                print(colors.color[11])
+
+            elif (mp > 2):
+
+                print("%s" % (bar))
+                print("%s" % (bar))
+                print(colors.color[10])
+
+            else:
+
+                print("%s" % (bar))
+                print("%s" % (bar))
+                print(colors.color[2])
+
+
+if __name__ == "__main__":
+
+    volume = Volume()
+    volume.read()

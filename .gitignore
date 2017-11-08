@@ -77,4 +77,5 @@ Thumbs.db
 bookmarks
 .netrwhist
 pid
+__pycache__
 
