@@ -1,11 +1,4 @@
-#MAKEFILE
-#
-#
-#
-#
-#
-
-#Parameters
+# parameters
 
 objects = 
 
