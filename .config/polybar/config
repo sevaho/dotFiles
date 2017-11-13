@@ -72,7 +72,7 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 wlan ssid vpn
+modules-left        = i3 wlan ssid vpn gdax
 modules-center      = date
 modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
 
@@ -171,6 +171,15 @@ exec-if = pgrep -x openvpn
 interval = 10
 format-prefix-foreground = ${colors.foreground-alt}
 label = "vpn: %output%"
+format = <label>
+format-foreground = ${colors.color2}
+
+[module/gdax]
+
+type = custom/script
+format-prefix-foreground = ${colors.foreground-alt}
+exec = ~/scripts/trading
+label = "%output%"
 format = <label>
 format-foreground = ${colors.color2}
 

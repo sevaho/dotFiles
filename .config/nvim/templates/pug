@@ -1,4 +1,5 @@
 doctype html
+
     html(lang='en')
     head
         meta(charset='utf-8')
@@ -19,7 +20,6 @@ doctype html
             .row
                 .col-md-12  
 
-
         script(src='js/wdBuddy.js')      
 
         // bootstrapjscdn
@@ -27,7 +27,6 @@ doctype html
 
         // jQuerycdn
         script(src='https://code.jquery.com/jquery-3.2.1.min.js',integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=',crossorigin='anonymous')
-
 
     script.
 

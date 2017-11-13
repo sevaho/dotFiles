@@ -34,6 +34,7 @@ Plug 'dikiaap/minimalist'                                       " theme
 Plug 'mhinz/vim-signify'                                        " vcs tracker for Fossil fe.
 Plug 'mhinz/vim-startify'                                       " nice start page
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 call plug#end()
 
@@ -131,6 +132,7 @@ set shiftround                                  " rounds indent to a multiple of
 set tags=./tags;
 set splitright
 set splitbelow
+set expandtab                                   " expand tabs to spaces
 
 syntax on
 filetype plugin on
@@ -156,6 +158,9 @@ colorscheme minimalist
 " -----------------------------------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -----------------------------------------------------------------------------------------------------------------------------
+
+" LATEX
+
 
 " PYTHON
 
@@ -269,3 +274,5 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview 
 
 autocmd BufWritePost .config/nvim/init.vim source %
+
+autocmd FileType tex let g:neotex_enabled = 3

@@ -1,0 +1,28 @@
+% -----------------------------------------------------------------------------------------------------------------------------
+% GENERAL
+% -----------------------------------------------------------------------------------------------------------------------------
+%
+% author: Sebastiaan Van Hoecke
+% mail: sebastiaan@sevaho.io
+%
+% NOTE: 
+%
+% -----------------------------------------------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}
+\pagestyle{empty}
+\usepackage{color}
+\usepackage{ifxetex}
+
+\begin{document}
+\bigskip
+\section*{SECTION 1}
+
+Some text
+
+\bigskip
+\begin{center}
+Greetings!\\
+
+\end{center}
+\end{document}

@@ -4,7 +4,7 @@ text/html; mv %s %s.html && qutebrowser %s.html >/dev/null 2>/dev/null; needster
 text/html; w3m -I %{charset} -T text/html; nametemplate=%s.html; copiousoutput
 
 application/msword;antiwordxp.rb %s | less ; nametemplate=%s.doc; copiousoutput
-application/pdf; mupdf %s ; copiousoutput
+application/pdf; zathura %s ; copiousoutput
 application/ms-tnef; tnef %s ; copiousoutput
 
 video/gif; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
