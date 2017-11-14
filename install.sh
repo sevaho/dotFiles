@@ -71,6 +71,7 @@ download_git_program_templates () {
 
     local TEMPLATES_DIR="$HOME/.config/nvim/templates"
 
+    [[ -f $TEMPLATES_DIR ]] && rm -rvf $TEMPLATES_DIR
     [[ -d $TEMPLATES_DIR ]] || mkdir -p $TEMPLATES_DIR
 
     env git clone --depth=1 https://github.com/sevaho/programming-templates.git $HOME/.config/nvim/templates || {
