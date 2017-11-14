@@ -50,7 +50,6 @@ copy_dotFiles () {
 
     for f in $DIR/*; do
 
-
         [[ -n "${FILES_TO_IGNORE[$f]}" ]] || cp -vrf "$f" "$HOME/"
 
     done
@@ -68,12 +67,28 @@ copy_dotFiles_server () {
 
 }
 
+download_git_program_templates () { 
+
+    local TEMPLATES_DIR="$HOME/.config/nvim/templates"
+
+    [[ -d $TEMPLATES_DIR ]] || mkdir -p $TEMPLATES_DIR
+
+    env git clone --depth=1 https://github.com/sevaho/programming-templates.git $HOME/.config/nvim/templates || {
+
+        printf "Error: git clone of programming templates\n"
+        exit 1
+
+    }
+
+}
+
 post_installs () { 
 
     local PLUGIN_DIR="$HOME/.oh-my-zsh/custom/plugins"
 
-    #ZSH plugins
+    # zsh plugins
     rm -rvf "$PLUGIN_DIR/zsh-autosuggestions"
+
     env git clone --depth=1 git://github.com/zsh-users/zsh-autosuggestions "$PLUGIN_DIR/zsh-autosuggestions" || {
 
         printf "Error: git clone of zsh autosuggest\n"
@@ -82,6 +97,7 @@ post_installs () {
     }
 
     rm -rvf "$PLUGIN_DIR/zsh-syntax-highlighting"
+
     env git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git "$PLUGIN_DIR/zsh-syntax-highlighting" || {
 
         printf "Error: git clone of zsh syntax highlight\n"
@@ -89,9 +105,10 @@ post_installs () {
 
     }
 
-    #powerzeesh theme
+    # powerzeesh theme
     rm -rvf "$HOME/.oh-my-zsh/themes"
     mkdir -p "$HOME/.oh-my-zsh/themes"
+
     env git clone --depth=1 git://github.com/sevaho/Powerzeesh "$HOME/.oh-my-zsh/themes" || {
 
         printf "Error: git clone of powerzeesh\n"
@@ -111,21 +128,23 @@ post_server_installs () {
 usage () {
 
 cat <<- _EOF_
-
 Usage: ${0} [OPTIONS]... 
 
 Install script for sevaho/dotFiles from Github.
 
 OPTIONS:
+
     -h, *           display the help and exit
     -d              install for a desktop/laptop
     -s              install for a server
     
 EXAMPLES:
+
     install -d
     install -s
 
 NOTE:
+
    The difference between desktop and server is that on a server you don't need X config files and other
    GUI related files.
 
@@ -148,6 +167,7 @@ main () {
 
         download_git_repo
         copy_dotFiles
+        download_git_program_templates
         post_installs
 
         echo "removing $DIR"
@@ -159,6 +179,7 @@ main () {
 
         download_git_repo
         copy_dotFiles_server
+        download_git_program_templates
         post_installs
         post_server_installs
 
