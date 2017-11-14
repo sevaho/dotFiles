@@ -1,19 +1,31 @@
 # -----------------------------------------------------------------------------------------------------------------------------
+# SWAY
+# -----------------------------------------------------------------------------------------------------------------------------
+
+if [[ $TTY == "/dev/tty1" ]]; then 
+
+    sway
+
+fi
+
+# -----------------------------------------------------------------------------------------------------------------------------
 # ENVIRONMENT_VARIABLES
 # -----------------------------------------------------------------------------------------------------------------------------
 
+export LFS="/mnt/lfs"
 export ZSH=~/.oh-my-zsh
 export TMOUT=9600
 export TERM="tmux-256color"
 export PAGER=less
 export EDITOR="nvim"
 export BROWSER="qutebrowser"
-export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.4.0/bin
+export GOPATH=~/.go
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL
 # -----------------------------------------------------------------------------------------------------------------------------
-#
+
 ENABLE_CORRECTION="true"
 setopt AUTO_CD
 setopt NO_BEEP
@@ -21,7 +33,7 @@ setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# ohmyzsh
+# OHMYZSH
 # -----------------------------------------------------------------------------------------------------------------------------
 
 ZSH_THEME="powerzeesh"
@@ -29,10 +41,11 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux fossil)
 source $ZSH/oh-my-zsh.sh
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# aliasses
+# ALIASES
 # -----------------------------------------------------------------------------------------------------------------------------
 
 alias ra='ranger'
+alias rt='rtorrent'
 alias gpom="git push origin master"
 alias gits="git status"
 alias gc="git clone"
@@ -51,7 +64,7 @@ alias more='less'
 alias L='less'
 alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
 alias browse='w3m -F -graph -o auto_image=TRUE'
-alias imageburner='/usr/bin/Etcher-1.0.0-beta.19-linux-x64.AppImage'
+alias imageburner='etcher'
 alias music='echo "press enter to play" && mocp -n -T alldefault'
 alias video='mpv'
 alias reddit='rtv --enable-media'
@@ -60,19 +73,25 @@ alias vim='nvim'
 alias sudo='sudo '
 alias df='dfc -T'
 alias ll='ls -latrFi'
-alias we='curl wttr.in/Gent'
-alias pdf='mupdf'
+alias we='curl wttr.in/Poruba'
+alias weather='curl wttr.in/Poruba'
+alias pdf='zathura'
+alias vscode='code'
+alias soundcloud="scdl"
 
 ## one letter aliasses
 
 alias l='ls -latrFi'
 alias r='ranger'
 alias v='nvim'
+alias e='emacs -nw'
 alias i='feh --geometry 400x400'
 alias m='mutt'
 alias n='cd /run/media/sevaho/'
-alias c="clear"
+alias c="calcurse"
 alias t="tree"
+alias s="sway"
+alias p="python"
 
 ## nmap
 
@@ -92,8 +111,15 @@ alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# functions
+# FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
+
+ww () {
+
+    echo "Use M to copy url and ESCM to copy url under cursor."
+    w3m ${@}
+
+}
 
 tsm-clearcompleted () {
 
@@ -101,9 +127,44 @@ tsm-clearcompleted () {
 
 }
 
-tsm () { transmission-remote --list }
-tsmw () { watch transmission-remote --list }
+tsm () { 
+    
+    transmission-remote --list 
 
-tsm-purge () { transmission-remote -t"$1" --remove-and-delete }
+}
+
+tsmw () { 
+    
+    watch transmission-remote --list 
+
+}
+
+tsm-purge () { 
+
+    transmission-remote -t"$1" --remove-and-delete 
+
+}
+
+gitquick () {
+
+    if [[ $1 = "" ]]; then
+
+        string="git quick push"
+
+    else
+
+        string=$1
+
+    fi
+
+    git add .
+    git commit -m "$string"
+    git push origin master
+
+}
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# MISC
+# -----------------------------------------------------------------------------------------------------------------------------
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
