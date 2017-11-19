@@ -197,7 +197,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color     
 
 bar {
 
-    status_command i3blocks -c /home/sevaho/.config/sway/blocks.conf
+    status_command i3blocks -c ~/.config/sway/blocks.conf
 
     font pango:Hack 9
     position top

@@ -3,7 +3,7 @@
 " -----------------------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.local/share/nvim/plugged')
-
+Plug 'hashivim/vim-vagrant'
 Plug 'qpkorr/vim-bufkill'
 Plug 'PProvost/vim-ps1'                                         " syntax colors
 Plug 'digitaltoad/vim-pug'                                      " syntax colors
