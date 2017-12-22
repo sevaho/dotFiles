@@ -33,8 +33,8 @@ set recolor-lightcolor          "#FFFFFF" #06
 set recolor-darkcolor           "#303030" #02
 set recolor                     "true"
 set recolor true
-set recolor_darkcolor #BDE090
-set recolor_lightcolor #000000
+# set recolor_darkcolor #BDE090
+# set recolor_lightcolor #000000
 
 # setting recolor-keephue true will keep any color your pdf
 # has.  If it is set to false, it will just be shades of

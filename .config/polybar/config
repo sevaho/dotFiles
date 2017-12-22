@@ -72,7 +72,7 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 wlan ssid vpn gdax
+modules-left        = i3 wlan ssid vpn 
 modules-center      = date
 modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
 
@@ -140,6 +140,42 @@ ws-icon-6		= 7;
 ws-icon-7		= 8; 
 ws-icon-8		= 9; 
 ws-icon-9		= 10; 
+
+[module/bspwm]
+
+type = internal/bspwm
+
+format = <label-state>
+
+label-focused-occupied = 
+label-focused-occupied-foreground = ${colors.nord6}
+label-focused-occupied-background = ${colors.nord8}
+label-focused-occupied-padding = 1
+
+label-focused-urgent = 
+label-focused-urgent-foreground = ${colors.nord6}
+label-focused-urgent-background = ${colors.nord8}
+label-focused-urgent-padding = 1
+
+label-focused-empty = 
+label-focused-empty-foreground = ${colors.nord6}
+label-focused-empty-background = ${colors.nord8}
+label-focused-empty-padding = 1
+
+label-occupied = 
+label-occupied-foreground = ${colors.nord1}
+label-occupied-background = ${colors.nord8}
+label-occupied-padding = 1
+
+label-urgent = 
+label-urgent-foreground = ${colors.nord13}
+label-urgent-background = ${colors.nord8}
+label-urgent-padding = 1
+
+label-empty = 
+label-empty-foreground = ${colors.nord1}
+label-empty-background = ${colors.nord8}
+label-empty-padding = 1
 
 [module/wlan]
 

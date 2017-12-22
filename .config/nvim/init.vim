@@ -3,6 +3,14 @@
 " -----------------------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.local/share/nvim/plugged')
+
+" Plug 'itchyny/lightline.vim'		" a really cool status bar
+" Plug 'mgee/lightline-bufferline'	" Show buffers in tabline
+
+Plug 'junegunn/goyo.vim'		                                " distraction free writing
+Plug 'junegunn/limelight.vim'		                            " hyperfocused writing
+Plug 'reedes/vim-pencil'		                                " improved writing experience
+Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-vagrant'
 Plug 'qpkorr/vim-bufkill'
 Plug 'PProvost/vim-ps1'                                         " syntax colors
@@ -80,13 +88,14 @@ vnoremap p "+p
 inoremap { {}<Left>
 inoremap [ []<Left>
 
+tnoremap <Esc> <C-\><C-n>
+
 :command! WQ wq
 :command! Wq wq
 :command! Wa wa
 :command! WA wa
 :command! W w
 :command! Q q
-
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " VIM SETTINGS
@@ -133,6 +142,7 @@ set tags=./tags;
 set splitright
 set splitbelow
 set expandtab                                   " expand tabs to spaces
+let g:netrw_liststyle = 3		                " Use tree view in file explorer
 
 syntax on
 filetype plugin on
@@ -159,6 +169,9 @@ colorscheme minimalist
 " PLUGIN SETTINGS
 " -----------------------------------------------------------------------------------------------------------------------------
 
+" PENCIL
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
 " LATEX
 
 
@@ -166,7 +179,6 @@ colorscheme minimalist
 
 
 " GO
-
 let g:deoplete#sources#go#gocode_binary = '/home/sevaho/.go/bin/gocode'
 
 " ALE
@@ -276,3 +288,9 @@ autocmd BufWinEnter *.* silent loadview
 autocmd BufWritePost .config/nvim/init.vim source %
 
 autocmd FileType tex let g:neotex_enabled = 3
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,vimwiki call pencil#init()
+ autocmd FileType text         call pencil#init({'wrap': 'hard'})
+augroup END

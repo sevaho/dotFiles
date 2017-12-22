@@ -12,6 +12,13 @@ fi
 # ENVIRONMENT_VARIABLES
 # -----------------------------------------------------------------------------------------------------------------------------
 
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
 export LFS="/mnt/lfs"
 export ZSH=~/.oh-my-zsh
 export TMOUT=9600
@@ -19,7 +26,7 @@ export TERM="tmux-256color"
 export PAGER=less
 export EDITOR="nvim"
 export BROWSER="qutebrowser"
-export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.4.0/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.4.0/bin:/usr/bin/vendor_perl
 export GOPATH=~/.go
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -37,7 +44,7 @@ setopt EXTENDED_GLOB
 # -----------------------------------------------------------------------------------------------------------------------------
 
 ZSH_THEME="powerzeesh"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux fossil) 
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux fossil vi-mode pyenv python)  
 source $ZSH/oh-my-zsh.sh
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -78,7 +85,7 @@ alias weather='curl wttr.in/Poruba'
 alias pdf='zathura'
 alias vscode='code'
 alias soundcloud="scdl"
-
+alias mp3="youtube-dl --extract-audio --audio-format mp3"
 ## one letter aliasses
 
 alias l='ls -latrFi'
@@ -161,6 +168,12 @@ gitquick () {
     git add .
     git commit -m "$string"
     git push origin master
+
+}
+
+remoteWindows () {
+
+    xfreerdp /v:localhost /port:3389 /u:vagrant /p:vagrant /w:900 /h:768
 
 }
 

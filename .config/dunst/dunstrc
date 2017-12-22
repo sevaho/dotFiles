@@ -41,31 +41,54 @@ icon_position = off
 transparency = 50
 geometry = "300x5-20+20"
 
-frame_width = 5
-frame_color = "#dfdfdf"
+frame_width = 1
+frame_color = "#87D7FF"
 
 [shortcuts]
 
 close = ctrl+space
 close_all = ctrl+shift+space
 
+; [urgency_low]
+;
+; background = "#303030"
+; foreground = "#dfdfdf"
+; timeout = 6
+;
+; [urgency_normal]
+;
+; background = "#303030"
+; foreground = "#dfdfdf"
+; timeout = 6
+;
+; [urgency_critical]
+;
+; background = "#303030"
+; frame_color = "#ff0000"
+; foreground = "#dfdfdf"
+; timeout = 6
 [urgency_low]
-
-background = "#303030"
-foreground = "#dfdfdf"
-timeout = 6
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    timeout = 10
+    # Icon for notifications with low urgency, uncomment to enable
+    #icon = /path/to/icon
 
 [urgency_normal]
-
-background = "#303030"
-foreground = "#dfdfdf"
-timeout = 6
+    background = "#2e3440"
+    foreground = "#d8dee9"
+    timeout = 10
+    # Icon for notifications with normal urgency, uncomment to enable
+    #icon = /path/to/icon
 
 [urgency_critical]
+    background = "#2e3440"
+    foreground = "#ffffff"
+    frame_color = "#bf616a"
+    timeout = 0
+    # Icon for notifications with critical urgency, uncomment to enable
+    #icon = /path/to/icon
 
-background = "#303030"
-frame_color = "#ff0000"
-foreground = "#dfdfdf"
-timeout = 6
-
-# vim:ft=dosini
+# vim:ft=cfg

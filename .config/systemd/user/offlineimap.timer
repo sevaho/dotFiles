@@ -3,7 +3,7 @@ Description=Offlineimap Query Timer
 
 
 [Timer]
-OnCalendar=*:*:0,10,20,30,40,50
+OnCalendar=*:0/15
 Unit=offlineimap.service
 [Install]
 WantedBy=default.target

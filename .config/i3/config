@@ -62,6 +62,9 @@ bindsym Print               exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M
 bindsym $mod+F1             exec amixer -D pulse set Master toggle
 bindsym $mod+F2             exec amixer -D pulse set Master 5%-
 bindsym $mod+F3             exec amixer -D pulse set Master 5%+
+bindsym $mod+Shift+p              exec mocp -r
+bindsym $mod+Shift+n              exec mocp -f
+
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GAPS

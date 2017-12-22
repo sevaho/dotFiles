@@ -3,7 +3,8 @@
 always-display-description true
 auto-reload yes
 
-browser qutebrowser
+# browser qutebrowser
+browser w3m
 show-read-feeds no
 show-read-articles no
 
