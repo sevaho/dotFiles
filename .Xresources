@@ -60,8 +60,7 @@ URxvt.matcher.button: 1
 URxvt.urlLauncher: xdg-open
 URxvt.urlButton: 1
 URxvt.underlineURLs: True
-
-
+  
 URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand:  xsel -o -selection clipboard
 URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font

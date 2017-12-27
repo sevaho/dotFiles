@@ -1,0 +1,20 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair my_calendars]
+a = "my_calendars_local"
+b = "my_calendars_remote"
+collections = ["from a", "from b"]
+metadata = ["color"]
+
+[storage my_calendars_local]
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
+
+[storage my_calendars_remote]
+type = "caldav"
+
+url.fetch = ["command", "pass", "nextcloud/url"]
+username.fetch = ["command", "pass", "nextcloud/user"]
+password.fetch = ["command", "pass", "nextcloud/pass"]

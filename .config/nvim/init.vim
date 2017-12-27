@@ -294,3 +294,6 @@ augroup pencil
   autocmd FileType markdown,mkd,vimwiki call pencil#init()
  autocmd FileType text         call pencil#init({'wrap': 'hard'})
 augroup END
+
+autocmd BufRead,BufNewFile *.conf setf cfg 
+autocmd BufRead,BufNewFile config setf cfg 

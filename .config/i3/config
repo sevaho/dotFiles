@@ -24,6 +24,7 @@ bindsym Mod1+Shift+Tab      workspace prev
 
 bindsym button1             nop
 bindsym $mod+F4             kill
+bindsym $mod+c              kill
 
 bindsym $mod+h              focus       left
 bindsym $mod+j              focus       down
