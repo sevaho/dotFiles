@@ -97,7 +97,6 @@ alias i='feh --geometry 400x400'
 alias m='mutt'
 alias o='cd /run/media/sevaho/'
 alias n='/usr/bin/newsboat'
-alias c="calcurse"
 alias t="tree"
 alias s="sway"
 alias p="python"
@@ -122,6 +121,21 @@ alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 # -----------------------------------------------------------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
+
+c () {
+
+    vdirsyncer sync
+    rm -v ~/.calcurse/apts
+
+    for i in $(ls ~/.calendars/sevaho/*.ics); do 
+        
+        calcurse -i $i 
+    
+    done
+
+    calcurse
+
+}
 
 ww () {
 
@@ -172,11 +186,40 @@ gitquick () {
 
 }
 
+ssh_SSHServer () {
+
+    ssh sevahoSSHServer
+
+}
+
+ssh_BuildServer () {
+
+    ssh -fL 2201:192.168.0.4:22 sevahoSSHServer sleep 5
+    ssh localhost -p 2201
+
+}
+
+ssh_FileServer () {
+
+    ssh -fL 2202:192.168.0.5:22 sevahoSSHServer sleep 5
+    ssh localhost -p 2202
+
+}
+
+ssh_VMServer () {
+
+    ssh -fL 2203:192.168.0.6:22 sevahoSSHServer sleep 5
+    ssh localhost -p 2203
+
+}
+
 remoteWindows () {
 
+    ssh -fL 3389:192.168.0.6:3389 sevahoSSHServer sleep 5
     xfreerdp /v:localhost /port:3389 /u:vagrant /p:vagrant /w:900 /h:768
 
 }
+
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC
