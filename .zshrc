@@ -95,7 +95,7 @@ alias v='nvim'
 alias e='emacs -nw'
 alias i='feh --geometry 400x400'
 alias m='mutt'
-alias o='cd /run/media/sevaho/'
+alias o='cd /run/media/$USER/'
 alias n='/usr/bin/newsboat'
 alias t="tree"
 alias s="sway"
@@ -127,7 +127,7 @@ c () {
     vdirsyncer sync
     rm -v ~/.calcurse/apts
 
-    for i in $(ls ~/.calendars/sevaho/*.ics); do 
+    for i in $(ls ~/.calendars/$USER/*.ics); do 
         
         calcurse -i $i 
     

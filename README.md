@@ -1,8 +1,6 @@
-#Dotfiles
+# Dotfiles
 
-&nbsp;
-
-##Install
+## Install
 
 Install via wget
 
@@ -16,11 +14,9 @@ Install via curl
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/sevaho/dotFiles/master/install.sh)"
 ```
 
-##Extra themes required
+## Extra themes required
 
 - Arc
 - Shadow icons
-
-&nbsp;
 
 ![DE](https://raw.githubusercontent.com/sevaho/dotFiles/master/img/DE.png)

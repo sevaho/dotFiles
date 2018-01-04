@@ -1,9 +1,9 @@
 [Default Applications]
 
-image/jpeg=feh.desktop
+image/jpeg=imv.desktop
 text/plain=nvim.desktop
 text/x=nvim.desktop
-application/pdf=mupdf.desktop
+application/pdf=zathura.desktop
 text/html=qutebrowser.desktop
 x-scheme-handler/http=qutebrowser.desktop
 x-scheme-handler/https=qutebrowser.desktop
