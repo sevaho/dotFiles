@@ -4,7 +4,8 @@
 
 if [[ $TTY == "/dev/tty1" ]]; then 
 
-    sway
+    startx
+    # sway
 
 fi
 
@@ -87,6 +88,7 @@ alias pdf='zathura'
 alias vscode='code'
 alias soundcloud="scdl"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
+
 ## one letter aliasses
 
 alias l='ls -latrFi'
@@ -220,6 +222,12 @@ remoteWindows () {
 
 }
 
+wifiscan () {
+
+    sudo iw dev wlp4s0 scan
+    printf "\x1b[36;1m  SSID\n\n" 
+    sudo iw dev wlp4s0 scan | grep SSID
+}
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC

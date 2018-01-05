@@ -165,4 +165,5 @@ exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
 exec xset -b
 exec redshift
-exec udiskie
+exec dunst
+exec udiskie &
