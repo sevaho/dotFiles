@@ -9,7 +9,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/goyo.vim'		                                " distraction free writing
 Plug 'junegunn/limelight.vim'		                            " hyperfocused writing
-Plug 'reedes/vim-pencil'		                                " improved writing experience
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-vagrant'
 Plug 'qpkorr/vim-bufkill'
