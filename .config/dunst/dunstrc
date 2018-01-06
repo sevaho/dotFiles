@@ -39,7 +39,7 @@ startup_notification = true
 browser = /usr/bin/firefox -new-tab
 icon_position = off
 transparency = 50
-geometry = "300x5-20+20"
+geometry = "300x5-20+40"
 
 frame_width = 1
 frame_color = "#87D7FF"
