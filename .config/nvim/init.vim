@@ -155,6 +155,7 @@ nnoremap <leader>S :vsplit <cr>
 nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>
 nnoremap <leader>g : FZF<CR>
 nnoremap <leader>G : FZF<CR>
+nnoremap <leader>r : so ~/.config/nvim/init.vim<CR>
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORSCHEME
