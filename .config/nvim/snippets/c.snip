@@ -1,0 +1,55 @@
+snippet     printf
+abbr        printf
+options     head
+    printf("${1:#:input}\n", ${2: });
+
+snippet     fatal
+abbr        fatal
+options     head
+    fatal("${1:input}");
+
+snippet     exit
+abbr        exit
+options     head
+    exit(1);
+
+snippet     for
+abbr        for
+options     head
+    for (${1:int i = 0}; ${2:i < 10}; ${3:i++}) {
+
+        ${4:printf("%d\n", i);}
+
+    }
+
+snippet     func
+abbr        function
+options     head
+    ${1:void} ${2:#:name} (${3:#:args}) {
+        
+        ${4:#:}
+
+    }
+
+snippet     struct
+abbr        struct
+options     head
+    struct ${1:void} {
+        
+        ${4:#:}
+
+    }
+
+snippet     main
+abbr        main
+options     head
+    int main (int argc, char const* argv[]) {
+
+        ${1:#:main;}
+
+    }
+
+snippet     include
+abbr        include
+options     head
+    #include <${1:#:string.h}>

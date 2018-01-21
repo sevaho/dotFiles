@@ -1,10 +1,12 @@
-snippet helloworld
+snippet     snip
+abbr        snip
 options     head
-  #include <stdio.h>
-  int main (int argc, char const* argv[]) {
+    snippet     ${1:#:snippet}
+    abbr        ${2:#:abbr}
+    options     head
+        ${3:#:code}
 
-      puts("hello, world!");
-      return 0;
-
-  }
-
+snippet     snipc
+abbr        snipc
+options     head
+        ${${1:1}:${2:#:code}}
