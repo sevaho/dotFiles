@@ -4,7 +4,6 @@
 if [[ $TTY == "/dev/tty1" ]]; then 
 
     startx
-    # sway
 
 fi
 
@@ -87,7 +86,6 @@ alias pdf='zathura'
 alias vscode='code'
 alias soundcloud="scdl"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
-
 ## one letter aliasses
 
 alias l='ls -latrFi'
@@ -96,7 +94,7 @@ alias v='nvim'
 alias e='emacs -nw'
 alias i='feh --geometry 400x400'
 alias m='mutt'
-alias o='cd /run/media/$USER/'
+alias o='cd /run/media/sevaho/'
 alias n='/usr/bin/newsboat'
 alias t="tree"
 alias s="sway"
@@ -120,6 +118,16 @@ alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
 # -----------------------------------------------------------------------------------------------------------------------------
+# KUBERNETES
+# -----------------------------------------------------------------------------------------------------------------------------
+
+if [ $commands[kubectl] ]; then
+
+  source <(kubectl completion zsh)
+
+fi
+
+# -----------------------------------------------------------------------------------------------------------------------------
 # FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
@@ -128,7 +136,7 @@ c () {
     vdirsyncer sync
     rm -v ~/.calcurse/apts
 
-    for i in $(ls ~/.calendars/$USER/*.ics); do 
+    for i in $(ls ~/.calendars/sevaho/*.ics); do 
         
         calcurse -i $i 
     
@@ -221,15 +229,10 @@ remoteWindows () {
 
 }
 
-wifiscan () {
-
-    sudo iw dev wlp4s0 scan
-    printf "\x1b[36;1m  SSID\n\n" 
-    sudo iw dev wlp4s0 scan | grep SSID
-}
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC
 # -----------------------------------------------------------------------------------------------------------------------------
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
