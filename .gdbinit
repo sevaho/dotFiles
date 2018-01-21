@@ -1,1 +1,1 @@
-set disassembly intel
+source ~/peda/peda.py

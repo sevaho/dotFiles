@@ -27,3 +27,25 @@ options     head
 		${1:pass}
 	except ${2:#:ExceptionClass}:
 		${3:pass}
+
+snippet     imp
+abbr        import
+options     head
+    import ${1:socket}
+
+snippet     print
+abbr        print
+options     head
+    print("${1:#:test}" % (${2:#:% ()}))
+
+snippet     ifelse
+abbr        ifelse
+options     head
+    if (${1:#:test}):
+
+        ${2:#:test}
+
+    else:
+
+        ${3:#:test}
+

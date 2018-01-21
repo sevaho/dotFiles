@@ -1,4 +1,5 @@
-" ----------------------------------------------------------------------------------------------------------------------------- PLUGINS
+" -----------------------------------------------------------------------------------------------------------------------------
+" PLUGINS
 " -----------------------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -28,7 +29,7 @@ Plug 'tomtom/tcomment_vim'                                      " commenting wit
 Plug 'Valloric/MatchTagAlways'                                  " match tags, add this also to php
 Plug 'w0rp/ale'                                                 " linting flake8 for python
 Plug 'Shougo/neosnippet'                                        " snippets
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim'                                     " autocomplete
 Plug 'zchee/deoplete-jedi'                                      " autocomplete python
 Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -42,7 +43,6 @@ Plug 'mhinz/vim-signify'                                        " vcs tracker fo
 Plug 'mhinz/vim-startify'                                       " nice start page
 Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'Shougo/neopairs.vim'
 
 call plug#end()
 
@@ -155,7 +155,6 @@ nnoremap <leader>s :split <cr>
 nnoremap <leader>S :vsplit <cr>
 nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>
 nnoremap <leader>g : FZF<CR>
-nnoremap <leader>G : FZF<CR>
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORSCHEME
@@ -169,10 +168,6 @@ colorscheme minimalist
 " -----------------------------------------------------------------------------------------------------------------------------
 " PLUGIN SETTINGS
 " -----------------------------------------------------------------------------------------------------------------------------
-
-" TERN JS
-let g:deoplete#sources#ternjs#tern_bin = '/usr/bin/tern'
-let g:deoplete#sources#ternjs#timeout = 1
 
 " PENCIL
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
@@ -209,7 +204,6 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 nnoremap <leader>f : NERDTreeToggle<CR>
 
-
 " indentLine
 let g:indentLine_color_tty_light = 200  " (default: 4)
 let g:indentLine_color_dark = 210       " (default: 2)
@@ -218,22 +212,14 @@ let g:indentLine_color_dark = 210       " (default: 2)
 let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 let g:deoplete#sources#clang#clang_header = "/lib/clang"
 
-call deoplete#custom#source('neosnippet', 'rank', 1000)
-call deoplete#custom#source('clang', 'rank', 900)
-
 " deoplete and neosnippet
-call deoplete#custom#source('_', 'converters',
-		\ ['converter_auto_paren'])
-
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
- let g:neosnippet#disable_runtime_snippets = {
-         \   '_' : 1,
-         \ }
+let g:neosnippet#disable_runtime_snippets = {
+        \   '_' : 1,
+        \ }
 
-let g:neopairs#enable = 1
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
 
 inoremap <c-space> pumvisible() ? "\<C-n>" : "\<Tab>"
 imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
@@ -242,16 +228,17 @@ inoremap <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :
                 \ <SID>check_back_space() ? "\<TAB>" :
                 \ deoplete#mappings#manual_complete()
-                function! s:check_back_space() abort
+                function! s:check_back_space() abort "{{{
                 let col = col('.') - 1
                 return !col || getline('.')[col - 1]  =~ '\s'
-                endfunction
+                endfunction"}}}
     imap <expr><TAB>
     \ pumvisible() ? "\<C-n>" :
     \ neosnippet#expandable_or_jumpable() ?
     \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
     \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORS

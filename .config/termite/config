@@ -22,7 +22,7 @@ cursor_shape = block
 foreground = #839496
 foreground_dim = #888888
 foreground_bold = #eee8d5
-background = rgba(29,31,34,0.935555)
+background = rgba(29,31,34,0.905555)
 cursor = #93a1a1
 highlight = #555753
 

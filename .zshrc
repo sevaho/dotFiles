@@ -1,5 +1,4 @@
-# -----------------------------------------------------------------------------------------------------------------------------
-# SWAY
+# ----------------------------------------------------------------------------------------------------------------------------- SWAY
 # -----------------------------------------------------------------------------------------------------------------------------
 
 if [[ $TTY == "/dev/tty1" ]]; then 
@@ -28,7 +27,7 @@ export PAGER=less
 export EDITOR="nvim"
 export BROWSER="qutebrowser"
 export RTV_BROWSER="w3m"
-export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.4.0/bin:/usr/bin/vendor_perl:~/.local/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin
 export GOPATH=~/.go
 
 # -----------------------------------------------------------------------------------------------------------------------------

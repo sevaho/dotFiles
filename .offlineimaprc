@@ -1,7 +1,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = gmail,hotmail,hogent,meritel,sevaho.com,sevaho.io,vsb.cz
+accounts = gmail,hotmail,hogent,meritel,sevaho.com,sevaho.io
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -345,62 +345,6 @@ nametrans = lambda folder: {
 
     'INBOX':                'inbox',
     'Sent':                 'sent',
-    'INBOX.INBOX.Drafts':   'drafts',
-    'INBOX.INBOX.Junk':     'spam',
-    'Trash':                'bin',
-
-    }.get(folder,folder)
-
-folderfilter = lambda folder: folder not in [ 
-
-    'INBOX.N1-Snoozed',
-    'INBOX.Sent Items',
-    'INBOX.Trash',
-    'INBOX.Junk',
-    'INBOX.Drafts',
-
-    ]
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# VSB.CZ
-# -----------------------------------------------------------------------------------------------------------------------------
-
-[Account vsb.cz]
-
-localrepository = local-vsb.cz
-remoterepository = remote-vsb.cz
-
-[Repository local-vsb.cz]
-
-type = Maildir
-localfolders = ~/.mail/vsb.cz
-
-nametrans = lambda folder: {
-
-    'inbox':    'INBOX',
-    'sent':     'INBOX.Sent',
-    'drafts':   'INBOX.INBOX.Drafts',
-    'spam':     'INBOX.INBOX.Junk',
-    'bin':      'Trash',
-
-    }.get(folder,folder)
-
-[Repository remote-vsb.cz]
-
-type = IMAP
-remoteusereval = get_pass("vsb.cz/mail/user")
-remotepasseval = get_pass("vsb.cz/mail/pass")
-remotehost = imap.vsb.cz
-remoteport = 993
-realdelete = no
-ssl = yes
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-maxconnections = 2
-
-nametrans = lambda folder: {
-
-    'INBOX':                'inbox',
-    'INBOX.Sent':                 'sent',
     'INBOX.INBOX.Drafts':   'drafts',
     'INBOX.INBOX.Junk':     'spam',
     'Trash':                'bin',
