@@ -1,4 +1,7 @@
 " ----------------------------------------------------------------------------------------------------------------------------- PLUGINS
+Plug 'scrooloose/nerdtree'                                      " nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                  " nerdtree colors
+Plug 'Xuyuanp/nerdtree-git-plugin'                              " nerdtree git
 " -----------------------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.local/share/nvim/plugged')
