@@ -2,9 +2,51 @@
 # TTY
 # -----------------------------------------------------------------------------------------------------------------------------
 
-if [[ $TTY == "/dev/tty1" ]]; then 
+banner_info () {
 
-    startx
+    DISTRO=$(cat /etc/*release* | grep -oP 'NAME="\K[^"]+' | head -n1)
+    KERNEL=$(uname -r)
+    PACKAGES_COUNT=$(test -f /bin/pacman && /usr/bin/pacman -Qq | wc -l || dpkg-query -l | wc -l) 
+    PACKAGES_TO_UPDATE=$(test -f /bin/checkupdates && checkupdates | wc -l || echo $(( $(apt list --upgradable 2> /dev/null | wc -l) - 1 )))
+    HOSTNAME=$(hostname)
+    UPTIME=$(uptime -p)
+    CPU=$(awk 'BEGIN{FS=":"} /model name/ { print $2; exit }' /proc/cpuinfo | awk 'BEGIN{FS=" @"; OFS="\n"} { print $1; exit }')
+    USERS=$(who)
+    MEM=$(free -h | grep -v Swap)
+
+    printf "\x1b[36;1m" # blue
+    echo "#############################################################################################"
+    echo ""
+    printf "\x1b[32;1m" # green
+    echo "\t\t\tWelcome to $HOSTNAME"
+    printf "\x1b[36;1m" # blue
+    echo ""
+    echo "Distro: $DISTRO && Kernel: $KERNEL"
+    echo ""
+    echo "Cpu: $CPU"
+    echo "$MEM"
+    echo ""
+    echo "Packages to update: $PACKAGES_TO_UPDATE\tPackages installed: $PACKAGES_COUNT"
+    echo ""
+    echo "Uptime: $UPTIME"
+    echo ""
+    echo "Users:"
+    echo "$USERS"
+    echo ""
+    echo "#############################################################################################"
+    printf "\x1b[38;0m" # normal
+
+}
+
+banner_info
+
+if [[ -n "$SSH_CONNECTION" ]] ; then 
+
+    banner_info
+
+elif [[ $TTY == "/dev/tty1" ]]; then 
+
+    banner_info
 
 fi
 
@@ -81,8 +123,8 @@ alias vim='nvim'
 alias sudo='sudo '
 alias df='dfc -T'
 alias ll='ls -latrFi'
-alias we='curl wttr.in/Poruba'
-alias weather='curl wttr.in/Poruba'
+alias we='curl wttr.in/Gent'
+alias weather='curl wttr.in/Gent'
 alias pdf='zathura'
 alias vscode='code'
 alias soundcloud="scdl"
@@ -138,10 +180,10 @@ c () {
     vdirsyncer sync
     rm -v ~/.calcurse/apts
 
-    for i in $(ls ~/.calendars/$USER/*.ics); do
-        
-        calcurse -i $i 
-    
+    for event in $(ls ~/.calendars/*/*.ics); do
+            
+        calcurse -i $event 
+
     done
 
     calcurse

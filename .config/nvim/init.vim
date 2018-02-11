@@ -64,13 +64,11 @@ call plug#end()
 " KEY BINDS / MAPPINGS
 " -----------------------------------------------------------------------------------------------------------------------------
 
-map q <Nop>
 map <esc> :noh<cr>
 
 vmap < <gv
 vmap > >gv
 
-nnoremap qq : <esc>:x<CR>
 nnoremap K 5k
 nnoremap J 5j
 nnoremap L 5l
@@ -112,6 +110,7 @@ nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>
 nnoremap <leader>g : FZF<CR>
 nnoremap <leader>G : FZF<CR>
 nnoremap <leader>r : so ~/.config/nvim/init.vim<CR>
+:noremap <leader>u :w<Home>silent <End> !urlview<CR>
 
 :command! WQ wq
 :command! Wq wq
@@ -229,7 +228,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
 
 " CLOSETAG
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jinja,*.php'
+let g:closetag_filenames = '*.html,*.php,*.phtml,*.jinja,*.php'
 
 " DEOPLETE 
 let g:deoplete#enable_at_startup = 1

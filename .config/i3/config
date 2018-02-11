@@ -114,6 +114,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # default workspaces for applications
 assign [class="Firefox"] $ws3
+for_window [title="video0 - mpv"] floating enable
+for_window [title="video0 - mpv"] sticky enable
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE

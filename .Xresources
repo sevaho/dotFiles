@@ -73,9 +73,6 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! font
 URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
-st.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
-
-st.opacity:      255
 
 URxvt.letterSpace: -1
 

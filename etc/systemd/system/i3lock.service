@@ -1,0 +1,12 @@
+[Unit]
+Description=lockscreen
+Before=sleep.target
+
+[Service]
+User=sevaho
+Type=forking
+Environment=DISPLAY=:0 
+ExecStart=/home/sevaho/.config/i3/i3lock.sh
+
+[Install]
+WantedBy=sleep.target

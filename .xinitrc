@@ -3,8 +3,6 @@ xset dpms 0 0 0 && xset s noblank && xset s off
 
 xrdb ~/.Xresources
 
-dbus-update-activation-environment --systemd DISPLAY
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+# dbus-update-activation-environment --systemd DISPLAY
 
 exec i3

@@ -487,7 +487,8 @@ animation-charging-framerate = 750
 
 [module/volume]
 
-type = internal/volume
+; type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = ♪
