@@ -38,8 +38,6 @@ banner_info () {
 
 }
 
-banner_info
-
 if [[ -n "$SSH_CONNECTION" ]] ; then 
 
     banner_info
