@@ -27,7 +27,10 @@ declare -a SERVER_FILES_ONLY=(
     $DIR/.tmux.conf
     $DIR/.vimrc
     $DIR/.oh-my-zsh
-    $DIR/.config
+    $DIR/.config/htop
+    $DIR/.config/nvim
+    $DIR/.config/ranger
+    $DIR/.config/flake8
 
 )
 

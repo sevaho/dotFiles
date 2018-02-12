@@ -263,6 +263,11 @@ ssh_VMServer () {
     ssh localhost -p 2203
 
 }
+ssh_wgop () {
+
+    ssh wg-operations
+
+}
 
 remoteWindows () {
 

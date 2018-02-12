@@ -1,23 +1,6 @@
 [general]
 status_path = "~/.vdirsyncer/status/"
 
-# [pair samen]
-# a = "samen_local"
-# b = "samen_remote"
-# collections = ["from a", "from b"]
-# metadata = ["color"]
-#
-# [storage samen_local]
-# type = "filesystem"
-# path = "~/.calendars/"
-# fileext = ".ics"
-#
-# [storage samen_remote]
-# type = "caldav"
-# url = "https://next.sevaho.io/remote.php/dav/calendars/sevaho/samen/"
-# username.fetch = ["command", "pass", "nextcloud/user"]
-# password.fetch = ["command", "pass", "nextcloud/pass"]
-
 [pair sevaho]
 a = "sevaho_local"
 b = "sevaho_remote"
@@ -32,6 +15,6 @@ fileext = ".ics"
 [storage sevaho_remote]
 type = "caldav"
 
-url = "https://next.sevaho.io/remote.php/dav/calendars/sevaho/"
+url.fetch = ["command", "pass", "nextcloud/url"]
 username.fetch = ["command", "pass", "nextcloud/user"]
 password.fetch = ["command", "pass", "nextcloud/pass"]
