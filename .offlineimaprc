@@ -1,7 +1,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = gmail,hotmail,hogent,sevaho.com,sevaho.io
+accounts = gmail,hotmail,hogent,sevaho.com,sevaho.io,wegroup
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -131,6 +131,60 @@ folderfilter = lambda folder: folder not in [
 
     ]
 
+# -----------------------------------------------------------------------------------------------------------------------------
+# WEGROUP
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[Account wegroup]
+
+localrepository = local-wegroup
+remoterepository = remote-wegroup
+
+[Repository local-wegroup]
+
+type = Maildir
+localfolders = ~/.mail/wegroup
+nametrans = lambda folder: {
+
+    'inbox':   'INBOX',
+    'sent':    '[Gmail]/Verzonden berichten',
+    'drafts':  '[Gmail]/Drafts',
+    'spam':    '[Gmail]/Spam',
+    'bin':     '[Gmail]/Prullenbak',
+
+    }.get(folder, folder)
+
+[Repository remote-wegroup]
+
+type = Gmail
+remoteusereval = get_pass("wegroup/mail/user")
+remotepasseval = get_pass("wegroup/mail/pass")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+realdelete = no
+
+nametrans = lambda folder: {
+
+    '[Gmail]/Drafts':    'drafts',
+    '[Gmail]/Verzonden berichten': 'sent',
+    '[Gmail]/Spam':      'spam',
+    '[Gmail]/Prullenbak':       'bin',
+    'INBOX':     'inbox',
+
+    }.get(folder, folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    '[Gmail]/Junk',
+    '[Gmail]/Important',
+    '[Gmail]/Starred',
+    '[Gmail]/All Mail'
+    '[Gmail].All Mail'
+    'flagged'
+    'archive'
+    'Archive'
+
+    ]
 # -----------------------------------------------------------------------------------------------------------------------------
 # GMAIL
 # -----------------------------------------------------------------------------------------------------------------------------

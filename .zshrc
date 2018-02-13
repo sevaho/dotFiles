@@ -62,13 +62,23 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export LFS="/mnt/lfs"
 export ZSH=~/.oh-my-zsh
 export TMOUT=9600
-export TERM="tmux-256color"
 export PAGER=less
-export EDITOR="nvim"
 export BROWSER="qutebrowser"
 export RTV_BROWSER="w3m"
 export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin
 export GOPATH=~/.go
+
+if [[ -n "$SSH_CONNECTION" ]] ; then 
+
+    export TERM="xterm"
+    export EDITOR="vim"
+
+else
+
+    export TERM="tmux-256color"
+    export EDITOR="nvim"
+
+fi
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL
@@ -92,7 +102,17 @@ source $ZSH/oh-my-zsh.sh
 # ALIASES
 # -----------------------------------------------------------------------------------------------------------------------------
 
-alias ra='ranger'
+if [[ -n "$SSH_CONNECTION" ]] ; then 
+
+    alias v='vim'
+
+else
+
+    alias vim='nvim'
+    alias v='nvim'
+
+fi
+
 alias rt='rtorrent'
 alias gpom="git push origin master"
 alias gits="git status"
@@ -117,7 +137,6 @@ alias music='echo "press enter to play" && mocp -n -T alldefault'
 alias video='mpv'
 alias reddit='rtv --enable-media'
 alias rtv='rtv --enable-media'
-alias vim='nvim'
 alias sudo='sudo '
 alias df='dfc -T'
 alias ll='ls -latrFi'
@@ -132,7 +151,6 @@ alias mp3="youtube-dl --extract-audio --audio-format mp3"
 
 alias l='ls -latrFi'
 alias r='ranger'
-alias v='nvim'
 alias e='emacs -nw'
 alias i='feh --geometry 400x400'
 alias m='mutt'
@@ -160,7 +178,7 @@ alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# KUBERNETES
+# KUBERNETES & GCLOUD
 # -----------------------------------------------------------------------------------------------------------------------------
 
 if [ $commands[kubectl] ]; then
@@ -173,6 +191,7 @@ fi
 # FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
+# calendar
 c () {
 
     vdirsyncer sync
@@ -237,6 +256,26 @@ gitquick () {
 
 }
 
+wifiscan () {
+
+    sudo iw dev wlp4s0 scan
+    printf "\x1b[36;1m  SSID\n\n" 
+    sudo iw dev wlp4s0 scan | grep SSID
+
+}
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# SERVERS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+remoteWindows () {
+
+    WINDOWS_SERVER_PASS=$(pass windows/pass)
+    ssh -fL 3389:192.168.0.3:3389 sevahoSSHServer sleep 5
+    xfreerdp /v:localhost /port:3389 /u:Administrator /p:"$WINDOWS_SERVER_PASS" /w:1700 /h:900
+
+}
+
 ssh_SSHServer () {
 
     ssh sevahoSSHServer
@@ -263,24 +302,24 @@ ssh_VMServer () {
     ssh localhost -p 2203
 
 }
+
+# WORK ----
+
 ssh_wgop () {
 
-    ssh wg-operations
+    gcloud compute ssh wg-operations
 
 }
 
-remoteWindows () {
+ssh_wgweb () {
 
-    ssh -fL 3389:192.168.0.6:3389 sevahoSSHServer sleep 5
-    xfreerdp /v:localhost /port:3389 /u:vagrant /p:vagrant /w:900 /h:768
+    gcloud compute ssh wg-srv-web
 
 }
 
-wifiscan () {
+ssh_wgwbn () {
 
-    sudo iw dev wlp4s0 scan
-    printf "\x1b[36;1m  SSID\n\n" 
-    sudo iw dev wlp4s0 scan | grep SSID
+    gcloud compute ssh wbn-node
 
 }
 
