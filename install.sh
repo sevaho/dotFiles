@@ -21,13 +21,18 @@ declare -A FILES_TO_IGNORE=(
 
 )
 
-declare -a SERVER_FILES_ONLY=(
+declare -a SERVER_FILES_ONLY_HOME_DIR=(
 
     $DIR/.zshrc
     $DIR/.tmux.conf
     $DIR/.vimrc
     $DIR/.vim
     $DIR/.oh-my-zsh
+
+)
+
+declare -a SERVER_FILES_ONLY_CONFIG=(
+
     $DIR/.config/htop
     $DIR/.config/ranger
     $DIR/.config/flake8
@@ -61,10 +66,17 @@ copy_dotFiles () {
 
 copy_dotFiles_server () { 
 
-    for f in "${SERVER_FILES_ONLY[@]}"; do
+    for f in "${SERVER_FILES_ONLY_HOME_DIR[@]}"; do
 
         echo "$f"
         cp -vrf "$f" "$HOME/"
+
+    done
+
+    for f in "${SERVER_FILES_ONLY_CONFIG[@]}"; do
+
+        echo "$f"
+        cp -vrf "$f" "$HOME/.config/"
 
     done
 
