@@ -204,7 +204,6 @@ main () {
 
         download_git_repo
         copy_dotFiles_server
-        download_git_program_templates
         post_installs
         post_server_installs
 
