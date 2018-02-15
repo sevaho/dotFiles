@@ -113,6 +113,7 @@ set shiftround                                  " rounds indent to a multiple of
 set tags=./tags;
 set splitright
 set splitbelow
+set paste
 
 " -----------------------------------------------------------------------------------------------------------------------------
 " COLORS
