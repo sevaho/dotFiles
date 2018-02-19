@@ -32,6 +32,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     Plug 'alvan/vim-closetag'                                           " autoclose html tags
 
+    Plug 'chr4/nginx.vim'
+
     Plug 'w0rp/ale'                                                     " linting flake8 for python
 
     Plug 'dikiaap/minimalist'                                           " theme

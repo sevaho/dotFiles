@@ -75,7 +75,7 @@ if [[ -n "$SSH_CONNECTION" ]] ; then
 
 else
 
-    export TERM="tmux-256color"
+    export TERM="xterm-256color"
     export EDITOR="nvim"
 
 fi
@@ -95,7 +95,7 @@ setopt EXTENDED_GLOB
 # -----------------------------------------------------------------------------------------------------------------------------
 
 ZSH_THEME="powerzeesh"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting tmux fossil vi-mode pyenv python)  
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode pyenv python)  
 source $ZSH/oh-my-zsh.sh
 
 # -----------------------------------------------------------------------------------------------------------------------------
