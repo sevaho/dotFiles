@@ -1,36 +1,45 @@
+# vim:ft=dosini
+
 [general]
-    status_path = "~/.vdirsyncer/status/"
+
+status_path = "~/.vdirsyncer/status/"
 
 [pair sevaho]
-    a = "sevaho_local"
-    b = "sevaho_remote"
-    collections = ["sevaho", "samen", "personal_shared_by_sofie"]
-    metadata = ["color"]
+
+a = "sevaho_local"
+b = "sevaho_remote"
+collections = ["sevaho", "samen", "personal_shared_by_sofie"]
+metadata = ["color"]
 
 [storage sevaho_local]
-    type = "filesystem"
-    path = "~/.calendars/"
-    fileext = ".ics"
+
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
 
 [storage sevaho_remote]
-    type = "caldav"
-    url.fetch = ["command", "pass", "nextcloud/url"]
-    username.fetch = ["command", "pass", "nextcloud/user"]
-    password.fetch = ["command", "pass", "nextcloud/pass"]
+
+type = "caldav"
+url.fetch = ["command", "pass", "nextcloud/url"]
+username.fetch = ["command", "pass", "nextcloud/user"]
+password.fetch = ["command", "pass", "nextcloud/pass"]
 
 [pair gmail_calendar]
-    a = "gmail_local"
-    b = "gmail_remote"
-    collections = ["events"]
+
+a = "gmail_local"
+b = "gmail_remote"
+collections = ["events"]
 
 [storage gmail_local]
-    type = "filesystem"
-    path = "~/.calendars/"
-    fileext = ".ics"
+
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
 
 [storage gmail_remote]
-    type = "caldav"
-    url.fetch = ["command", "pass", "wegroup/mail/url"]
-    username.fetch = ["command", "pass", "wegroup/mail/user"]
-    password.fetch = ["command", "pass", "wegroup/mail/pass"]
-    read_only = true
+
+type = "caldav"
+url.fetch = ["command", "pass", "wegroup/mail/url"]
+username.fetch = ["command", "pass", "wegroup/mail/user"]
+password.fetch = ["command", "pass", "wegroup/mail/pass"]
+read_only = true

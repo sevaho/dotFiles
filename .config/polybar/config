@@ -246,33 +246,33 @@ type = internal/bspwm
 format = <label-state>
 
 label-focused-occupied = 
-label-focused-occupied-foreground = ${colors.nord6}
-label-focused-occupied-background = ${colors.nord8}
+label-focused-occupied-foreground = ${colors.color15}
+label-focused-occupied-background = ${colors.color5}
 label-focused-occupied-padding = 1
 
 label-focused-urgent = 
-label-focused-urgent-foreground = ${colors.nord6}
-label-focused-urgent-background = ${colors.nord8}
+label-focused-urgent-foreground = ${colors.color10}
+label-focused-urgent-background = ${colors.color15}
 label-focused-urgent-padding = 1
 
 label-focused-empty = 
-label-focused-empty-foreground = ${colors.nord6}
-label-focused-empty-background = ${colors.nord8}
+label-focused-empty-foreground = ${colors.color9}
+label-focused-empty-background = ${colors.color11}
 label-focused-empty-padding = 1
 
 label-occupied = 
-label-occupied-foreground = ${colors.nord1}
-label-occupied-background = ${colors.nord8}
+label-occupied-foreground = ${colors.color12}
+label-occupied-background = ${colors.color1}
 label-occupied-padding = 1
 
 label-urgent = 
-label-urgent-foreground = ${colors.nord13}
-label-urgent-background = ${colors.nord8}
+label-urgent-foreground = ${colors.color1}
+label-urgent-background = ${colors.color11}
 label-urgent-padding = 1
 
 label-empty = 
-label-empty-foreground = ${colors.nord1}
-label-empty-background = ${colors.nord8}
+label-empty-foreground = ${colors.color10}
+label-empty-background = ${colors.color5}
 label-empty-padding = 1
 
 [module/wlan]

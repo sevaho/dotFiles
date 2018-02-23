@@ -65,7 +65,7 @@ export TMOUT=9600
 export PAGER=less
 export BROWSER="qutebrowser"
 export RTV_BROWSER="w3m"
-export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin:/opt/google-cloud-sdk/bin
 export GOPATH=~/.go
 
 if [[ -n "$SSH_CONNECTION" ]] ; then 
@@ -153,11 +153,10 @@ alias l='ls -latrFi'
 alias r='ranger'
 alias e='emacs -nw'
 alias i='feh --geometry 400x400'
-alias m='mutt'
+alias m='neomutt'
 alias o='cd /run/media/$USER/'
 alias n='/usr/bin/newsboat'
 alias t="tree"
-alias s="sway"
 alias p="python"
 
 ## nmap
@@ -176,16 +175,6 @@ alias nmap_full_udp="nmap -sS -sU -T4 -A -v -PE -PS22,25,80 -PA21,23,80,443,3389
 alias nmap_traceroute="nmap -sP -PE -PS22,25,80 -PA21,23,80,3389 -PU -PO --traceroute "
 alias nmap_full_with_scripts="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS21,22,23,25,80,113,31339 -PA80,113,443,10042 -PO --script all " 
 alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# KUBERNETES & GCLOUD
-# -----------------------------------------------------------------------------------------------------------------------------
-
-if [ $commands[kubectl] ]; then
-
-  source <(kubectl completion zsh)
-
-fi
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # FUNCTIONS
@@ -264,6 +253,27 @@ wifiscan () {
 
 }
 
+pull () {
+
+    for i in *; do
+
+        printf "\x1b[36;1m\n" 
+        echo "-> checking $i"
+
+        if test -n "$(git -C $i status --porcelain --ignore-submodules)"; then
+
+            printf "\x1b[31;1m" 
+            echo "=====>> \tdirty repo: $i"
+
+        fi
+
+        printf "\x1b[38;0m\n" 
+        git -C $i pull
+
+    done
+
+}
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # SERVERS
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -307,19 +317,19 @@ ssh_VMServer () {
 
 ssh_wgop () {
 
-    gcloud compute ssh wg-operations
+    ssh wg-op
 
 }
 
 ssh_wgweb () {
 
-    gcloud compute ssh wg-srv-web
+    ssh wg-web
 
 }
 
 ssh_wgwbn () {
 
-    gcloud compute ssh wbn-node
+    ssh wg-wbn
 
 }
 
@@ -328,3 +338,19 @@ ssh_wgwbn () {
 # -----------------------------------------------------------------------------------------------------------------------------
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# KUBERNETES
+# -----------------------------------------------------------------------------------------------------------------------------
+
+if [ $commands[kubectl] ]; then
+
+    source <(kubectl completion zsh)
+
+fi
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# GCLOUD
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc

@@ -1,13 +1,14 @@
 #! /bin/sh
 
 # Launch sxhkd
-sxhkd &
 
 # Launch redshift with coordinates for Pune
 redshift &
 
 # Launch polybar
-polybar nord &
+polybar mybar &
+
+feh --bg-scale ~/Pictures/wallpapers/reddit_mountains2.jpeg
 
 bspc monitor -d I II III IV V VI VII
 
