@@ -14,6 +14,11 @@ if [[ $HOST == "sevahoDesktop" ]]; then
     polybar mid &
     polybar right &
 
+elif xrandr | grep HDMI; then 
+
+    polybar mybar &
+    polybar mybar-right &
+
 else
 
     polybar mybar &

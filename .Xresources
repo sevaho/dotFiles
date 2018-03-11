@@ -2,38 +2,20 @@
 ! ROFI COLORS
 ! -----------------------------------------------------------------------------------------------------------------------------
 
-! enable all colors
 rofi.color-enabled:     true
 
-! color scheme for normal row
 rofi.color-normal:      argb:00000000,  #D8DEE9 , argb:00000000,  #536a70  ,  #1B2B34
-
-! color scheme for urgent row
 rofi.color-urgent:      argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
-
-! color scheme for active row
 rofi.color-active:      argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
-
-! color scheme window
-!rofi.color-window:      argb:ee222222,  #536a70  ,  #536a70 
-rofi.color-window: argb:c71d2226, #536a70, #536a70
-
-! separator style (none, dash, solid)
-!rofi.separator-style:   solid
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-! rofi.color-normal: #0015262c, #ECB3FF, #0015262c, #ECB3FF, #182e3e
-! rofi.color-active: #0015262c, #38acd6, #0015262c, #38acd6, #15262c
-! rofi.color-urgent: #0015262c, #dc322f, #005262c, #dc322f, #15262c
+rofi.color-window:      argb:c71d2226,  #536a70,  #536a70
 
 rofi.hide-scrollbar: 	true
 rofi.font:  			Hack 9
 rofi.separator-style:   solid
-rofi.bw: 			2
-rofi.widht: 5000
-rofi.columns:		1
-rofi.sidebar-mode:  true
+rofi.bw: 			    2
+rofi.widht:             5000
+rofi.columns:		    1
+rofi.sidebar-mode:      true
 
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
@@ -61,6 +43,7 @@ URxvt.urlLauncher: xdg-open
 URxvt.urlButton: 1
 URxvt.underlineURLs: True
   
+URxvt.internalBorder: 6
 URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand:  xsel -o -selection clipboard
 URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font
