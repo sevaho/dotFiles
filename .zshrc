@@ -203,30 +203,6 @@ ww () {
 
 }
 
-tsm-clearcompleted () {
-
-    transmission-remote -l | grep 100% | grep Done | awk '{print $1}' | xargs -n 1 -I % transmission-remote -t % -r
-
-}
-
-tsm () { 
-    
-    transmission-remote --list 
-
-}
-
-tsmw () { 
-    
-    watch transmission-remote --list 
-
-}
-
-tsm-purge () { 
-
-    transmission-remote -t"$1" --remove-and-delete 
-
-}
-
 gitquick () {
 
     if [[ $1 = "" ]]; then
@@ -269,6 +245,18 @@ pull () {
 
         printf "\x1b[38;0m\n" 
         git -C $i pull
+
+    done
+
+}
+
+git_clone_all_server () {
+
+    for repo in $(ssh sevahoFileServer ls /data/Git); do
+
+        echo $repo
+        git clone ssh://sevaho@localhost:2202/data/Git/$repo
+
 
     done
 
@@ -323,18 +311,6 @@ ssh_VMServer () {
 ssh_wgop () {
 
     ssh wg-op
-
-}
-
-ssh_wgweb () {
-
-    ssh wg-web
-
-}
-
-ssh_wgwbn () {
-
-    ssh wg-wbn
 
 }
 
