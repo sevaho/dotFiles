@@ -13,51 +13,52 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-	Plug 'vim-airline/vim-airline'                                      " airline
-	Plug 'vim-airline/vim-airline-themes'                               " airline themes
-
-	Plug 'scrooloose/nerdtree'                                          " nerdtree
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " nerdtree colors
-	Plug 'Xuyuanp/nerdtree-git-plugin'                                  " nerdtree git
-
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'dhruvasagar/vim-table-mode'
+    Plug 'vim-airline/vim-airline'                                      " airline
+    Plug 'vim-airline/vim-airline-themes'                               " airline themes
+    
+    Plug 'scrooloose/nerdtree'                                          " nerdtree
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " nerdtree colors
+    Plug 'Xuyuanp/nerdtree-git-plugin'                                  " nerdtree git
+    
     Plug 'majutsushi/tagbar'                                            
-
+    
     Plug 'qpkorr/vim-bufkill'
-
+    
     Plug 'PProvost/vim-ps1'                                             " powershell syntax colors
     Plug 'lervag/vimtex'                                                " tex syntax colors
     Plug 'jwalton512/vim-blade'                                         " blade syntax colors
-
+    
     Plug 'tomtom/tcomment_vim'                                          " commenting with g <
-
+    
     Plug 'alvan/vim-closetag'                                           " autoclose html tags
-
+    
     Plug 'chr4/nginx.vim'
-
+    
     Plug 'w0rp/ale'                                                     " linting flake8 for python
-
+    
     Plug 'dikiaap/minimalist'                                           " theme
     Plug 'mhinz/vim-signify'                                            " vcs tracker for Fossil fe.
     Plug 'mhinz/vim-startify'                                           " nice start page
-
+    
     Plug 'Yggdroot/indentLine'                                          " indent
     Plug 'airblade/vim-gitgutter'                                       " gitgutter
-
+    
     Plug 'Shougo/neosnippet'                                            " snippets
-
+    
     Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }                     " smart way to handle buffers and windows on deletion
     Plug 'donRaphaco/neotex', { 'for': 'tex' }                          " live edit tex files
-
+    
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
+    
     Plug 'zchee/deoplete-jedi'                                          " autocomplete python
     Plug 'zchee/deoplete-clang'                                         " autocomplete C / C++
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }    " autocomplete js 
     Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
     Plug 'zchee/deoplete-go', { 'do': 'make'}
-    " Plug 'shawncplus/phpcomplete.vim'                                   " autocomplete php
     Plug 'Shougo/neopairs.vim'
-
+    
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call plug#end()
