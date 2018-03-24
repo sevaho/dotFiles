@@ -76,6 +76,9 @@ Thumbs.db
 .config/ranger/history
 bookmarks
 .netrwhist
+
+history
+cookie
 pid
 __pycache__
 

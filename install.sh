@@ -18,6 +18,7 @@ declare -A FILES_TO_IGNORE=(
     [$DIR/README.md]=1  
     [$DIR/install.sh]=1  
     [$DIR/.git]=1  
+    [$DIR/.config]=1  
 
 )
 
@@ -59,6 +60,12 @@ copy_dotFiles () {
     for f in $DIR/*; do
 
         [[ -n "${FILES_TO_IGNORE[$f]}" ]] || ln -vsf "$f" "$HOME/"
+
+    done
+
+    for f in $DIR/.config/*; do
+
+        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || ln -vsf "$f" "$HOME/.config/"
 
     done
 
