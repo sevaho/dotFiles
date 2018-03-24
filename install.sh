@@ -7,7 +7,7 @@ shopt -s dotglob
 # GLOBAL VARIABLES
 # -----------------------------------------------------------------------------------------------------------------------------
 
-DIR="/tmp/dotFiles"
+DIR="$HOME/.dotFiles"
 
 declare -A FILES_TO_IGNORE=( 
 
@@ -58,7 +58,7 @@ copy_dotFiles () {
 
     for f in $DIR/*; do
 
-        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || cp -vrf "$f" "$HOME/"
+        [[ -n "${FILES_TO_IGNORE[$f]}" ]] || ln -vsf "$f" "$HOME/"
 
     done
 
@@ -69,14 +69,14 @@ copy_dotFiles_server () {
     for f in "${SERVER_FILES_ONLY_HOME_DIR[@]}"; do
 
         echo "$f"
-        cp -vrf "$f" "$HOME/"
+        ln -vsf "$f" "$HOME/"
 
     done
 
     for f in "${SERVER_FILES_ONLY_CONFIG[@]}"; do
 
         echo "$f"
-        cp -vrf "$f" "$HOME/.config/"
+        ln -vsf "$f" "$HOME/.config/"
 
     done
 
@@ -195,9 +195,6 @@ main () {
         download_git_program_templates
         post_installs
 
-        echo "removing $DIR"
-        rm -rf $DIR
-
     elif [[ $ANSWER = "S"  || $ANSWER = "s" ]]; then
 
         rm -vrf $DIR
@@ -206,9 +203,6 @@ main () {
         copy_dotFiles_server
         post_installs
         post_server_installs
-
-        echo "removing $DIR"
-        rm -rf $DIR
 
     else
 
