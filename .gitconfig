@@ -1,5 +1,6 @@
 [user]
 	emal = sebastiaan@sevaho.io
 	name = sevaho
+	email = sebastiaan@sevaho.io
 [core]
 	editor = nvim

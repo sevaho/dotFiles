@@ -35,7 +35,7 @@ schedule = untied_directory,5,5,stop_untied=
 # session = ~/.cache/rtorrent
 
 # Download path (incomplete)
- directory = /home/sevaho/Downloads
+ directory = ~/Downloads
 
 # Download path (finished)
 #system.method.set_key = event.download.finished,move_complete,"set_directory=/storage/data/torrents/;execute=mv,-u,$d.get_base_path=,/storage/data/torrents/"

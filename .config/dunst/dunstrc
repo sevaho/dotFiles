@@ -25,26 +25,26 @@ frame_color = "#676E7D"
 separator_color = frame 
 startup_notification = true
 frame_width = 2
+notification_height = 100
 
 [shortcuts]
 
 close_all = mod4+backslash
-history = mod4+grave
 
 [urgency_low]
 
 background = "#2e3440"
 foreground = "#788f9e"
-timeout = 7
+timeout = 9
 
 [urgency_normal]
 
 background = "#2e3440"
 foreground = "#f3f4f5"
-timeout = 7 
+timeout = 9
 
 [urgency_critical]
 
 background = "#2e3440"
 foreground = "#E53935"
-timeout = 10
+timeout = 12

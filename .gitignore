@@ -82,3 +82,24 @@ cookie
 pid
 __pycache__
 
+pubring.kbx
+pubring.kbx~
+trustdb.gpg
+node_modules
+package-lock.json
+openpgp-revocs.d
+private-keys-v1.d
+random_seed
+last_directory
+sockets.target.wants
+.moc/last_directory
+last_directory
+apts
+notes
+todo
+themes
+
+uuid
+.uuid
+*bariol*
+.moc/playlist.m3u

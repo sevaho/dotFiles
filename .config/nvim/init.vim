@@ -12,7 +12,7 @@
 " -----------------------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.local/share/nvim/plugged')
-
+    Plug 'tpope/vim-surround'
     Plug 'HerringtonDarkholme/yats.vim'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'vim-airline/vim-airline'                                      " airline
@@ -50,6 +50,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }                     " smart way to handle buffers and windows on deletion
     Plug 'donRaphaco/neotex', { 'for': 'tex' }                          " live edit tex files
     
+    Plug 'wokalski/autocomplete-flow'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     
     Plug 'zchee/deoplete-jedi'                                          " autocomplete python

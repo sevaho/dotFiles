@@ -46,9 +46,11 @@ URxvt.underlineURLs: True
 URxvt.internalBorder: 6
 URxvt.copyCommand:  xsel -b -selection clipboard
 URxvt.pasteCommand:  xsel -o -selection clipboard
-URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font
+URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font, tabbed
 
 ! keybindings
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy
 URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard

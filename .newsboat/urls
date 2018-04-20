@@ -1,8 +1,0 @@
-"query:Unread Articles:unread = \"yes\""
-http://isc.sans.edu/rssfeed.xml
-http://www.reddit.com/r/netsec/.rss
-https://www.exploit-db.com/rss.xml
-http://www.securityfocus.com/rss/vulnerabilities.xml
-http://www.securityfocus.com/rss/news.xml
-https://news.hitb.org/rss.xml
-https://www.wired.com/feed/category/security/latest/rss

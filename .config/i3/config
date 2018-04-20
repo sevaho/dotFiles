@@ -162,7 +162,6 @@ client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color     
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always feh  --bg-scale ~/.config/i3/wallpaper.jpg
-exec nm-applet
 exec compton -f --config ~/.config/compton.conf -b
 exec xset -b
 exec redshift

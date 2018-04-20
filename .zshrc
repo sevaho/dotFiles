@@ -66,6 +66,7 @@ export PAGER=less
 export BROWSER="qutebrowser"
 export RTV_BROWSER="w3m"
 export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin:/opt/google-cloud-sdk/bin
+export fpath=($HOME/.zsh-completions $fpath)
 export GOPATH=~/.go
 
 if [[ -n "$SSH_CONNECTION" ]] ; then 
@@ -116,9 +117,10 @@ fi
 alias rt='rtorrent'
 alias gpom="git push origin master"
 alias gits="git status"
-alias gc="git clone"
+alias gc="git checkout"
+alias gp="git pull"
 alias gda="git diff -a"
-alias docka="sudo docker run --rm -it alpine sh"
+alias docka="docker run --rm -it alpine sh"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
 alias du='du -sh *' 
 alias df='df -kTh'
@@ -158,6 +160,7 @@ alias o='cd /run/media/$USER/'
 alias n='/usr/bin/newsboat'
 alias t="tree"
 alias p="python"
+alias s="slack-term"
 
 ## nmap
 
@@ -217,7 +220,7 @@ gitquick () {
 
     git add .
     git commit -m "$string"
-    git push origin master
+    git push origin
 
 }
 
@@ -262,11 +265,6 @@ git_clone_all_server () {
 
 }
 
-deploy () {
-
-    cp -vrf ~/gitlab/deploy.sh .
-}
-
 # -----------------------------------------------------------------------------------------------------------------------------
 # SERVERS
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -288,21 +286,21 @@ ssh_SSHServer () {
 ssh_BuildServer () {
 
     ssh -fL 2201:192.168.0.4:22 sevahoSSHServer sleep 5
-    ssh localhost -p 2201
+    ssh sevaho@localhost -p 2201
 
 }
 
 ssh_FileServer () {
 
     ssh -fL 2202:192.168.0.5:22 sevahoSSHServer sleep 5
-    ssh localhost -p 2202
+    ssh sevaho@localhost -p 2202
 
 }
 
 ssh_CCServer () {
 
     ssh -fL 2203:192.168.0.6:22 sevahoSSHServer sleep 5
-    ssh localhost -p 2203
+    ssh sevaho@localhost -p 2203
 
 }
 
@@ -311,6 +309,12 @@ ssh_CCServer () {
 ssh_wgop () {
 
     ssh wg-op
+
+}
+
+ssh_wgbuild () {
+
+    ssh wg-build
 
 }
 
