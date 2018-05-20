@@ -1,0 +1,30 @@
+# vim: ft=conf
+
+browser                     w3m
+always-display-description  true
+show-read-feeds             no
+show-read-articles          no
+auto-reload                 yes
+cleanup-on-quit             yes
+display-article-progress    yes
+show-read-feeds             yes
+
+articlelist-format          "%4i %f %D %6L %?T?|%-17T| ?%t"
+feedlist-format             "%4i %n %11u %t"
+
+keep-articles-days          7
+reload-time                 30
+download-timeout            30
+
+
+color listnormal          default   default
+color listfocus           black     blue        bold
+color listnormal_unread   green     default
+color listfocus_unread    black     blue        bold
+color info                yellow    default     bold
+color article             white     default
+
+bind-key j down
+bind-key k up
+bind-key J next-feed
+bind-key K prev-feed

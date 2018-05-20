@@ -103,3 +103,5 @@ uuid
 .uuid
 *bariol*
 .moc/playlist.m3u
+.gnupg/*
+.gnupg

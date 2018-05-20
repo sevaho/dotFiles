@@ -47,7 +47,7 @@ bindsym $mod+f              fullscreen  toggle
 bindsym $mod+Shift+space    floating    toggle
 bindsym $mod+space          focus       mode_toggle
 
-bindsym $mod+Shift+c        reload
+# bindsym $mod+Shift+c        reload
 bindsym $mod+Shift+r        restart
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -63,8 +63,8 @@ bindsym Print               exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M
 bindsym $mod+F1             exec amixer -D pulse set Master toggle
 bindsym $mod+F2             exec amixer -D pulse set Master 5%-
 bindsym $mod+F3             exec amixer -D pulse set Master 5%+
-bindsym $mod+Shift+p              exec mocp -r
-bindsym $mod+Shift+n              exec mocp -f
+bindsym $mod+Shift+p        exec mocp -r
+bindsym $mod+Shift+n        exec mocp -f
 
 
 # -----------------------------------------------------------------------------------------------------------------------------

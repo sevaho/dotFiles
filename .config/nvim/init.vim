@@ -39,6 +39,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'w0rp/ale'                                                     " linting flake8 for python
     
     Plug 'dikiaap/minimalist'                                           " theme
+
+    Plug 'NLKNguyen/papercolor-theme'
     Plug 'mhinz/vim-signify'                                            " vcs tracker for Fossil fe.
     Plug 'mhinz/vim-startify'                                           " nice start page
     
@@ -50,7 +52,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }                     " smart way to handle buffers and windows on deletion
     Plug 'donRaphaco/neotex', { 'for': 'tex' }                          " live edit tex files
     
-    Plug 'wokalski/autocomplete-flow'
+    " Plug 'wokalski/autocomplete-flow'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     
     Plug 'zchee/deoplete-jedi'                                          " autocomplete python
@@ -182,6 +184,7 @@ set splitbelow
 " -----------------------------------------------------------------------------------------------------------------------------
 
 colorscheme minimalist
+" colorscheme PaperColor
 
 hi SpellBad ctermfg=1 ctermbg=234
 hi SpellCap ctermfg=1 ctermbg=234
@@ -283,6 +286,22 @@ fun! AutoCmd_python()
     nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 endf
 
+" pressing F9 compiles python in vim and outputs to buffer
+autocmd FileType go call AutoCmd_go()
+fun! AutoCmd_go()
+    nnoremap <buffer> <F9> :exec '!go run' shellescape(@%, 1)<cr>
+endf
+
+autocmd FileType scss call AutoCmd_scss()
+fun! AutoCmd_scss()
+    nnoremap <buffer> <F9> :exec '!sassc app.scss > app.css'<cr>
+endf
+
+autocmd FileType javascript call AutoCmd_js()
+fun! AutoCmd_js()
+    nnoremap <buffer> <F9> :exec '!node' shellescape(@%, 1)<cr>
+endf
+
 " remember cursor position between vim sessions
 autocmd BufReadPost *
             \ if line("'\'") > 0 && line ("'\"") <= line("$") |
@@ -313,3 +332,5 @@ autocmd FileType tex let g:neotex_enabled = 3
 
 autocmd BufRead,BufNewFile *.conf setf cfg 
 autocmd BufRead,BufNewFile config setf cfg 
+
+au BufNewFile,BufRead *.ejs set filetype=html

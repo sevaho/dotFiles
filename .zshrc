@@ -114,6 +114,9 @@ else
 
 fi
 
+alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1"
+alias password32="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1"
+alias password64="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1"
 alias rt='rtorrent'
 alias gpom="git push origin master"
 alias gits="git status"
@@ -132,7 +135,6 @@ alias moew='more'
 alias kk='ll'
 alias more='less'
 alias L='less'
-alias bat='acpi -b | cut -d " " -f4,5 | sed 's/,//''
 alias browse='w3m -F -graph -o auto_image=TRUE'
 alias imageburner='etcher'
 alias music='echo "press enter to play" && mocp -n -T alldefault'
@@ -350,4 +352,4 @@ fi
 # MISC
 # -----------------------------------------------------------------------------------------------------------------------------
 
-source ~/.goodies.zsh
+# source ~/.goodies.zsh

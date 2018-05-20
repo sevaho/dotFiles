@@ -3,7 +3,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = gmail,hotmail,hogent,sevaho.io,wegroup, praestes.be
+accounts = hotmail,gmail,hogent,sevaho.io,wegroup, praestes.be
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -43,8 +43,9 @@ ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 2
 
+
 nametrans = lambda folder: {
-    
+
     'Inbox':    'inbox',
     'Sent':     'sent',
     'Drafts':   'drafts',
