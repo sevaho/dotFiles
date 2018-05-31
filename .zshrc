@@ -185,6 +185,55 @@ alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 # FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
+wificonnect () {
+
+    if [ "$1" = "" ]; then
+
+        echo "specify /etc/wpa_supplicant/<FILE>"
+        return
+
+    fi
+
+    if [ "$(ps aux | grep dhcpcd | wc -l)" -eq 1 ]; then
+
+        sudo dhcpcd
+
+    fi
+
+    if [ "$(ps aux | grep wpa_supplicant | wc -l)" -gt 1 ]; then
+
+        echo "already connected"
+        sudo killall wpa_supplicant
+        sleep 3
+        sudo wpa_supplicant -B -i wlp4s0 -c "$1"
+
+    else
+
+        sudo wpa_supplicant -B -i wlp4s0 -c "$1"
+
+    fi
+
+}
+
+# switch colors
+light () {
+
+    xrdb ~/.colors/.Xresources_light
+    sed -i -e 's/colorscheme minimalist/\" colorscheme minimalist/g' ~/.config/nvim/init.vim
+    sed -i -e 's/\" colorscheme PaperColor/colorscheme PaperColor/g' ~/.config/nvim/init.vim
+    sed -i -e 's/\" colorscheme PaperColor/colorscheme PaperColor/g' ~/.config/nvim/init.vim
+
+}
+
+black () {
+
+    xrdb ~/.colors/.Xresources_black
+    sed -i -e 's/colorscheme PaperColor/\" colorscheme PaperColor/g' ~/.config/nvim/init.vim
+    sed -i -e 's/\" colorscheme minimalist/colorscheme minimalist/g' ~/.config/nvim/init.vim
+    sed -i -e 's/\" colorscheme minimalist/colorscheme minimalist/g' ~/.config/nvim/init.vim
+
+}
+
 # calendar
 c () {
 

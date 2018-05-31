@@ -25,7 +25,7 @@ abbr        try: ... except ...: ...
 options     head
 	try:
 		${1:pass}
-	except ${2:#:ExceptionClass}:
+    except Exception as e:
 		${3:pass}
 
 snippet     imp
@@ -49,6 +49,10 @@ options     head
 
         ${3:#:test}
 
+snippet     tcp
+abbr        tcp
+options     head
+    ${1:server} = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 snippet     testtt
 abbr        bb
 options     head
