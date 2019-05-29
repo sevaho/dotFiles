@@ -5,35 +5,44 @@
 font pango:Hack 9
 
 set $mod    Mod1 
-set $term   termite
+set $term   kitty
 set $menu   dmenu_run -fn 'Hack-9' #rofi -show run -modi run
 set $left   h
 set $down   j
 set $up     k
 set $right  l
 
-#border 0pixel
-hide_edge_borders both
-floating_modifier $mod
+for_window [class="Termite"] border pixel 1
+
+# new_window 1pixel
+# for_window [class="^.*"] border pixel 1
+
+default_border none
+for_window [app_id="nautilus"] border none
+# hide_edge_borders smart
+# popup_during_fullscreen smart
+# floating_modifier $mod
 focus_follows_mouse no
 mouse_warping none
-
-new_window pixel 
-
-hide_edge_borders smart
+#
+# new_window pixel 
+#
+# hide_edge_borders smart
 
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GAPS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-gaps                inner 4
+gaps                inner 1
 gaps                outer 1
 smart_gaps          on
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # KEY BINDS
 # -----------------------------------------------------------------------------------------------------------------------------
+
+bindsym $mod+d              exec rofi -show run -lines 20 -eh 2 -width 100 -padding 800 -font "Hack 10"
 
 bindsym $mod+F1             exec amixer -D pulse set Master toggle
 bindsym $mod+F2             exec amixer -D pulse set Master 5%-
@@ -42,7 +51,6 @@ bindsym $mod+F3             exec amixer -D pulse set Master 5%+
 bindsym $mod+n          split       h
 bindsym $mod+Return     exec        $term       # start a terminal
 bindsym $mod+f4         kill                    # kill focused window
-bindsym $mod+d exec $menu
 bindsym $mod+Shift+x exec ~/.config/i3/i3lock.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -74,7 +82,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+# bindsym $mod+Shift+$right move right
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -149,7 +157,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+s scratchpad show
+    # bindsym $mod+s scratchpad show
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
@@ -186,10 +194,10 @@ set $text-color             #eeeeee
 set $inactive-text-color    #676E7D
 set $urgent-bg-color        #E53935
 
-client.focused          $active-bg-color    $active-bg-color    $active-bg-color      #586e75
-client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
-client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
-client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
+# client.focused          $active-bg-color    $active-bg-color    $active-bg-color      #586e75
+# client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
+# client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #586e75
+# client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color           #586e75
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # BAR
@@ -222,13 +230,17 @@ bar {
 
 output * bg ~/.config/sway/wallpaper.jpg fill
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "1739:0:Synaptics_TM3288-003" {
     
     dwt enabled
     tap enabled
     natural_scroll disabled
-    pointer_accel 0.7
+    pointer_accel 0.2
 
+}
+input "1739:0:Synaptics_TM3288-003" {
+    repeat_rate 300
+    pointer_accel 1 
 }
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -239,5 +251,6 @@ exec udiskie
 exec redshift
 exec dunst
 exec xrdb ~/.Xresources
-exec termite -e "offlineimap"
-exec termite 
+
+exec notify-send "welcome"
+exec kitty

@@ -4,3 +4,11 @@
 	email = sebastiaan@sevaho.io
 [core]
 	editor = nvim
+	pager = less
+	quotepath = false
+[merge]
+	tool = vimdiff
+[diff "sopsdiffer"]
+	textconv = sops -d
+[mergetool]
+	keepBackup = false

@@ -18,6 +18,7 @@ elif xrandr | grep HDMI; then
 
     polybar mybar &
     polybar mybar-right &
+    polybar mybar-left &
 
 else
 

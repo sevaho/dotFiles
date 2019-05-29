@@ -15,32 +15,18 @@ alert           = #bd2c40
 # black
 color0          = #303030
 color8          = #536a70
-
-# red
 color1          = #cb4b16
 color9          = #ba4443
-
-# green
 color2          = #AFD787
 color10         = #98c379 
-
-# yellow        
 color3          = #ffaf5f
 color11         = #e5c07b
-
-# blue
 color4          = #87D7FF
 color12         = #5fafd7
-
-# magent        
 color5          = #cc99cc
 color13         = #b777e0
-
-# cyan
 color6          = #66cccc
 color14         = #2aa198
-
-# white
 color7          = #D8E2E2
 color15         = #ddd6e3
 
@@ -111,13 +97,44 @@ modules-right       = kernel filesystem mail checkforupdates memory cpu temperat
 tray-position       = right
 tray-padding        = 2
 tray-background     = ${colors.background}
+[bar/mybar-left]
+
+width = 100%
+height = 26
+fixed-center = true
+
+monitor="DP-2"
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size   = 2
+line-color  = #f00
+
+border-color = #00000000
+
+padding-right = 1
+
+dim-value = 1
+
+font-0 = Hack::antialias=true:size=10;1
+font-1 = FontAwesome:size=9:dpi=138;2
+
+module-margin-left  = 1
+module-margin-right = 1
+modules-left        = i3 wlan ssid vpn 
+modules-center      = date
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
+
+tray-position       = right
+tray-padding        = 2
+tray-background     = ${colors.background}
 [bar/left]
 
 width = 100%
 height = 26
 fixed-center = true
 
-monitor="DVI-D-0"
+monitor="DP-2"
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -260,9 +277,9 @@ label-urgent		        = %icon%
 label-urgent-foreground	    = #FF5F5F
 label-urgent-padding	    = 1
 
-ws-icon-0		= 1;  
+ws-icon-0		= 1; 
 ws-icon-1		= 2; 
-ws-icon-2		= 3; 
+ws-icon-2		= 3;  
 ws-icon-3		= 4; 
 ws-icon-4		= 5; 
 ws-icon-5		= 6; 

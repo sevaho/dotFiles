@@ -3,6 +3,7 @@
 # -----------------------------------------------------------------------------------------------------------------------------
 
 set $mod Mod1
+set $term kitty
 
 hide_edge_borders both
 floating_modifier $mod
@@ -14,6 +15,25 @@ workspace_layout default
 
 hide_edge_borders smart
 popup_during_fullscreen smart
+
+# opacity 0.1
+# -----------------------------------------------------------------------------------------------------------------------------
+# SCRATPAD
+# -----------------------------------------------------------------------------------------------------------------------------
+
+# Make the currently focused window a scratchpad
+# bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+s        move scratchpad
+bindsym $mod+s scratchpad show
+
+# for_window [instance="scratch_tmux"] floating enable
+# for_window [instance="scratch_tmux"] resize set 700 700
+# for_window [instance="scratch_tmux"] move scratchpad
+# for_window [instance="scratch_tmux"] border pixel 0
+# for_window [instance="scratch_tmux"] sticky enable
+# exec --no-startup-id urxvt -n scratch_tmux
+# bindsym $mod+s [instance="scratch_tmux"] scratchpad show
+#
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL BINDINGS AND MOVEMENTS
@@ -35,10 +55,11 @@ bindsym $mod+Shift+j        move        down
 bindsym $mod+Shift+k        move        up 
 bindsym $mod+Shift+l        move        right
 
+
 bindsym $mod+n              split       h
 bindsym $mod+v              split       v
 
-bindsym $mod+s              layout      stacking
+# bindsym $mod+s              layout      stacking
 bindsym $mod+z              layout      tabbed
 bindsym $mod+e              layout      toggle      split
 
@@ -54,17 +75,26 @@ bindsym $mod+Shift+r        restart
 # EXECUTION
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym $mod+Return         exec urxvt
-bindsym $mod+Shift+Return         exec termite -c "tmux"
-bindsym $mod+d              exec rofi -show run -lines 20 -eh 2 -width 100 -padding 800 -font "Hack 10"
+# bindsym $mod+Return         exec urxvt
+bindsym $mod+Return         exec kitty
+# bindsym $mod+m              exec kitty -e neomutt
+bindsym $mod+Shift+Return   exec kitty
+bindsym $mod+d              exec rofi -show drun -lines 20 -eh 2 -width 100 -padding 800 -font "Hack 10"
+bindsym $mod+p              exec passmenu
+# bindsym $mod+m              exec ~/scripts/notifymail.sh
 bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
+bindsym $mod+Shift+c        exec ~/.colors/change.py
 bindsym Print               exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
 
 bindsym $mod+F1             exec amixer -D pulse set Master toggle
 bindsym $mod+F2             exec amixer -D pulse set Master 5%-
 bindsym $mod+F3             exec amixer -D pulse set Master 5%+
+bindsym $mod+F5             exec light -U 10
+bindsym $mod+F6             exec light -A 10
 bindsym $mod+Shift+p        exec mocp -r
 bindsym $mod+Shift+n        exec mocp -f
+
+bindsym XF86Display         exec ~/scripts/displayselect
 
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -72,14 +102,15 @@ bindsym $mod+Shift+n        exec mocp -f
 # -----------------------------------------------------------------------------------------------------------------------------
 
 gaps                inner 0
-gaps                outer 0
+gaps                outer 1
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # WORKSPACES
 # -----------------------------------------------------------------------------------------------------------------------------
 
-set $ws1  "1: "
-set $ws2  "2: "
+set $ws1  "1: "
+set $ws2  "2: "
+# set $ws3  "3: "
 set $ws3  "3: "
 set $ws4  "4: "
 set $ws5  "5: "
@@ -112,7 +143,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # default workspaces for applications
-assign [class="Firefox"] $ws3
+# assign [class="Firefox"] $ws3
 for_window [title="video0 - mpv"] floating enable
 for_window [title="video0 - mpv"] sticky enable
 
@@ -164,6 +195,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always feh  --bg-scale ~/.config/i3/wallpaper.jpg
 exec compton -f --config ~/.config/compton.conf -b
 exec xset -b
+exec_always xset r rate 200 50
 exec redshift
-exec dunst
-exec udiskie &
+exec_always dunst
+exec_always udiskie
+exec nm-applet &
+# exec --no-startup-id battery-popup -L 10 -n
+exec_always --no-startup-id i3-battery-popup -L 60 -n

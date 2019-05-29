@@ -69,12 +69,13 @@ Thumbs.db
 
 # mutt
 .mutt
-.muttrc
 
 # misc
+.config/ranger/quickmarks
 .config/ranger/bookmarks
 .config/ranger/history
 bookmarks
+quickmarks
 .netrwhist
 
 history

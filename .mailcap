@@ -1,6 +1,6 @@
-text/plain; less %s; copiousoutput;
+text/plain; neovim %s; needsterminal
 
-text/html; mv %s %s.html && qutebrowser %s.html >/dev/null 2>/dev/null; needsterminal;
+text/html; mv %s %s.html && qutebrowser %s.html >/dev/null 2>/dev/null; needsterminal
 text/html; w3m -I %{charset} -T text/html; nametemplate=%s.html; copiousoutput
 
 application/msword;antiwordxp.rb %s | less ; nametemplate=%s.doc; copiousoutput

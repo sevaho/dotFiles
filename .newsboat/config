@@ -1,6 +1,6 @@
 # vim: ft=conf
 
-browser                     w3m
+browser                     qutebrowser
 always-display-description  true
 show-read-feeds             no
 show-read-articles          no

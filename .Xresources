@@ -2,6 +2,8 @@
 ! ROFI COLORS
 ! -----------------------------------------------------------------------------------------------------------------------------
 
+Xcursor.size: 1
+
 rofi.color-enabled:     true
 
 rofi.color-normal:      argb:00000000,  #D8DEE9 , argb:00000000,  #536a70  ,  #1B2B34
@@ -17,101 +19,117 @@ rofi.widht:             5000
 rofi.columns:		    1
 rofi.sidebar-mode:      true
 
+*.background: #1c1c1c
+
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
+! NOT BEING USED
 ! -----------------------------------------------------------------------------------------------------------------------------
 
-! general settings
-URxvt.saveLines: 100000
-URxvt.scrollBar: False
-URxvt.scrollstyle: rxvt
-URxvt*termName: rxvt-unicode-patched-256color
-URxvt*pointerBlank: True
-URxvt.urgentOnBell: True
-URxvt.cursorBlink: True
-URxvt.cursorUnderline: False
-URxvt.iso14755: False
-URxvt*insecure: false
-URxvt*depth: 32
-
-! clickable links
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
+! Urxvt.modifier: super
+! ! general settings
+! URxvt.saveLines: 100000
+! URxvt.scrollBar: False
+! URxvt.scrollstyle: rxvt
+! URxvt*termName: rxvt-unicode-patched-256color
+! URxvt*pointerBlank: True
+! URxvt.urgentOnBell: True
+! URxvt.cursorBlink: True
+! URxvt.cursorUnderline: False
+! URxvt.iso14755: False
+! URxvt*insecure: false
+! URxvt*depth: 32
+! URxvt.lineSpace: 6
 
 ! extensions
-URxvt.urlLauncher: xdg-open
-URxvt.urlButton: 1
-URxvt.underlineURLs: True
+! URxvt.urlLauncher: xdg-open
+! URxvt.urlButton: 1
+! URxvt.underlineURLs: True
+! URxvt.keysym.super-l:	perl:url-select:select_next
+! URxvt.url-select.launcher: $BROWSER
+! URxvt.url-select.underline: true
+
+! URxvt.url-launcher: qutebrowser
   
-URxvt.internalBorder: 6
-URxvt.copyCommand:  xsel -b -selection clipboard
-URxvt.pasteCommand:  xsel -o -selection clipboard
-URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font, tabbed
-
-! keybindings
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
-URxvt.keysym.Control-Shift-C: perl:clipboard:copy
-URxvt.keysym.Control-Shift-V: perl:clipboard:paste
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-
-! font
-URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
-
-URxvt.letterSpace: -1
-
-URxvt.foreground: #839496
-! URxvt.foreground: #4a5351
-URxvt*background: [91]#1d2226   
-! URxvt*background: [91]#f9fafb   
-
-! colors
-! black
-URxvt.color0  : #303030 
-URxvt.color8  : #536a70
-! URxvt.color0  : #282a2e
-! URxvt.color8  : #373b41
-
-! red
-URxvt.color1  : #cb4b16 
-URxvt.color9  : #ba4443
-! URxvt.color1   : #a54242
-! URxvt.color9   : #cc6666
-
-! green
-URxvt.color2  : #AFD787 
-URxvt.color10 : #98c379
-! URxvt.color2  : #8c9440
-! URxvt.color10 : #93a10c
-
-! yellow
-URxvt*.color3 : #ffcc66
-URxvt.color11 : #e5c07b
-! URxvt.color3  : #cb5707
-! URxvt.color11 : #f0c674
-
-! blue
-URxvt.color4  : #87D7FF
-URxvt*.color12: #5fafd7
-! URxvt.color4  : #5f819d
-! URxvt.color12 : #81a2be
-
-! magenta
-URxvt*.color5 : #cc99cc 
-URxvt*.color13: #b777e0
-! URxvt.color5  : #85678f
-! URxvt.color13 : #b294bb
-
-! cyan
-URxvt*.color6 : #66cccc
-URxvt.color14 : #2aa198  
-! URxvt.color6  : #e4f0c3
-! URxvt.color14 : #369d8f
-
-! white
-URxvt.color7  : #e8e8de
-URxvt.color15 : #fdf6e3 
-! URxvt.color7  : #707880
-! URxvt.color15 : #4e5353
-
+! URxvt.internalBorder: 6
+! URxvt.copyCommand:  xsel -b -selection clipboard
+! URxvt.pasteCommand:  xsel -o -selection clipboard
+! URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font, resize-font, keyboard-select
+!
+! URxvt.url-launcher: /usr/bin/xdg-open
+! URxvt.matcher.button: 1
+!
+! !! keyboard-select:
+! URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!
+! !! url-select
+! ! keybindings
+! URxvt.keysym.C-Up:     perl:font-size:increase
+! URxvt.keysym.C-Down:   perl:font-size:decrease
+! URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+! URxvt.keysym.Control-Shift-V: perl:clipboard:paste
+! ! URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+! URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+!
+! ! font
+! ! URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
+! URxvt.font: xft:Hack:size=9.5:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true
+!
+! URxvt.letterSpace: -1
+!
+! URxvt.foreground: #839496
+! ! URxvt.foreground: #4a5351
+! URxvt*background: [90]#1d2226   
+! ! URxvt*depth: 32
+! # URxvt*background: rgba:fff0/0000/0200/ffff
+! ! URxvt*background: [91]#f9fafb   
+!
+! ! colors
+! ! black
+! URxvt.color0  : #303030 
+! URxvt.color8  : #536a70
+! ! URxvt.color0  : #282a2e
+! ! URxvt.color8  : #373b41
+!
+! ! red
+! URxvt.color1  : #cb4b16 
+! URxvt.color9  : #ba4443
+! ! URxvt.color1   : #a54242
+! ! URxvt.color9   : #cc6666
+!
+! ! green
+! URxvt.color2  : #AFD787 
+! URxvt.color10 : #98c379
+! ! URxvt.color2  : #8c9440
+! ! URxvt.color10 : #93a10c
+!
+! ! yellow
+! URxvt*.color3 : #ffcc66
+! URxvt.color11 : #e5c07b
+! ! URxvt.color3  : #cb5707
+! ! URxvt.color11 : #f0c674
+!
+! ! blue
+! URxvt.color4  : #87D7FF
+! URxvt*.color12: #5fafd7
+! ! URxvt.color4  : #5f819d
+! ! URxvt.color12 : #81a2be
+!
+! ! magenta
+! URxvt*.color5 : #cc99cc 
+! URxvt*.color13: #b777e0
+! ! URxvt.color5  : #85678f
+! ! URxvt.color13 : #b294bb
+!
+! ! cyan
+! URxvt*.color6 : #66cccc
+! URxvt.color14 : #2aa198  
+! ! URxvt.color6  : #e4f0c3
+! ! URxvt.color14 : #369d8f
+!
+! ! white
+! URxvt.color7  : #e8e8de
+! URxvt.color15 : #fdf6e3 
+! ! URxvt.color7  : #707880
+! ! URxvt.color15 : #4e5353
+!

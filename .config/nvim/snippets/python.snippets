@@ -1,0 +1,54 @@
+snippet pf "print formatted"
+	print(f"${1:header}")
+snippet headers "headers"
+	DEFAULT_TYPE = "application/vnd.api+json"
+	HEADERS = {
+		"content-type": DEFAULT_TYPE,
+		"Accept": DEFAULT_TYPE,
+	}
+snippet sanic "sanic example app"
+	import sanic
+
+	app = sanic.Sanic()
+
+
+	@app.get("/")
+	async def index(request):
+		return sanic.response.json({})
+
+
+	if __name__ == "__main__":
+
+		app.run(
+			host="127.0.0.1",
+			port=5000,
+			workers=1,
+			debug=False,
+			access_log=True,
+			auto_reload=True,
+		)
+snippet linfo "logger info"
+	logger.info(f"${1:header}")
+snippet lerror "logger error"
+	logger.error(f"${1:header}")
+snippet ldebug "logger debug"
+	logger.debug(f"${1:header}")
+snippet globalconfig "Pydantic Global Config"
+	class GlobalConfig:
+		validate_assignment = True
+		validate_all = True
+		use_enum_values = True
+snippet glcfg "Pydantic Global Config"
+	class GlobalConfig:
+		validate_assignment = True
+		validate_all = True
+		use_enum_values = True
+snippet class_pydatnic "Pydantic class"
+	@dataclass(config=GlobalConfig)
+	class ${1:class}(object):
+		${2:attr}
+		def json(self):
+			return json.loads(json.dumps(asdict(self), cls=Encoder))
+
+		def dumps(self):
+			return json.dumps(asdict(self), cls=Encoder)

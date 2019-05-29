@@ -3,7 +3,8 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = hotmail,gmail,hogent,sevaho.io,wegroup, praestes.be
+accounts = hotmail,gmail,sevaho.io,wegroup,praestes.be
+# add praestes.io
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # HOTMAIL
@@ -34,8 +35,8 @@ nametrans = lambda folder: {
 [Repository remote-hotmail]
 
 type = IMAP
-remoteusereval = get_pass("outlook/hotmail/user")
-remotepasseval = get_pass("outlook/hotmail/pass")
+remoteusereval = "sebastiaan.vanhoecke@hotmail.be"
+remotepasseval = get_pass("misc/sebastiaan.vanhoecke@hotmail.be")
 remotehost = imap-mail.outlook.com
 remoteport = 993
 realdelete = no
@@ -72,69 +73,6 @@ folderfilter = lambda folder: folder not in [
     ]
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# HOGENT
-# -----------------------------------------------------------------------------------------------------------------------------
-
-[Account hogent]
-
-localrepository = local-hogent
-remoterepository = remote-hogent
-
-[Repository local-hogent]
-
-type = Maildir
-localfolders = ~/.mail/hogent
-
-nametrans = lambda folder: {
-
-    'inbox':    'INBOX',
-    'sent':     'Sent Items',
-    'drafts':   'Drafts',
-    'spam':     'Junk Email',
-    'bin':      'Trash',
-    'deleted':  'Deleted Items',
-    'outbox':   'Outbox',
-
-    }.get(folder,folder)
-
-[Repository remote-hogent]
-
-type = IMAP
-remoteusereval = get_pass("outlook/student.hogent/user")
-remotepasseval = get_pass("outlook/student.hogent/pass")
-remotehost = outlook.office365.com
-remoteport = 993
-realdelete = no
-ssl = yes
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-maxconnections = 2
-
-nametrans = lambda folder: {
-
-    'INBOX':        'inbox',
-    'Sent Items':   'sent',
-    'Drafts':       'drafts',
-    'Junk Email':   'spam',
-    'Trash':        'bin',
-    'Deleted Items':'deleted',
-    'Outbox':       'outbox',
-
-    }.get(folder,folder)
-
-folderfilter = lambda folder: folder not in [ 
-
-    'Archive',
-    'Archive1',
-    'Calendar',
-    'Contacts',
-    'Tasks',
-    'Sent',
-    'Notes',
-    'Journal',
-
-    ]
-
-# -----------------------------------------------------------------------------------------------------------------------------
 # WEGROUP
 # -----------------------------------------------------------------------------------------------------------------------------
 
@@ -159,12 +97,14 @@ nametrans = lambda folder: {
 
 [Repository remote-wegroup]
 
+ssl_version = tls1_2
 type = Gmail
-remoteusereval = get_pass("wegroup/mail/user")
-remotepasseval = get_pass("wegroup/mail/pass")
+remoteusereval = "sebastiaan.vanhoecke@wegroup.be"
+remotepasseval = get_pass("misc/sebastiaan.vanhoecke@wegroup.be")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 2
 realdelete = no
+ssl = yes
 
 nametrans = lambda folder: {
 
@@ -181,6 +121,9 @@ folderfilter = lambda folder: folder not in [
     '[Gmail]/Junk',
     '[Gmail]/Important',
     '[Gmail]/Starred',
+    '[Gmail]/All Mail',
+    '[Gmail]/All/Mail',
+    '[Gmail].All Mail',
     '[Gmail]/Alle e-mail',
     '[Gmail]/Alle/e-mail',
     '[Gmail].Alle e-mail',
@@ -212,15 +155,17 @@ nametrans = lambda folder: {
     'sent':    '[Gmail]/Sent Mail',
     'drafts':  '[Gmail]/Drafts',
     'spam':    '[Gmail]/Spam',
-    'bin':     '[Gmail]/Bin',
+    'bin':     '[Gmail]/Trash',
 
     }.get(folder, folder)
 
 [Repository remote-gmail]
 
+ssl_version = tls1_2
+# auth_mechanisms = XOAUTH2
 type = Gmail
-remoteusereval = get_pass("google/gmail/user")
-remotepasseval = get_pass("google/gmail/pass")
+remoteusereval = "sebastiaan.vanhoecke@gmail.com"
+remotepasseval = get_pass("misc/sebastiaan.vanhoecke@gmail.com")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 2
 realdelete = no
@@ -230,7 +175,7 @@ nametrans = lambda folder: {
     '[Gmail]/Drafts':    'drafts',
     '[Gmail]/Sent Mail': 'sent',
     '[Gmail]/Spam':      'spam',
-    '[Gmail]/Bin':       'bin',
+    '[Gmail]/Trash':       'bin',
     'INBOX':     'inbox',
 
     }.get(folder, folder)
@@ -331,8 +276,10 @@ nametrans = lambda folder: {
 [Repository remote-sevaho.io]
 
 type = IMAP
-remoteusereval = get_pass("sevaho.io/mail/user")
-remotepasseval = get_pass("sevaho.io/mail/pass")
+; remoteusereval = get_pass("sevaho.io/mail/user")
+; remotepasseval = get_pass("sevaho.io/mail/pass")
+remoteusereval = "sebastiaan@sevaho.io"
+remotepasseval = get_pass("misc/sebastiaan@sevaho.io")
 remotehost = mail.gandi.net
 remoteport = 993
 realdelete = no
@@ -389,6 +336,62 @@ nametrans = lambda folder: {
 type = IMAP
 remoteusereval = get_pass("praestes.be/mail/user")
 remotepasseval = get_pass("praestes.be/mail/pass")
+remotehost = mail.gandi.net
+remoteport = 993
+realdelete = no
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+
+nametrans = lambda folder: {
+
+    'INBOX':                'inbox',
+    'Sent':                 'sent',
+    'INBOX.INBOX.Drafts':   'drafts',
+    'INBOX.INBOX.Junk':     'spam',
+    'Trash':                'bin',
+
+    }.get(folder,folder)
+
+folderfilter = lambda folder: folder not in [ 
+
+    'INBOX.N1-Snoozed',
+    'INBOX.Sent Items',
+    'INBOX.Trash',
+    'INBOX.Junk',
+    'INBOX.Drafts',
+
+    ]
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# PRAESTES.IO
+# -----------------------------------------------------------------------------------------------------------------------------
+
+[Account praestes.io]
+
+localrepository = local-praestes.io
+remoterepository = remote-praestes.io
+
+[Repository local-praestes.io]
+
+type = Maildir
+localfolders = ~/.mail/praestes.io
+
+nametrans = lambda folder: {
+
+    'inbox':    'INBOX',
+    'sent':     'Sent',
+    'drafts':   'INBOX.INBOX.Drafts',
+    'spam':     'INBOX.INBOX.Junk',
+    'bin':      'Trash',
+
+    }.get(folder,folder)
+
+[Repository remote-praestes.be]
+
+type = IMAP
+remoteusereval = get_pass("praestes.io/mail/user")
+remotepasseval = get_pass("praestes.io/mail/pass")
 remotehost = mail.gandi.net
 remoteport = 993
 realdelete = no
