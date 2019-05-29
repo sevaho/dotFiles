@@ -180,7 +180,7 @@ alias presentation="mpd"
 
 alias l='ls -latrFi'
 alias s='ls -latrFi'
-alias r='ranger'
+alias r='lf'
 alias e='emacs -nw'
 alias i='feh --geometry 400x400'
 alias m='neomutt'
