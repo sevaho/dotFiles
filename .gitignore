@@ -110,3 +110,4 @@ uuid
 .newsboat/cache.db
 .newsboat/history.cmdline
 .newsboat/history.search
+.newsboat/cache.db.lock

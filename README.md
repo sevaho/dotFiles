@@ -16,16 +16,16 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/sevaho/dotFiles/master/ins
 
 ## Overview
 
-windows manager: i3
-status bar: polybar
-notifcation manager: dunst
-rofi: application launcher
-editor: nvim
-shell: zsh
-terminal: kitty
-email-client: mutt
-file-manager: ranger
-image file manager: sxiv
+- windows manager: i3
+- status bar: polybar
+- notifcation manager: dunst
+- rofi: application launcher
+- editor: nvim
+- shell: zsh
+- terminal: kitty
+- email-client: mutt
+- file-manager: ranger
+- image file manager: sxiv
 
 ## Extra themes required
 
