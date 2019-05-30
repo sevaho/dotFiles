@@ -132,9 +132,9 @@ export PIPENV_SPINNER=pong
 
 alias j="joplin"
 alias pt="while true; do; pytest --disable-warnings | less; done"
-alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1"
-alias password32="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1"
-alias password64="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1"
+alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1 | xsel -b"
+alias password32="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 | xsel -b"
+alias password64="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 | xsel -b"
 alias rt='rtorrent'
 alias cdg='cd ~/.go'
 alias gpom="git push origin master"
@@ -630,6 +630,24 @@ gcloud_dns_name_delete () {
 gcloud_container_last_build () {
     
     gcloud container builds log $(gcloud container builds list | head -n 2 | tail -n 1 | cut -d " " -f1) --stream
+
+}
+
+
+firewall_cloud () {
+
+    gcloud compute firewall-rules list --filter network=default --sort-by priority --format="table(    
+        name,       
+        network,
+        direction,
+        priority, 
+        sourceRanges.list():label=[SRC_RANGES],
+        destinationRanges.list():label=[DEST_RANGES],
+        allowed[].map().firewall_rule().list():label=ALLOW,
+        denied[].map().firewall_rule().list():label=DENY,  
+        sourceTags.list():label=[SRC_TAGS],              
+        targetTags.list():label=[TARGET_TAGS]
+    )" 
 
 }
 

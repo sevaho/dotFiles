@@ -104,6 +104,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
         *zip) atool --list -- $f | less;;
+        *pdf) zathura $f;;
         *tar) atool --list -- $f | less;;
         *compressed) atool --list -- $f | less;;
         *) xdg-open $fx;;
@@ -151,6 +152,10 @@ cmd zip ${{
 
 cmd images ${{
     sxiv -t *
+}}
+
+cmd git ${{
+    git status | less
 }}
 
 cmd bulk-rename ${{
@@ -204,6 +209,8 @@ map P :set preview!
 # map i $~/.config/lf/pv.sh $f | less -R
 map i images
 
+map S $$SHELL
+
 # Delete
 map dD delete
 map dd cut
@@ -245,7 +252,9 @@ map br bulk-rename
 # Movements
 # map gL go-symlink
 map gL cd $(readlink $f)
-map gG $lf -remote "send $id cd $GOPATH"
+# map gG $lf -remote "send $id cd $GOPATH"
+
+map gGs git
 
 map ge cd /etc
 map gu cd /usr
@@ -256,20 +265,19 @@ map gP cd /run/media/lander/
 map gt cd ~/.local/share/Trash/files/
 map gT cd ~/.local/share/Trash/
 
-map gH cd ~
+map gh cd ~
 map gs cd ~/Share
-map gd cd ~/Documents
-map gD cd ~/Downloads
+map gd cd ~/Downloads
 map gp cd ~/Pictures
 map gv cd ~/Videos
 
 map gw cd ~/Documents/Work/WeGroup
 map gV cd ~/Documents/VEST
 
-map gh
-map ghh cd ~/Documents/Howest/3NMCT/S6
-map ghs cd ~/Documents/Howest/3NMCT/S6/Stage
-map ghb cd ~/Documents/Howest/3NMCT/S6/Bachelorproef
+# map gh
+# map ghh cd ~/Documents/Howest/3NMCT/S6
+# map ghs cd ~/Documents/Howest/3NMCT/S6/Stage
+# map ghb cd ~/Documents/Howest/3NMCT/S6/Bachelorproef
 
 # ---------------------------
 #  -------------------------

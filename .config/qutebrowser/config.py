@@ -341,7 +341,7 @@ c.downloads.location.suggestion = "path"
 # internal handler is used. Any `{}` in the string will be expanded to
 # the filename, else the filename will be appended.
 # Type: String
-c.downloads.open_dispatcher = None
+c.downloads.open_dispatcher = "xdg-open {}"
 
 # Where to show the downloaded files.
 # Type: VerticalPosition

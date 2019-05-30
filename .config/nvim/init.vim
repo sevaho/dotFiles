@@ -145,12 +145,13 @@ let mapleader = " "
 
 nnoremap <leader>f : NERDTreeToggle<CR>
 nnoremap <leader>t : Tagbar<CR>
-nnoremap <leader>T :belowright split <CR> :resize 11<CR> :terminal <CR>
+nnoremap <leader>T :belowright split <CR> :resize 6<CR> :set winfixheight <CR> :terminal <CR>
 " nnoremap <leader>T :Tags<cr>
 nnoremap <leader>c <c-w>c
 nnoremap <leader>s :split <cr>
 nnoremap <leader>S :vsplit <cr>
 nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>
+nnoremap <leader>g : FZF<CR>
 nnoremap <leader>G : FZF<CR>
 nnoremap <leader>r : so ~/.config/nvim/init.vim<cr>:call UltiSnips#RefreshSnippets()<cr>
 noremap <leader>u :w<Home>silent <End> !urlview<CR>
@@ -499,7 +500,7 @@ augroup autocmds
     autocmd FileType nerdtree noremap <buffer> <s-f> <nop>
     autocmd FileType nerdtree noremap <buffer> <s-m> <nop>
 
-    autocmd VimResized * :wincmd =
+    " autocmd VimResized * :wincmd =
 "
 augroup END
 

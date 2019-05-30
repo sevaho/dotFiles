@@ -111,3 +111,6 @@ uuid
 .newsboat/history.cmdline
 .newsboat/history.search
 .newsboat/cache.db.lock
+.mypy_cache/
+.mypy_cache
+.config/qutebrowser/qsettings/QtProject.conf
