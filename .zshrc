@@ -2,6 +2,15 @@
 # TTY
 # -----------------------------------------------------------------------------------------------------------------------------
 
+# -----------------------------------------------------------------------------------------------------------------------------
+# DRONE
+# -----------------------------------------------------------------------------------------------------------------------------
+
+# wegroup
+# first do this to unlock pass store
+export DRONE_SERVER=https://ci.wegroup.be
+export DRONE_TOKEN=$(pass websites/ci.wegroup.be/token | head -n1)
+
 banner_info () {
 
     DISTRO=$(cat /etc/*release* | grep -oP 'NAME="\K[^"]+' | head -n1)
@@ -65,10 +74,12 @@ export TMOUT=9600
 export PAGER=less
 export BROWSER="qutebrowser"
 export RTV_BROWSER="surf"
-export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.6.0/bin:/usr/bin/vendor_perl:~/.local/bin:/opt/google-cloud-sdk/bin
+export PATH=~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.6.0/bin:/usr/bin/vendor_perl:~/.local/bin:/opt/google-cloud-sdk/bin:$HOME/.poetry/bin
 export fpath=($HOME/.zsh-completions $fpath)
 export GOPATH=~/.go
 export OPENER=xdg-open
+export NVIM=~/.config/nvim/init.vim
+export ZSHRC=~/.zshrc
 
 if [[ -n "$SSH_CONNECTION" ]] ; then 
 
@@ -122,8 +133,14 @@ else
 
 fi
 
+# python
+alias p_clean="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
 
 alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
+alias pe="pipenv"
+alias pes="pipenv shell"
+alias peg="pipenv graph"
+alias per="pipenv install -r"
 # PIPENV
 export PIPENV_DEFAULT_PYTHON_VERSION=3.7
 export PIPENV_MAX_DEPTH=5
@@ -142,6 +159,7 @@ alias gits="git status"
 alias gc="git checkout"
 alias gr="git show-ref"
 alias gp="git pull"
+alias gP="git push"
 alias gda="git diff -a"
 alias gmd="git merge dev"
 alias gms="git merge staging"
@@ -149,6 +167,7 @@ alias tiga="tig --all"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
 alias du='du -sh *' 
 alias df='df -kTh'
+alias lg='lazygit'
 alias tree='tree -Csuh'
 alias xs='cd'
 alias moer='more'
@@ -370,37 +389,38 @@ gitquick () {
 
 }
 
-# git_tag_patch () {
-#
-#     if [[ $1 = "" ]]; then
-#
-#         echo "add description please"
-#         return
-#
-#     else
-#
-#         msg=$1
-#
-#         LATEST_TAG=$(git describe --match "$ENV_TAG_PREFIX[0-9]*" --abbrev=0 --tags)
-#         echo "Current tag $LATEST_TAG"
-#
-#         version=$(echo $LATEST_TAG | grep -o '[^-]*$')
-#
-#         major=$(echo $version | cut -d. -f1)
-#         minor=$(echo $version | cut -d. -f2)
-#         patch=$(echo $version | cut -d. -f3)
-#
-#         patch=$(($patch + 1))
-#
-#         TAG="$major.$minor.$patch"
-#         echo "Adding tag $TAG"
-#
-#         git tag $TAG -m $msg
-#         git push origin --tags
-#
-#     fi
-#
-# }
+git_tag () {
+
+    if [[ $* = "" ]]; then
+
+        echo "add description please"
+        return
+
+    else
+
+        msg="$*"
+
+        LATEST_TAG=$(git describe --match "$ENV_TAG_PREFIX[0-9]*" --abbrev=0 --tags)
+        echo "Current tag $LATEST_TAG"
+
+        version=$(echo $LATEST_TAG | grep -o '[^-]*$')
+
+        major=$(echo $version | cut -d. -f1)
+        minor=$(echo $version | cut -d. -f2)
+        patch=$(echo $version | cut -d. -f3)
+        build=$(echo $version | cut -d. -f4)
+
+        build=$(($build + 1))
+
+        TAG="$major.$minor.$patch.$build"
+        echo "Adding tag $TAG"
+
+        git tag $TAG -m $msg
+        git push origin --tags
+
+    fi
+
+}
 
 pull () {
 
@@ -588,6 +608,12 @@ klogs () {
 
 alias gcloud_dns_list="gcloud dns record-sets list -z wegroup"
 
+packer () {
+    echo "packer is not being used anymore use yay!"
+    echo "USING yay instead"
+    yay "$1"
+}
+
 gcloud_dns_name_create () {
 
     if [[ $1 = "" && $2 = "" ]]; then
@@ -666,6 +692,10 @@ function chpwd(){
     ls
 }
 
+
+# praestes
+# export DRONE_SERVER=https://ci.praestes.io
+# export DRONE_TOKEN=$(pass websites/ci.praestes.io/token | head -n1)
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC

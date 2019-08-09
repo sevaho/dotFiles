@@ -47,6 +47,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'jremmen/vim-ripgrep'
 
 
+    " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
     " Plug 'ColinKennedy/vim-python-function-expander'
 
     " language pack
@@ -75,7 +77,8 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'dikiaap/minimalist'                                           " theme
     Plug 'NLKNguyen/papercolor-theme'
 
-    Plug 'w0rp/ale'                                                     " linting flake8 for python
+    " Plug 'w0rp/ale'                                                     " linting flake8 for python
+    Plug 'MoerkerkeLander/ale'
     Plug 'mhinz/vim-signify'                                            " vcs tracker for Fossil fe.
     Plug 'mhinz/vim-startify'                                           " nice start page
 
@@ -143,6 +146,7 @@ nnoremap <leader>l :lopen<CR>
 " leader key binds
 let mapleader = " "
 
+nnoremap Y y$
 nnoremap <leader>f : NERDTreeToggle<CR>
 nnoremap <leader>t : Tagbar<CR>
 nnoremap <leader>T :belowright split <CR> :resize 6<CR> :set winfixheight <CR> :terminal <CR>
@@ -286,13 +290,13 @@ let g:LanguageClient_serverCommands = {
    \ 'python': ['pyls', '-vv', '--log-file', '/tmp/pyls.log'],
    \ 'c': ['clangd'],
    \ 'cpp': ['clangd'],
-   \ 'go': ['gopls'],
    \ 'json': ['json-languageserver', '--stdio'],
    \ 'html': ['html-languageserver', '--stdio'],
    \ 'cs': ['css-languageserver', '--stdio'],
    \ }
 
 
+" \ 'go': ['gopls'],
 " let g:LanguageClient_loggingFile = '/tmp/lc.log'
 " let g:LanguageClient_loggingLevel = 'DEBUG'
 
@@ -364,8 +368,12 @@ let g:indentLine_setConceal = 0
 " \})
 
 let g:ale_completion_enabled = 0 " this fucks everything
-let g:ale_linters = {'*': ['remove_trailing_lines', 'trim_whitespace'],'python': ['flake8', 'pyflakes', 'pycodestyle', 'bandit', 'pyre', 'mypy', 'isort'], 'javascript': ['eslint'], 'yaml': ['yamllint'], 'go': ['revive']}
-let g:ale_fixers = {'python': ['black', 'isort'], 'javascript': ['prettier', 'eslint'], 'go': ['gofmt', 'goimports']}
+let g:ale_linters = {'*': ['remove_trailing_lines', 'trim_whitespace'],'python': ['flake8', 'pyflakes', 'pycodestyle', 'bandit', 'pyre', 'mypy', 'isort'], 'javascript': ['eslint'], 'yaml': ['yamllint'], 'go': ['golangci_lint', 'gofmt', 'govet', 'staticcheck']}
+let g:ale_fixers = {'python': ['isort', 'black'], 'javascript': ['prettier', 'eslint'], 'go': ['gofmt', 'goimports'], 'markdown': ['remark']}
+let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
+let g:ale_go_gofmt_options = '-s'
+let g:ale_python_black_options = '-S -l 120'
+let g:ale_python_isort_options = '-w 120'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
@@ -414,7 +422,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
+
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+let g:airline#extensions#virtualenv#enabled = 0
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
 
 " CLOSETAG
 let g:closetag_filenames = '*.html,*.php,*.phtml,*.jinja,*.php'

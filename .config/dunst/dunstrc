@@ -4,7 +4,8 @@
 
 font = "Hack 9"
 markup = yes
-format = "<b>%s</b>\n%b"
+# format = "<b>%s</b>\n%b"
+format = "<span><b>%s %p</b></span>\n%b"
 sort = yes
 indicate_hidden = yes
 alignment = left
@@ -18,14 +19,18 @@ idle_threshold = 120
 follow = mouse
 sticky_history = yes
 line_height = 0
-separator_height = 6
+separator_height = 1
 padding = 20
 horizontal_padding = 10
-frame_color = "#676E7D"
+# frame_color = "#676E7D"
+frame_color = "#1e1410"
 separator_color = frame 
 startup_notification = true
 frame_width = 2
 notification_height = 100
+icon_position = left
+max_icon_size = 32
+icon_path = /usr/share/icons/Paper/16x16/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/16x16/apps/
 
 [shortcuts]
 
@@ -33,8 +38,10 @@ close_all = mod4+backslash
 
 [urgency_low]
 
+; background = "#2e3440"
+; foreground = "#788f9e"
 background = "#2e3440"
-foreground = "#788f9e"
+foreground = "#a8a8a8"
 timeout = 9
 
 [urgency_normal]
@@ -48,3 +55,4 @@ timeout = 9
 background = "#2e3440"
 foreground = "#E53935"
 timeout = 12
+

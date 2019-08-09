@@ -3,7 +3,7 @@
 [general]
 
 pythonfile = ~/.offlineimap.py
-accounts = hotmail,gmail,sevaho.io,wegroup,praestes.be
+accounts = hotmail,gmail,sevaho.io,wegroup
 # add praestes.io
 
 # -----------------------------------------------------------------------------------------------------------------------------

@@ -19,8 +19,6 @@ rofi.widht:             5000
 rofi.columns:		    1
 rofi.sidebar-mode:      true
 
-*.background: #1c1c1c
-
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
 ! NOT BEING USED
@@ -133,3 +131,118 @@ rofi.sidebar-mode:      true
 ! ! URxvt.color7  : #707880
 ! ! URxvt.color15 : #4e5353
 !
+! -----------------------------------------------------------------------------------------------------------------------------
+! COLOURS VERU
+! -----------------------------------------------------------------------------------------------------------------------------
+
+#define veru0  #1c1c1c
+#define veru1  #3B4252
+#define veru2  #434C5E
+#define veru3  #4C566A
+#define veru4  #D8DEE9
+#define veru5  #E5E9F0
+#define veru6  #ECEFF4
+#define veru7  #8FBCBB
+#define veru8  #88C0D0
+#define veru9  #81A1C1
+#define veru10 #5E81AC
+#define veru11 #BF616A
+#define veru12 #D08770
+#define veru13 #EBCB8B
+#define veru14 #A3BE8C
+#define veru15 #B48EAD
+
+*.foreground:  veru4
+*.background:  veru0
+*.cursorColor: veru4
+! *fading:       35
+! *fadeColor:    veru3
+
+*.color0:  veru0
+*.color1:  veru11
+*.color2:  veru14
+*.color3:  veru13
+*.color4:  veru9
+*.color5:  veru15
+*.color6:  veru8
+*.color7:  veru5
+*.color8:  veru3
+*.color9:  veru11
+*.color10: veru14
+*.color11: veru13
+*.color12: veru9
+*.color13: veru15
+*.color14: veru7
+*.color15: veru6
+
+
+! -----------------------------------------------------------------------------------------------------------------------------
+! URXVT
+! -----------------------------------------------------------------------------------------------------------------------------
+
+! general settings
+URxvt*termName:             xterm-256color
+URxvt.saveLines:            100000
+URxvt.scrollBar:            False
+URxvt.scrollstyle:          rxvt
+URxvt*pointerBlank:         True
+URxvt.urgentOnBell:         True
+URxvt.cursorBlink:          True
+URxvt.cursorUnderline:      False
+URxvt.iso14755:             False
+URxvt.iso14755_52:          false
+URxvt*insecure:             false
+URxvt*depth:                32
+
+! clickable links
+! URxvt.matcher.button:       1
+URxvt.modifier: alt
+
+! extensions
+URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:	    	    #4682B4
+
+!! url-select
+URxvt.keysym.M-l:           perl:url-select:select_next
+URxvt.url-select.launcher:  /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+!! keyboard-select:
+!
+URxvt.keysym.M-v:           perl:keyboard-select:activate
+
+!! resize-font
+URxvt.resize-font.smaller:  M-J
+URxvt.resize-font.bigger:   M-K
+URxvt.resize-font.reset:    M-R
+URxvt.resize-font.step:     1
+
+! keybindings
+URxvt.keysym.M-p:           eval:paste_clipboard
+
+!! scrolling
+URxvt.keysym.M-k:           command:\033]720;1\007
+URxvt.keysym.M-j:           command:\033]721;1\007
+URxvt.keysym.M-u:           command:\033]720;10\007
+URxvt.keysym.M-d:           command:\033]721;10\007
+
+! do not scroll with output
+URxvt*scrollTtyOutput:      false
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:    true
+
+! font
+URxvt.font:                 xft:Hack:                         size=9:antialias=true:hinting=true,\
+                            xft:DroidSansMono Nerd Font:      size=9:antialias=true:hinting=true,\
+                            xft:DroidSansMono Nerd Font Mono: size=9:antialias=true:hinting=true,\
+                            xft:Symbols Nerd Font:            size=9:antialias=true:hinting=true,\
+                            xft:Font Awesome 5 Pro:           size=9:antialias=true:hinting=true,\
+                            xft:EmojiOne:                     size=6:antialias=true:hinting=true,\
+                            xft:NotoColorEmoji:               size=5:antialias=true:hinting=true,\
+                            xft:Material Icons:               size=5:antialias=true:hinting=true
+
+URxvt.letterSpace:          -1
+
+URxvt.foreground:           veru6
+URxvt*background:           [96]veru0

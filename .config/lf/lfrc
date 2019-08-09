@@ -104,7 +104,7 @@ cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
         *zip) atool --list -- $f | less;;
-        *pdf) zathura $f;;
+        *pdf) zathura $f &;;
         *tar) atool --list -- $f | less;;
         *compressed) atool --list -- $f | less;;
         *) xdg-open $fx;;
@@ -228,7 +228,8 @@ map pa paste_append
 map pl paste_symlink
 
 
-# execute current file (must be executable)
+#
+#execute current file (must be executable)
 map x $$f
 map X !$f
 
@@ -255,6 +256,7 @@ map gL cd $(readlink $f)
 # map gG $lf -remote "send $id cd $GOPATH"
 
 map gGs git
+# map gGp git
 
 map ge cd /etc
 map gu cd /usr

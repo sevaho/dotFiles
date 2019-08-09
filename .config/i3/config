@@ -39,11 +39,13 @@ bindsym $mod+s scratchpad show
 # GENERAL BINDINGS AND MOVEMENTS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym Mod1+Tab            workspace next
-bindsym Mod1+Shift+Tab      workspace prev
+# bindsym Mod1+Tab            workspace next
+# bindsym Mod1+Shift+Tab      workspace prev
+bindsym Mod1+Tab workspace back_and_forth
 
 bindsym button1             nop
 bindsym $mod+F4             kill
+bindsym $mod+q              kill
 bindsym $mod+c              kill
 
 bindsym $mod+h              focus       left
@@ -85,6 +87,8 @@ bindsym $mod+p              exec passmenu
 bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
 bindsym $mod+Shift+c        exec ~/.colors/change.py
 bindsym Print               exec scrot /home/$USER/Pictures/$(date '+%Y%m%d-%H%M%S').png
+bindsym Shift+Print         exec ~/scripts/prtsc.sh
+bindsym $mod+Shift+f             exec nautilus
 
 bindsym $mod+F1             exec amixer -D pulse set Master toggle
 bindsym $mod+F2             exec amixer -D pulse set Master 5%-
@@ -201,4 +205,4 @@ exec_always dunst
 exec_always udiskie
 exec nm-applet &
 # exec --no-startup-id battery-popup -L 10 -n
-exec_always --no-startup-id i3-battery-popup -L 60 -n
+exec_always --no-startup-id i3-battery-popup -L 20 -n
