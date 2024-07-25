@@ -200,11 +200,26 @@
     bantime = "1h"; # Ban IPs for one day on the first ban
     jails = {
       sshd.settings = {
-	backend = "systemd";
-	mode = "aggressive";
+	    backend = "systemd";
+	    # mode = "aggressive";
       };
     };
   };
+
+  # TEMP FIX
+  # https://discourse.nixos.org/t/fail2ban-is-not-working-for-sshd-with-systemd-backend/48972/2
+  services.fail2ban.package = pkgs.fail2ban.overrideAttrs(old: {
+    patches = [
+      (pkgs.fetchpatch {
+        url = "https://github.com/fail2ban/fail2ban/commit/2fed408c05ac5206b490368d94599869bd6a056d.patch";
+        hash = "sha256-uyrCdcBm0QyA97IpHzuGfiQbSSvhGH6YaQluG5jVIiI=";
+      })
+      (pkgs.fetchpatch {
+        url = "https://github.com/fail2ban/fail2ban/commit/50ff131a0fd8f54fdeb14b48353f842ee8ae8c1a.patch";
+        hash = "sha256-YGsUPfQRRDVqhBl7LogEfY0JqpLNkwPjihWIjfGdtnQ=";
+      })
+    ];
+  });
 
 
   # Enable the OpenSSH daemon.
