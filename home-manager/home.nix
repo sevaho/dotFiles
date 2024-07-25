@@ -121,7 +121,6 @@
         pkgs.yazi
         pkgs.peek
         pkgs.openssl
-        pkgs.openssl
         pkgs.ueberzugpp
         pkgs.ttyper
         pkgs.newsboat
