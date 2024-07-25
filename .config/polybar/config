@@ -18,7 +18,7 @@ color8          = #536a70
 color1          = #cb4b16
 color9          = #ba4443
 color2          = #AFD787
-color10         = #98c379 
+color10         = #98c379
 color3          = #ffaf5f
 color11         = #e5c07b
 color4          = #87D7FF
@@ -58,9 +58,9 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 wlan ssid vpn 
+modules-left        = i3 wlan ssid vpn
 modules-center      = date
-modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume
 
 tray-position       = right
 tray-padding        = 2
@@ -90,9 +90,9 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 wlan ssid vpn 
+modules-left        = i3 wlan ssid vpn
 modules-center      = date
-modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume
 
 tray-position       = right
 tray-padding        = 2
@@ -121,9 +121,9 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 wlan ssid vpn 
+modules-left        = i3 wlan ssid vpn
 modules-center      = date
-modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume 
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature battery volume
 
 tray-position       = right
 tray-padding        = 2
@@ -153,9 +153,9 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 ip vpn 
+modules-left        = i3 ip vpn
 modules-center      = date
-modules-right       = kernel filesystem mail checkforupdates memory cpu temperature volume 
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature volume
 
 tray-position       = right
 tray-padding        = 2
@@ -186,9 +186,9 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 ip vpn 
+modules-left        = i3 ip vpn
 modules-center      = date
-modules-right       = kernel filesystem mail checkforupdates memory cpu temperature volume 
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature volume
 
 tray-position       = right
 tray-padding        = 2
@@ -219,9 +219,9 @@ font-1 = FontAwesome:size=9:dpi=138;2
 
 module-margin-left  = 1
 module-margin-right = 1
-modules-left        = i3 ip vpn 
+modules-left        = i3 ip vpn
 modules-center      = date
-modules-right       = kernel filesystem mail checkforupdates memory cpu temperature volume 
+modules-right       = kernel filesystem mail checkforupdates memory cpu temperature volume
 
 tray-position       = right
 tray-padding        = 2
@@ -277,16 +277,16 @@ label-urgent		        = %icon%
 label-urgent-foreground	    = #FF5F5F
 label-urgent-padding	    = 1
 
-ws-icon-0		= 1; 
-ws-icon-1		= 2; 
-ws-icon-2		= 3;  
-ws-icon-3		= 4; 
-ws-icon-4		= 5; 
-ws-icon-5		= 6; 
-ws-icon-6		= 7; 
-ws-icon-7		= 8; 
-ws-icon-8		= 9; 
-ws-icon-9		= 10; 
+ws-icon-0		= 1;
+ws-icon-1		= 2;
+ws-icon-2		= 3;
+ws-icon-3		= 4;
+ws-icon-4		= 5;
+ws-icon-5		= 6;
+ws-icon-6		= 7;
+ws-icon-7		= 8;
+ws-icon-8		= 9;
+ws-icon-9		= 10;
 
 [module/bspwm]
 
@@ -327,7 +327,7 @@ label-empty-padding = 1
 [module/wlan]
 
 type        = internal/network
-interface   = wlp4s0
+interface   = wlan0
 interval    = 3
 
 format-connected                = <label-connected>
@@ -342,7 +342,7 @@ ramp-signal-foreground          = ${colors.foreground-alt}
 [module/ssid]
 
 type = custom/script
-exec = echo "$(iw dev wlp4s0 link | grep SSID | cut -d " " -f 2- | cut -c1-20)"
+exec = echo "$(iw dev wlan0 link | grep SSID | cut -d " " -f 2- | cut -c1-20)"
 
 format-foreground = ${colors.color3}
 
@@ -409,6 +409,15 @@ label-mounted = %{F#cc99cc}%mountpoint%%{F-} : %{F#cc99cc}%percentage_used%%%{F-
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 format=<label-mounted>
+
+[module/spotifyd]
+
+type = custom/script
+interval = 10
+label = "%output%"
+format-prefix-foreground = ${colors.foreground-alt}
+exec = $HOME/scripts/polybar_spotifyd
+format-foreground = ${colors.color12}
 
 [module/mail]
 
@@ -563,5 +572,16 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/bluetooth]
+type = custom/script
+exec = $HOME/scripts/bluetooth.sh
+label = "%output%"
+interval = 2
+click-left = exec blueberry
+click-right = exec $HOME/scripts/bluetooth-toggle.sh
+format-padding = 1
+format-background = #000000
+format-foreground = #ffffff
 
 ; vim:ft=dosini
