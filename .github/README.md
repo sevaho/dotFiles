@@ -6,6 +6,8 @@
 
 ## Colors
 
+- [Nordic](https://github.com/AlexvZyl/nordic.nvim)
+
 ## Fonts
 
 - [Hack](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack) - *terminal font*
@@ -18,9 +20,8 @@
 - rofi: application launcher
 - editor: nvim
 - shell: zsh
-- terminal: kitty
-- email-client: mutt
-- file-manager: ranger
+- terminal: alacritty
+- file-manager: yazi
 - image file manager: sxiv
 
 ## Extra themes required
@@ -28,4 +29,4 @@
 - Arc
 - Shadow icons
 
-![DE](https://raw.githubusercontent.com/sevaho/dotFiles/master/img/DE.png)
+![DE](https://raw.githubusercontent.com/sevaho/dotFiles/master/.github/DE.png)
