@@ -93,12 +93,12 @@
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
 	
-	# LANGUAGE SERVERS
+	    # LANGUAGE SERVERS
         pkgs.gopls
         pkgs.nil
         pkgs.nixd
 
-	# TERMINAL
+	    # TERMINAL
         pkgs.alacritty
         pkgs.kitty
         pkgs.kubectx
@@ -122,14 +122,16 @@
         pkgs.yazi
         pkgs.peek
         pkgs.openssl
-	pkgs.ueberzugpp
-	pkgs.ttyper
+        pkgs.openssl
+        pkgs.ueberzugpp
+        pkgs.ttyper
+        pkgs.newsboat
 
 
-	# AI
+	    # AI
         pkgs.ollama
 
-	# GAMES
+	    # GAMES
         pkgs.zeroad
         pkgs.zulu17 # required for some minecraft mods
         pkgs.prismlauncher # minecraft

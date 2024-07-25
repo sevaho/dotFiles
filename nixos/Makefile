@@ -13,4 +13,4 @@ help: ## Show this help message (default)
 all: ## Build all the things
 
 up: ## Run
-	sudo nixos-rebuild switch --flake "$$PWD#default"
+	sudo nixos-rebuild switch --flake ".#default"
