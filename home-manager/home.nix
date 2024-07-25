@@ -125,6 +125,7 @@
         pkgs.ueberzugpp
         pkgs.ttyper
         pkgs.newsboat
+        pkgs.pre-commit
 
 
 	    # AI
