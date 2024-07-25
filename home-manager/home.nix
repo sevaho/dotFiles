@@ -100,7 +100,6 @@
 
 	    # TERMINAL
         pkgs.alacritty
-        pkgs.kitty
         pkgs.kubectx
         pkgs.pstree
         pkgs.zoxide
