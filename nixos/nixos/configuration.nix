@@ -4,7 +4,6 @@
 
 { config, lib, pkgs, ... }:
 
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -86,7 +85,9 @@
 
   # services.x2goserver.enable = true;
   services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "mate-session";
+  # https://nixos.wiki/wiki/Remote_Deskto
+  # services.xrdp.defaultWindowManager = "gnome-session";
+  services.xrdp.defaultWindowManager = "startplasma-x11";
   services.xrdp.openFirewall = true;
 
 
@@ -109,7 +110,28 @@
 
 
   
-  services.xserver.desktopManager.mate.enable = true;
+  # services.xserver.desktopManager.mate.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
+
+  # environment.gnome.excludePackages = (with pkgs; [
+  #   gnome-photos
+  #   gnome-tour
+  #   cheese # webcam tool
+  #   gedit # text editor
+  #   epiphany # web browser
+  #   geary # email reader
+  #   evince # document viewer
+  #   totem # video player
+  # ]) ++ (with pkgs.gnome; [
+  #   gnome-music
+  #   # gnome-terminal
+  #   gnome-characters
+  #   tali # poker game
+  #   iagno # go game
+  #   hitori # sudoku game
+  #   atomix # puzzle game
+  # ]);
 
 
   # Configure keymap in X11
@@ -122,7 +144,7 @@
   # Enable sound.
   sound.enable = true;
 
-  # hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   # OR
   services.pipewire = {
     enable = true;
@@ -174,6 +196,9 @@
     neovim
     htop
     brave
+
+    # gnome3.gnome-session
+    # gnome3.gnome-remote-desktop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -192,6 +217,22 @@
 
 
   # List services that you want to enable:
+  services.fail2ban = {
+    enable = true;
+   # Ban IP after 3 failures
+    maxretry = 3;
+    # ignoreIP = [
+    #  "192.168.0.0/16"
+    # ];
+    bantime = "1h"; # Ban IPs for one day on the first ban
+    jails = {
+      sshd.settings = {
+	backend = "systemd";
+	mode = "aggressive";
+      };
+    };
+  };
+
 
   # Enable the OpenSSH daemon.
   services = {

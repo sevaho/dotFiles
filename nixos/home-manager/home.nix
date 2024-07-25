@@ -35,25 +35,19 @@
         pkgs.tmux
         pkgs.zlib
         pkgs.pciutils
-        pkgs.hack-font
+        pkgs.hackgen-nf-font
+        pkgs.nerdfonts
         pkgs.redshift
         pkgs.dunst
         pkgs.feh
         pkgs.picom
-        pkgs.lm_sensors
-        pkgs.atuin
-        pkgs.eza
-        pkgs.bat
-        pkgs.neovim
         pkgs.brave
-        pkgs.wget
         pkgs.mesa-demos
         pkgs.amdgpu_top
         pkgs.autorandr
         pkgs.arandr
         pkgs.htop
         pkgs.lshw
-        pkgs.alacritty
         pkgs.bluez
         pkgs.gnumake
         pkgs.nvme-cli
@@ -73,42 +67,72 @@
         pkgs.openvpn
         pkgs.obsidian
         pkgs.jetbrains.datagrip
-        pkgs.prismlauncher
         pkgs.libuv
-        pkgs.fastfetch
         pkgs.bind
         pkgs.qutebrowser
-        pkgs.lf
         pkgs.pinentry-curses
         pkgs.gnupg
-        pkgs.mpv
         pkgs.dmidecode
-        pkgs.helix
         pkgs.scrot
-        pkgs.lazygit
         pkgs.zathura
         pkgs.maim
-        pkgs.ripgrep
-        pkgs.entr
-        pkgs.tig
         pkgs.libreoffice
         pkgs.kubectl
-        pkgs.kubectx
-        pkgs.pgcli
         pkgs.pavucontrol
-        pkgs.pstree
-        pkgs.drone
-        pkgs.zoxide
         pkgs.jq
         pkgs.i2c-tools
         pkgs.inetutils
-        pkgs.gopls
         pkgs.xournalpp
         pkgs.httpie
         pkgs.mprocs
-        pkgs.woeusb-ng
-        pkgs.age
+        pkgs.gcc
+        pkgs.killall
+        pkgs.arc-theme
+        pkgs.mpv
+        pkgs.pipx
+        pkgs.ffmpeg_7-full
+        pkgs.freerdp3
+	
+	# LANGUAGE SERVERS
+        pkgs.gopls
+        pkgs.nil
+        pkgs.nixd
 
+	# TERMINAL
+        pkgs.alacritty
+        pkgs.kitty
+        pkgs.kubectx
+        pkgs.pstree
+        pkgs.zoxide
+        pkgs.pgcli
+        pkgs.fastfetch
+        pkgs.age
+        pkgs.helix
+        pkgs.lazygit
+        pkgs.lm_sensors
+        pkgs.wget
+        pkgs.atuin
+        pkgs.eza
+        pkgs.bat
+        pkgs.neovim
+        pkgs.ripgrep
+        pkgs.entr
+        pkgs.tig
+        pkgs.atac
+        pkgs.yazi
+        pkgs.peek
+        pkgs.openssl
+	pkgs.ueberzugpp
+	pkgs.ttyper
+
+
+	# AI
+        pkgs.ollama
+
+	# GAMES
+        pkgs.zeroad
+        pkgs.zulu17 # required for some minecraft mods
+        pkgs.prismlauncher # minecraft
 
 
         # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -138,6 +162,10 @@
         #   org.gradle.console=verbose
         #   org.gradle.daemon.idletimeout=3600000
         # '';
+    };
+
+    fonts.fontconfig = {
+      enable = true;
     };
 
     # Home Manager can also manage your environment variables through
@@ -178,6 +206,7 @@
     programs.go = {
         enable = true;
         goPath = ".go";
+        goBin = ".go/bin";
     };
 
     # GPG config
@@ -204,7 +233,53 @@
         { key = "c"; mods = "Super"; action = "Copy"; }
         { key = "k"; mods = "Super|Shift"; action = "IncreaseFontSize"; }
         { key = "j"; mods = "Super|Shift"; action = "DecreaseFontSize"; }
+        { key = "Return"; mods = "Alt|Shift"; action = "SpawnNewInstance"; }
         ];
+
+	hints.enabled = [
+	  # {regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";}
+	  # { command = { program = "code", args = [ "--goto" ] }; }
+	  # {mouse = { enabled = true; }; }
+	];
+
+	# Colors (Nordic)
+
+	font = {
+	  normal = {
+	    family = "Hack Nerd Font";
+	    style = "Regular";
+	  };
+	};
+	colors = {
+	  primary = {
+            # background = "#242933";
+            foreground = "#BBBDAF";
+	  };
+	  normal = {
+ 	    black = "#191C1D";
+ 	    red = "#BD6062";
+ 	    green = "#A3D6A9";
+ 	    yellow = "#F0DFAF";
+ 	    blue = "#8FB4D8";
+ 	    magenta = "#C7A9D9";
+ 	    cyan = "#B6D7A8";
+ 	    white = "#BDC5BD";
+          };
+	  bright = {
+ 	    black = "#727C7C";
+ 	    red = "#D18FAF";
+ 	    green = "#B7CEB0";
+ 	    yellow = "#BCBCBC";
+ 	    blue = "#E0CF9F";
+ 	    magenta = "#C7A9D9";
+ 	    cyan = "#BBDA97";
+ 	    white = "#BDC5BD";
+          };
+	  selection = {
+            text = "#000000";
+            background = "#F0DFAF";
+          };
+        };
     };
 
     programs.lazygit.enable = true;
