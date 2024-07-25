@@ -30,7 +30,7 @@ elif [[ $TTY == "/dev/tty1" ]]; then
     banner_info
 
     # just unlock a password to trigger gpg agen
-    gopass show websites/foo/bar
+    gopass show websites/ci.wegroup.io/token
 fi
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -116,7 +116,8 @@ alias o='cd /run/media/$USER/'
 alias p="python"
 alias k="kubectl"
 # alias z='zathura'
-alias x='nix-shell --command zsh'
+# alias x='nix-shell --command zsh'
+alias x='nix-shell-wrapper'
 alias xpo='nix-shell --command "zsh -c poetry shell"'
 alias pdfedit='xournalpp'
 
@@ -157,6 +158,7 @@ alias kgp="kubectl get pods --all-namespaces"
 alias ssl_tls_certs="openssl req -newkey rsa:2048 -nodes -keyout tls.key -x509 -days 365 -out tls.crt"
 alias compress="ffmpeg -i video1.mp4 -vcodec h264 -acodec mp2 output.mp4"
 alias fixflake="pip uninstall -y flake9 flake8 && pip install --upgrade flake9"
+alias n="newsboat"
 
 
 # docker
@@ -199,6 +201,16 @@ vvp(){
 vvj(){
     file=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
     nvim /tmp/$file.json
+}
+
+nix-shell-wrapper(){
+    if [ -f shell.nix ]; then
+        echo "Found shell.nix! Wrapping nix-shell"
+        nix-shell --command $SHELL
+    elif [ -f flake.nix ]; then
+        echo "Found flake.nix! Wrapping nix develop"
+        nix develop -c $SHELL
+    fi
 }
 
 # -----------------------------------------------------------------------------------------------------------------------------
