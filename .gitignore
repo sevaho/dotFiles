@@ -114,3 +114,5 @@ uuid
 .mypy_cache/
 .mypy_cache
 .config/qutebrowser/qsettings/QtProject.conf
+
+*.db

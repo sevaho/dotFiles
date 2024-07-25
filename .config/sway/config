@@ -203,26 +203,6 @@ set $urgent-bg-color        #E53935
 # BAR
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bar {
-
-    status_command i3blocks -c ~/.config/sway/blocks.conf
-
-    font pango:Hack 9
-    position top
-
-    colors {
-
-        background $bg-color
-        inactive_workspace $bg-color $bg-color $fg-color
-        focused_workspace #444444 #111111 $fg-color
-
-        urgent_workspace #32323200 $urgent-bg-color #5c5c5c
-        binding_mode #32323200 $urgent-bg-color #5c5c5c
-        active_workspace #32323200 $urgent-bg-color #5c5c5c
-
-    }
-
-}
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # INPUTS / OUTPUTS
@@ -248,9 +228,11 @@ input "1739:0:Synaptics_TM3288-003" {
 # -----------------------------------------------------------------------------------------------------------------------------
 
 exec udiskie
-exec redshift
+# exec redshift
 exec dunst
-exec xrdb ~/.Xresources
+# exec xrdb ~/.Xresources
 
 exec notify-send "welcome"
-exec kitty
+# exec kitty
+
+exec_always sxhkd

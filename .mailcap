@@ -1,11 +1,14 @@
-text/plain; neovim %s; needsterminal
+application/pgp-keys; less %s; needsterminal
+text/plain; less %s; copiousoutput;
 
-text/html; mv %s %s.html && qutebrowser %s.html >/dev/null 2>/dev/null; needsterminal
+text/html; mv %s %s.html && chromium %s.html >/dev/null 2>/dev/null; needsterminal;
 text/html; w3m -I %{charset} -T text/html; nametemplate=%s.html; copiousoutput
 
 application/msword;antiwordxp.rb %s | less ; nametemplate=%s.doc; copiousoutput
 application/pdf; zathura %s ; copiousoutput
 application/ms-tnef; tnef %s ; copiousoutput
+application/octet-stream; nvim %s; needsterminal;
+
 
 video/gif; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
 video/webm; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
@@ -13,11 +16,16 @@ video/*; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
 video/x-youtube; youtube-dl -q -o - '%s' | mpv - --autofit 640x480; test=test -n "$DISPLAY"
 
 image/gif; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+image/*; feh %s; test=test -n "$DISPLAY"
 image/*; curl -sk  '%s' | feh -g 640x480 - ;
-image/*; feh -g 640x480 '%s'; test=test -n "$DISPLAY"
 # image/*; curl -s '%s' | convert -resize 80x80 - jpg:/tmp/rtv.jpg && img2xterm /tmp/rtv.jpg; needsterminal; copiousoutput
 # image/*; curl -s '%s' | convert - jpg:/tmp/rtv.jpg && img2txt -f utf8 /tmp/rtv.jpg; needsterminal; copiousoutput
 image/x-imgur-album; feh -g 640x480 %s; test=test -n "$DISPLAY"
-image/jpeg; feh %s; copiousoutput
-image/png; feh %s; copiousoutput
-image/x-imgur-album; echo
+# image/jpeg; feh %s; copiousoutput
+# image/png; feh %s; copiousoutput
+# image/x-imgur-album; echo
+application/vnd.oasis.opendocument.text; libreoffice --headless --convert-to pdf --outdir /tmp/ %s && zathura /tmp/$(basename %s .docx).pdf;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice --headless --convert-to pdf --outdir /tmp/ %s && zathura /tmp/$(basename %s .docx).pdf;
+
+text/calendar; printics.sh %s; copiousoutput; print=khal import --batch -a email@somewhere.com %s
+application/ics; printics.sh %s; copiousoutput; print=khal import --batch -a email@somewhere.com %s
