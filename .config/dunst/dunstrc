@@ -24,7 +24,7 @@ padding = 20
 horizontal_padding = 10
 # frame_color = "#676E7D"
 frame_color = "#1e1410"
-separator_color = frame 
+separator_color = frame
 startup_notification = true
 frame_width = 2
 notification_height = 100
@@ -51,8 +51,9 @@ foreground = "#f3f4f5"
 timeout = 9
 
 [urgency_critical]
-
-background = "#2e3440"
-foreground = "#E53935"
-timeout = 12
-
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
+    # Icon for notifications with critical urgency, uncomment to enable
+    #icon = /path/to/icon
