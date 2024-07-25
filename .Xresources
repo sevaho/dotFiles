@@ -1,5 +1,5 @@
 ! -----------------------------------------------------------------------------------------------------------------------------
-! ROFI COLORS
+! ROFI
 ! -----------------------------------------------------------------------------------------------------------------------------
 
 Xcursor.size: 1
@@ -12,7 +12,7 @@ rofi.color-active:      argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B
 rofi.color-window:      argb:c71d2226,  #536a70,  #536a70
 
 rofi.hide-scrollbar: 	true
-rofi.font:  			Hack 9
+rofi.font:  			Hack 8
 rofi.separator-style:   solid
 rofi.bw: 			    2
 rofi.widht:             5000
@@ -20,160 +20,53 @@ rofi.columns:		    1
 rofi.sidebar-mode:      true
 
 ! -----------------------------------------------------------------------------------------------------------------------------
-! URXVT
-! NOT BEING USED
-! -----------------------------------------------------------------------------------------------------------------------------
-
-! Urxvt.modifier: super
-! ! general settings
-! URxvt.saveLines: 100000
-! URxvt.scrollBar: False
-! URxvt.scrollstyle: rxvt
-! URxvt*termName: rxvt-unicode-patched-256color
-! URxvt*pointerBlank: True
-! URxvt.urgentOnBell: True
-! URxvt.cursorBlink: True
-! URxvt.cursorUnderline: False
-! URxvt.iso14755: False
-! URxvt*insecure: false
-! URxvt*depth: 32
-! URxvt.lineSpace: 6
-
-! extensions
-! URxvt.urlLauncher: xdg-open
-! URxvt.urlButton: 1
-! URxvt.underlineURLs: True
-! URxvt.keysym.super-l:	perl:url-select:select_next
-! URxvt.url-select.launcher: $BROWSER
-! URxvt.url-select.underline: true
-
-! URxvt.url-launcher: qutebrowser
-  
-! URxvt.internalBorder: 6
-! URxvt.copyCommand:  xsel -b -selection clipboard
-! URxvt.pasteCommand:  xsel -o -selection clipboard
-! URxvt.perl-ext-common: selection-to-clipboard,default,matcher,resize-font, resize-font, keyboard-select
-!
-! URxvt.url-launcher: /usr/bin/xdg-open
-! URxvt.matcher.button: 1
-!
-! !! keyboard-select:
-! URxvt.keysym.M-Escape: perl:keyboard-select:activate
-!
-! !! url-select
-! ! keybindings
-! URxvt.keysym.C-Up:     perl:font-size:increase
-! URxvt.keysym.C-Down:   perl:font-size:decrease
-! URxvt.keysym.Control-Shift-C: perl:clipboard:copy
-! URxvt.keysym.Control-Shift-V: perl:clipboard:paste
-! ! URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-! URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-!
-! ! font
-! ! URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
-! URxvt.font: xft:Hack:size=9.5:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true
-!
-! URxvt.letterSpace: -1
-!
-! URxvt.foreground: #839496
-! ! URxvt.foreground: #4a5351
-! URxvt*background: [90]#1d2226   
-! ! URxvt*depth: 32
-! # URxvt*background: rgba:fff0/0000/0200/ffff
-! ! URxvt*background: [91]#f9fafb   
-!
-! ! colors
-! ! black
-! URxvt.color0  : #303030 
-! URxvt.color8  : #536a70
-! ! URxvt.color0  : #282a2e
-! ! URxvt.color8  : #373b41
-!
-! ! red
-! URxvt.color1  : #cb4b16 
-! URxvt.color9  : #ba4443
-! ! URxvt.color1   : #a54242
-! ! URxvt.color9   : #cc6666
-!
-! ! green
-! URxvt.color2  : #AFD787 
-! URxvt.color10 : #98c379
-! ! URxvt.color2  : #8c9440
-! ! URxvt.color10 : #93a10c
-!
-! ! yellow
-! URxvt*.color3 : #ffcc66
-! URxvt.color11 : #e5c07b
-! ! URxvt.color3  : #cb5707
-! ! URxvt.color11 : #f0c674
-!
-! ! blue
-! URxvt.color4  : #87D7FF
-! URxvt*.color12: #5fafd7
-! ! URxvt.color4  : #5f819d
-! ! URxvt.color12 : #81a2be
-!
-! ! magenta
-! URxvt*.color5 : #cc99cc 
-! URxvt*.color13: #b777e0
-! ! URxvt.color5  : #85678f
-! ! URxvt.color13 : #b294bb
-!
-! ! cyan
-! URxvt*.color6 : #66cccc
-! URxvt.color14 : #2aa198  
-! ! URxvt.color6  : #e4f0c3
-! ! URxvt.color14 : #369d8f
-!
-! ! white
-! URxvt.color7  : #e8e8de
-! URxvt.color15 : #fdf6e3 
-! ! URxvt.color7  : #707880
-! ! URxvt.color15 : #4e5353
-!
-! -----------------------------------------------------------------------------------------------------------------------------
 ! COLOURS VERU
 ! -----------------------------------------------------------------------------------------------------------------------------
+*.foreground:  #839496
+*.background:  #1d2226
+*.cursorColor: #aaa
 
-#define veru0  #1c1c1c
-#define veru1  #3B4252
-#define veru2  #434C5E
-#define veru3  #4C566A
-#define veru4  #D8DEE9
-#define veru5  #E5E9F0
-#define veru6  #ECEFF4
-#define veru7  #8FBCBB
-#define veru8  #88C0D0
-#define veru9  #81A1C1
-#define veru10 #5E81AC
-#define veru11 #BF616A
-#define veru12 #D08770
-#define veru13 #EBCB8B
-#define veru14 #A3BE8C
-#define veru15 #B48EAD
+URxvt.foreground:           #839496
+URxvt*background:           [91]#1d2226
+* URxvt*background:           [91]#fddfdf
 
-*.foreground:  veru4
-*.background:  veru0
-*.cursorColor: veru4
-! *fading:       35
-! *fadeColor:    veru3
+*.color0:  #303030
+*.color1:  #cb4b16
+*.color2:  #AFD787
+*.color3:  #ffcc66
+*.color4:  #5fafd7
+*.color5:  #cc99cc
+*.color6:  #66cccc
+*.color7:  #e8e8de
+*.color8:  #536a70
+*.color9:  #ba4443
+*.color10: #98c379
+*.color11: #e5c07b
+*.color12: #87D7FF
+*.color13: #b777e0
+*.color14: #2aa198
+*.color15: #fdf6e3
 
-*.color0:  veru0
-*.color1:  veru11
-*.color2:  veru14
-*.color3:  veru13
-*.color4:  veru9
-*.color5:  veru15
-*.color6:  veru8
-*.color7:  veru5
-*.color8:  veru3
-*.color9:  veru11
-*.color10: veru14
-*.color11: veru13
-*.color12: veru9
-*.color13: veru15
-*.color14: veru7
-*.color15: veru6
+! ! Atom One Light theme
+! urxvt*background: #f9f9f9
+! urxvt*foreground: #383a42
+! urxvt*cursorColor: #d0d0d0
+! urxvt*color0: #000000
+! urxvt*color1: #E45649
+! urxvt*color2: #50A14F
+! urxvt*color3: #986801
+! urxvt*color4: #4078F2
+! urxvt*color5: #A626A4
+! urxvt*color6: #0184BC
+! urxvt*color7: #A0A1A7
+! urxvt*color8: #5c6370
+! urxvt*color9: #e06c75
+! urxvt*color10: #50A14F
+! urxvt*color11: #986801
+! urxvt*color12: #4078F2
+! urxvt*color13: #A626A4
+! urxvt*color14: #0184BC
+! urxvt*color15: #101010
 
 
 ! -----------------------------------------------------------------------------------------------------------------------------
@@ -194,24 +87,24 @@ URxvt.iso14755_52:          false
 URxvt*insecure:             false
 URxvt*depth:                32
 
-! clickable links
-! URxvt.matcher.button:       1
-URxvt.modifier: alt
+URxvt.modifier: super
 
 ! extensions
-URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select
+URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
 URxvt.colorUL:	    	    #4682B4
 
-!! url-select
 URxvt.keysym.M-l:           perl:url-select:select_next
-URxvt.url-select.launcher:  /usr/bin/xdg-open
+URxvt.url-select.launcher:  /usr/sbin/chromium
+URxvt.urlLauncher:          /usr/sbin/chromium
 URxvt.url-select.underline: true
 
-!! keyboard-select:
-!
+URxvt.lineSpace: 5
+URxvt.internalBorder:  9
+URxvt.letterSpace:          -1
+
+
 URxvt.keysym.M-v:           perl:keyboard-select:activate
 
-!! resize-font
 URxvt.resize-font.smaller:  M-J
 URxvt.resize-font.bigger:   M-K
 URxvt.resize-font.reset:    M-R
@@ -219,6 +112,9 @@ URxvt.resize-font.step:     1
 
 ! keybindings
 URxvt.keysym.M-p:           eval:paste_clipboard
+URxvt.keysym.M-c:           eval:selection_to_clipboard
+! URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+! URxvt.keysym.Control-Shift-C: perl:clipboard:copy
 
 !! scrolling
 URxvt.keysym.M-k:           command:\033]720;1\007
@@ -233,16 +129,11 @@ URxvt*scrollTtyOutput:      false
 URxvt*scrollTtyKeypress:    true
 
 ! font
-URxvt.font:                 xft:Hack:                         size=9:antialias=true:hinting=true,\
-                            xft:DroidSansMono Nerd Font:      size=9:antialias=true:hinting=true,\
-                            xft:DroidSansMono Nerd Font Mono: size=9:antialias=true:hinting=true,\
-                            xft:Symbols Nerd Font:            size=9:antialias=true:hinting=true,\
-                            xft:Font Awesome 5 Pro:           size=9:antialias=true:hinting=true,\
-                            xft:EmojiOne:                     size=6:antialias=true:hinting=true,\
-                            xft:NotoColorEmoji:               size=5:antialias=true:hinting=true,\
-                            xft:Material Icons:               size=5:antialias=true:hinting=true
+URxvt.font:                 xft:Hack:                         size=8:antialias=true:hinting=true, xft:Terminess Powerline:size=12
 
-URxvt.letterSpace:          -1
 
-URxvt.foreground:           veru6
-URxvt*background:           [96]veru0
+! change to light background
+URxvt.keysym.C-8: command:\033]11;#ffffff\007
+
+! do not ask when copy
+URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select,clipboard,-confirm-paste
