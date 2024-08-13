@@ -92,6 +92,7 @@
         pkgs.pipx
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
+        pkgs.android-tools
 	
 	    # LANGUAGE SERVERS
         pkgs.gopls
@@ -126,6 +127,11 @@
         pkgs.newsboat
         pkgs.pre-commit
 
+	    # Security testing tools
+        pkgs.nmap
+        pkgs.rustscan # faster nmap)
+        pkgs.burpsuite
+        pkgs.zap
 
 	    # AI
         pkgs.ollama

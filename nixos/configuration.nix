@@ -89,6 +89,8 @@
   services.xrdp.openFirewall = true;
 
 
+  services.flatpak.enable = true;
+
   # ===============================================
   # i3
   # ===============================================
@@ -194,9 +196,9 @@
     enable = true;
    # Ban IP after 3 failures
     maxretry = 3;
-    # ignoreIP = [
-    #  "192.168.0.0/16"
-    # ];
+    ignoreIP = [
+     "192.168.0.0/24"
+    ];
     bantime = "1h"; # Ban IPs for one day on the first ban
     jails = {
       sshd.settings = {
