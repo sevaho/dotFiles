@@ -93,6 +93,9 @@
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
         pkgs.android-tools
+
+        # temporary mail
+        pkgs.tmpmail
 	
 	    # LANGUAGE SERVERS
         pkgs.gopls
@@ -132,6 +135,7 @@
         pkgs.rustscan # faster nmap)
         pkgs.burpsuite
         pkgs.zap
+        pkgs.wireshark
 
 	    # AI
         pkgs.ollama
