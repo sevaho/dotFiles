@@ -3,6 +3,7 @@
 {
 
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.android_sdk.accept_license = true;
 
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -92,7 +93,12 @@
         pkgs.pipx
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
+
+        # android
+        pkgs.usbutils
         pkgs.android-tools
+        pkgs.frida-tools
+        pkgs.android-studio-full
 
         # temporary mail
         pkgs.tmpmail
@@ -129,6 +135,7 @@
         pkgs.ttyper
         pkgs.newsboat
         pkgs.pre-commit
+        pkgs.dfc
 
 	    # Security testing tools
         pkgs.nmap
@@ -298,6 +305,8 @@
         services = {"gitlab.wegroup.io" = "gitlab:gitlab.wegroup.io"; };
     };
 
+
+    programs.nix-index.enable = true;
 
 
     # This value determines the Home Manager release that your configuration is

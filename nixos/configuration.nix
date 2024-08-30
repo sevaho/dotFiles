@@ -76,6 +76,9 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = ["amdgpu"];
@@ -90,6 +93,9 @@
 
 
   services.flatpak.enable = true;
+
+  # Minimal configuration for NFS support with Vagrant.
+  services.nfs.server.enable = true;
 
   # ===============================================
   # i3
@@ -146,7 +152,7 @@
   users.users.sevaho = {
     initialPassword = "foobar";
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "libvirtd"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     packages = with pkgs; [
        wget
@@ -157,7 +163,7 @@
   users.users.sevaho-remote = {
     initialPassword = "foobar";
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "libvirtd"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     packages = with pkgs; [
        wget
@@ -244,10 +250,21 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [ 3389 8080 5000];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # Add firewall exception for VirtualBox provider 
+  networking.firewall.extraCommands = ''
+    ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
+  '';
+
+  # Add firewall exception for libvirt provider when using NFSv4 
+  networking.firewall.interfaces."virbr1" = {                                   
+    allowedTCPPorts = [ 2049 ];                                               
+    allowedUDPPorts = [ 2049 ];                                               
+  };  
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
