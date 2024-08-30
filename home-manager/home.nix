@@ -94,11 +94,17 @@
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
 
+        # Infra
+        pkgs.vagrant
+
         # android
         pkgs.usbutils
         pkgs.android-tools
+        pkgs.android-studio
+        # reverse engineering android
+        pkgs.jadx
         pkgs.frida-tools
-        pkgs.android-studio-full
+        pkgs.apktool
 
         # temporary mail
         pkgs.tmpmail
@@ -107,6 +113,10 @@
         pkgs.gopls
         pkgs.nil
         pkgs.nixd
+        pkgs.pgformatter
+        pkgs.dprint
+        pkgs.fixjson
+        pkgs.html-tidy
 
 	    # TERMINAL
         pkgs.alacritty
@@ -143,6 +153,8 @@
         pkgs.burpsuite
         pkgs.zap
         pkgs.wireshark
+        pkgs.metasploit
+        pkgs.ida-free
 
 	    # AI
         pkgs.ollama
@@ -203,12 +215,21 @@
     #  /etc/profiles/per-user/sevaho/etc/profile.d/hm-session-vars.sh
     #
     # ENVIRONMENT VARIABLES
+    # THIS WONT TAKE EFFECT IF HOME MANAGER IS NOT MANAGING ZSH
     home.sessionVariables = {
         EDITOR = "neovim";
         PAGER = "less";
         BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
         DEFAULT_BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
+
+        XDG_CACHE_HOME = "$HOME/.cache";
+        XDG_CONFIG_DIRS = "/etc/xdg";
+        XDG_CONFIG_HOME = "$HOME/.config";
+        XDG_DATA_HOME = "$HOME/.local/share";
+        XDG_STATE_HOME = "$HOME/.local/state";
     };
+
+
 
 
     # Let Home Manager install and manage itself.
