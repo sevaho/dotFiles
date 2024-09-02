@@ -14,3 +14,6 @@ all: ## Build all the things
 
 up: ## Run
 	sudo nixos-rebuild switch --flake ".#default"
+
+boot: ## Boot
+	sudo nixos-rebuild boot --flake ".#default"

@@ -146,6 +146,7 @@
         pkgs.newsboat
         pkgs.pre-commit
         pkgs.dfc
+        pkgs.ncdu
 
 	    # Security testing tools
         pkgs.nmap

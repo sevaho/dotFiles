@@ -13,6 +13,9 @@
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
 
+  # https://nixos.wiki/wiki/Linux_kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.kernelParams = [
         "radeon.si_support=0"
         "amdgpu.si_support=1"
