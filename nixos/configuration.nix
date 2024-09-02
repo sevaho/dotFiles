@@ -41,7 +41,9 @@
     dhcpcd.enable = false;
 
     interfaces = {
-      enp69s0.ipv4.addresses = [{
+      # Changed because new linux kernel?
+      # enp69s0.ipv4.addresses = [{
+      enp70s0.ipv4.addresses = [{
         address = "192.168.0.195";
         prefixLength = 24;
       }];
