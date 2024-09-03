@@ -17,3 +17,7 @@ up: ## Run
 
 boot: ## Boot
 	sudo nixos-rebuild boot --flake ".#default"
+
+update: ## Update
+	nix flake update
+	sudo nixos-rebuild switch --flake ".#default"

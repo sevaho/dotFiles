@@ -43,10 +43,26 @@
     interfaces = {
       # Changed because new linux kernel?
       # enp69s0.ipv4.addresses = [{
-      enp70s0.ipv4.addresses = [{
-        address = "192.168.0.195";
-        prefixLength = 24;
-      }];
+      # enp70s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #       address = "192.168.0.195";
+      #       prefixLength = 24;
+      #   }];
+      # };
+
+      br0 = {
+        useDHCP = false;
+        ipv4.addresses = [ {
+            address = "192.168.0.195";
+            prefixLength = 24;
+        }];
+      };
+    };
+    bridges = {
+      "br0" = {
+        interfaces = [ "enp70s0" ];
+      };
     };
     defaultGateway = "192.168.0.1";
     nameservers = [ "1.1.1.1" "9.9.9.9" ];
@@ -126,9 +142,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
 
   hardware.pulseaudio.enable = false;
   # OR
