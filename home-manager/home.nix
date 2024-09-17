@@ -79,6 +79,7 @@
         pkgs.maim
         pkgs.libreoffice
         pkgs.kubectl
+        pkgs.krew
         pkgs.pavucontrol
         pkgs.jq
         pkgs.i2c-tools
@@ -90,7 +91,7 @@
         pkgs.killall
         pkgs.arc-theme
         pkgs.mpv
-        pkgs.pipx
+        pkgs.uv
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
 

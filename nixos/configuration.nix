@@ -42,7 +42,7 @@
 
     interfaces = {
       # Changed because new linux kernel?
-      # enp69s0.ipv4.addresses = [{
+      # # enp69s0.ipv4.addresses = [{
       # enp70s0 = {
       #   useDHCP = false;
       #   ipv4.addresses = [{
