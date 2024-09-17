@@ -136,6 +136,7 @@
         pkgs.bat
         pkgs.neovim
         pkgs.ripgrep
+        pkgs.ripgrep-all
         pkgs.entr
         pkgs.tig
         pkgs.atac
