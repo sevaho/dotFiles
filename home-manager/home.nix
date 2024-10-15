@@ -70,7 +70,7 @@
         pkgs.jetbrains.datagrip
         pkgs.libuv
         pkgs.bind
-        pkgs.qutebrowser
+        # pkgs.qutebrowser
         pkgs.pinentry-curses
         pkgs.gnupg
         pkgs.dmidecode
