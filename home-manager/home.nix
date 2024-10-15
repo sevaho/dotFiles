@@ -96,7 +96,6 @@
         pkgs.freerdp3
 
         # Infra
-        pkgs.vagrant
 
         # android
         pkgs.usbutils
@@ -222,8 +221,8 @@
     home.sessionVariables = {
         EDITOR = "neovim";
         PAGER = "less";
-        BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
-        DEFAULT_BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
+        # BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
+        # DEFAULT_BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
 
         XDG_CACHE_HOME = "$HOME/.cache";
         XDG_CONFIG_DIRS = "/etc/xdg";
