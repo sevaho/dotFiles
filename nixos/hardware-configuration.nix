@@ -22,6 +22,7 @@
         "radeon.cik_support=0"
         "amdgpu.cik_support=1"
         "amdgpu.dc=1"
+        "pcie_aspm=off"
   ];
 
 

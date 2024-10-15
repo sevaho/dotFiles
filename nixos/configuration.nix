@@ -21,6 +21,8 @@
     wantedBy = [ "multi-user.target" ]; # add this if you want the unit to auto start at boot time 
   };
 
+  # ENV VARS
+  environment.variables.XCURSOR_SIZE = "32";
  
   # Hardware
   hardware = {
@@ -188,6 +190,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
   environment.systemPackages = with pkgs; [
     lact
     git
