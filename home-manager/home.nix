@@ -28,9 +28,8 @@
     # The home.packages option allows you to install Nix packages into your
     # environment.
     home.packages = [
-        # # Adds the 'hello' command to your environment. It prints a friendly
-        # # "Hello, world!" when run.
-        # pkgs.polybar
+        # Add packages like pkgs.mypackage or pkgs.stable.mypackage to rely on stable branch
+
         (pkgs.polybar.override { i3Support = true;  alsaSupport = true; })
 
         pkgs.tmux
@@ -70,7 +69,11 @@
         pkgs.jetbrains.datagrip
         pkgs.libuv
         pkgs.bind
-        # pkgs.qutebrowser
+        pkgs.stable.qutebrowser
+
+        (pkgs.python311.withPackages (p: with p; [
+            pkgs.qutebrowser
+        ]))
         pkgs.pinentry-curses
         pkgs.gnupg
         pkgs.dmidecode

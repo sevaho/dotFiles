@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       # modules = [
@@ -20,6 +20,13 @@
       # ];
 
         modules = [
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                stable = nixpkgs-stable.legacyPackages.${prev.system};
+              })
+            ];
+          }
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
