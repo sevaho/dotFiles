@@ -50,6 +50,7 @@
         pkgs.lshw
         pkgs.bluez
         pkgs.gnumake
+        pkgs.just
         pkgs.nvme-cli
         pkgs.tree
         pkgs.unzip
@@ -70,10 +71,6 @@
         pkgs.libuv
         pkgs.bind
         pkgs.stable.qutebrowser
-
-        (pkgs.python311.withPackages (p: with p; [
-            pkgs.qutebrowser
-        ]))
         pkgs.pinentry-curses
         pkgs.gnupg
         pkgs.dmidecode
@@ -143,7 +140,7 @@
         pkgs.tig
         pkgs.atac
         pkgs.yazi
-        pkgs.peek
+        pkgs.stable.peek
         pkgs.openssl
         pkgs.ueberzugpp
         pkgs.ttyper

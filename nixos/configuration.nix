@@ -22,7 +22,7 @@
   };
 
   # ENV VARS
-  environment.variables.XCURSOR_SIZE = "10";
+  environment.variables.XCURSOR_SIZE = "30";
  
   # Hardware
   hardware = {
