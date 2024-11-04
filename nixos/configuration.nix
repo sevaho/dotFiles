@@ -174,7 +174,7 @@
     packages = with pkgs; [
        wget
     ];
-    openssh.authorizedKeys.keyFiles = [ ./public-keys/id_rsa.pub ./public-keys/tablet.pub ];
+    openssh.authorizedKeys.keyFiles = [ ./public-keys/id_rsa.pub ./public-keys/tablet.pub ./public-keys/macos.pub ];
   };
 
   users.users.sevaho-remote = {
@@ -185,7 +185,7 @@
     packages = with pkgs; [
        wget
     ];
-    openssh.authorizedKeys.keyFiles = [ ./public-keys/id_rsa.pub ./public-keys/tablet.pub ];
+    openssh.authorizedKeys.keyFiles = [ ./public-keys/id_rsa.pub ./public-keys/tablet.pub ./public-keys/macos.pub ];
   };
 
   # List packages installed in system profile. To search, run:

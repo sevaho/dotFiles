@@ -148,6 +148,7 @@
         pkgs.pre-commit
         pkgs.dfc
         pkgs.ncdu
+        pkgs.tree-sitter
 
 	    # Security testing tools
         pkgs.nmap
