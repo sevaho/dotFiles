@@ -2,11 +2,11 @@
   description = "Nixos config flake";
 
   inputs = {
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
+    # determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2405.0";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2405.0";
 
 
     home-manager = {
@@ -16,12 +16,12 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, determinate, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         # not sure what the following does
         # specialArgs = {inherit inputs;};
         modules = [
-          determinate.nixosModules.default
+          # determinate.nixosModules.default
 
           #  This is required so we can use both stable and unstable nixpkgs
           {
