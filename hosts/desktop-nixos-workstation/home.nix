@@ -1,3 +1,4 @@
+
 { config, pkgs, ... }:
 
 {
@@ -256,10 +257,10 @@
     programs.gpg.enable = true;
 
     # But of course
-    programs.git = import ./git.nix { inherit pkgs; };
+    programs.git = import ../../configs/git.nix { inherit pkgs; };
 
     # helix
-    programs.helix = import ./helix.nix { inherit pkgs; };
+    programs.helix = import ../../configs/helix.nix { inherit pkgs; };
 
     # zsh
     # TODO:  <12-06-24, Sebastiaan Van Hoecke> -Fix me

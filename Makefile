@@ -13,11 +13,11 @@ help: ## Show this help message (default)
 all: ## Build all the things
 
 up: ## Run
-	sudo nixos-rebuild switch --flake ".#default"
+	sudo nixos-rebuild switch --flake ".#desktop-nixos-workstation"
 
 boot: ## Boot
-	sudo nixos-rebuild boot --flake ".#default"
+	sudo nixos-rebuild boot --flake ".#desktop-nixos-workstation"
 
 update: ## Update
 	nix flake update
-	sudo nixos-rebuild switch --flake ".#default"
+	sudo nixos-rebuild switch --flake ".#desktop-nixos-workstation"
