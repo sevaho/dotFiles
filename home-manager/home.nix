@@ -232,8 +232,9 @@
         XDG_STATE_HOME = "$HOME/.local/state";
     };
 
-
-
+    # Direnv
+    programs.direnv.enable = true;
+    programs.direnv.nix-direnv.enable = true;
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
