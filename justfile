@@ -1,5 +1,8 @@
+up:
+    just -l
+
 laptop-macos-work:
-	darwin-rebuild switch --flake ~/.config/nix-darwin
+	darwin-rebuild switch --flake .
 
 desktop-nixos-workstation: ## Run
 	sudo nixos-rebuild switch --flake ".#desktop-nixos-workstation"
