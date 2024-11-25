@@ -14,12 +14,15 @@
     # environment.
     home.packages = [
     	pkgs.inetutils
-        pkgs.freerdp3
         pkgs.zlib
-        pkgs.htop
         pkgs.hackgen-nf-font
         pkgs.nerdfonts
+
+	# Terminal
+        pkgs.htop
+        pkgs.lazygit
         pkgs.helix
+        pkgs.fzf
     ];
 
     home.sessionVariables = {
@@ -156,11 +159,19 @@
             ll = "ls -l";
             vim = "nvim";
             v = "nvim";
+            gp = "git pull";
+            gits = "git status";
+            lg = "lazygit";
         };
         # history = {
         #         size = 10000;
         #         path = "${config.xdg.dataHome}/fish/history";
         # };
+    };
+
+    programs.zoxide = {
+	enable = true;
+	enableFishIntegration = true;
     };
 
 

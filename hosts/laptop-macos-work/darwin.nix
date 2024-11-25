@@ -94,7 +94,7 @@
       system.activationScripts.postUserActivation.enable = true;
       system.activationScripts.postUserActivation.text = "
         skhd -r
-        /usr/local/bin/desktoppr /Users/sevaho/Pictures/background.png
+        /usr/local/bin/desktoppr ~/Git/Github/sevaho/dotFiles/assets/background.png
       ";
 
 	  system.defaults = {
