@@ -8,6 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/docker.nix
+      ../../modules/i18n.nix
+      ../../modules/networking.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -26,11 +29,11 @@
  
   # Hardware
   hardware = {
-    graphics = {
-      enable = true;
-      # driSupport = true;
-      enable32Bit = true;
-    };
+    # graphics = {
+    #   enable = true;
+    #   # driSupport = true;
+    #   enable32Bit = true;
+    # };
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -45,66 +48,6 @@
     options = "--delete-older-than 30d";
   };
   nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = "asicli"; # Define your hostname.
-
-  # hardware.pulseaudio.enable = true;
-  networking = {
-    dhcpcd.enable = false;
-
-    interfaces = {
-      # Changed because new linux kernel?
-      # # enp69s0.ipv4.addresses = [{
-      # enp70s0 = {
-      #   useDHCP = false;
-      #   ipv4.addresses = [{
-      #       address = "192.168.0.195";
-      #       prefixLength = 24;
-      #   }];
-      # };
-
-      br0 = {
-        useDHCP = false;
-        ipv4.addresses = [ {
-            address = "192.168.0.195";
-            prefixLength = 24;
-        }];
-      };
-    };
-    bridges = {
-      "br0" = {
-        interfaces = [ "enp70s0" ];
-      };
-    };
-    defaultGateway = "192.168.0.1";
-    nameservers = [ "1.1.1.1" "9.9.9.9" ];
-  };
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
-  time.timeZone = "Europe/Brussels";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  # DOES NOT WORK
-  # fonts.packages = with pkgs; [
-  # hackgen-nf-font
-  # ];
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
@@ -277,22 +220,6 @@
     };
   };
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 3389 8080 5000];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Add firewall exception for VirtualBox provider 
-  networking.firewall.extraCommands = ''
-    ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
-  '';
-
-  # Add firewall exception for libvirt provider when using NFSv4 
-  networking.firewall.interfaces."virbr1" = {                                   
-    allowedTCPPorts = [ 2049 ];                                               
-    allowedUDPPorts = [ 2049 ];                                               
-  };  
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

@@ -1,15 +1,17 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, outputs, ... }:
 
 {
 
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.android_sdk.accept_license = true;
 
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
     home.username = "sevaho";
     home.homeDirectory = "/home/sevaho";
+
+    imports = [
+        ../../programs/git.nix
+    ];
 
     xdg.mimeApps = {
         enable = true;
@@ -22,6 +24,18 @@
             "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
         };
     };
+
+
+    nixpkgs = {
+        overlays = [
+            outputs.overlays.unstable-packages
+        ];
+
+        config = {
+            allowUnfree = true;
+            android_sdk.accept_license = true;
+        };
+  };
 
 
     # environment.sessionVariables.DEFAULT_BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser";
@@ -69,9 +83,8 @@
         pkgs.openvpn
         pkgs.obsidian
         pkgs.jetbrains.datagrip
-        pkgs.libuv
         pkgs.bind
-        pkgs.stable.qutebrowser
+        pkgs.qutebrowser
         pkgs.pinentry-curses
         pkgs.gnupg
         pkgs.dmidecode
@@ -86,7 +99,7 @@
         pkgs.i2c-tools
         pkgs.inetutils
         pkgs.xournalpp
-        pkgs.httpie
+        pkgs.unstable.httpie
         pkgs.mprocs
         pkgs.gcc
         pkgs.killall
@@ -95,6 +108,7 @@
         pkgs.uv
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
+        pkgs.xdotool
 
         # Infra
 
@@ -102,6 +116,7 @@
         pkgs.usbutils
         pkgs.android-tools
         pkgs.android-studio
+
         # reverse engineering android
         pkgs.jadx
         pkgs.frida-tools
@@ -116,7 +131,6 @@
         pkgs.nixd
         pkgs.pgformatter
         pkgs.dprint
-        pkgs.fixjson
         pkgs.html-tidy
 
 	    # TERMINAL
@@ -134,14 +148,14 @@
         pkgs.atuin
         pkgs.eza
         pkgs.bat
-        pkgs.neovim
+        pkgs.unstable.neovim
         pkgs.ripgrep
         pkgs.ripgrep-all
         pkgs.entr
         pkgs.tig
         pkgs.atac
-        pkgs.yazi
-        pkgs.stable.peek
+        pkgs.unstable.yazi
+        pkgs.peek
         pkgs.openssl
         pkgs.ueberzugpp
         pkgs.ttyper
@@ -257,7 +271,7 @@
     programs.gpg.enable = true;
 
     # But of course
-    programs.git = import ../../configs/git.nix { inherit pkgs; };
+    # programs.git = import ../../programs/git.nix { inherit pkgs; };
 
     # helix
     programs.helix = import ../../configs/helix.nix { inherit pkgs; };
@@ -270,7 +284,7 @@
     programs.alacritty.enable = true;
     programs.alacritty.settings = {
         mouse.hide_when_typing = true;
-        live_config_reload = true;
+        general.live_config_reload = true;
         window.opacity = 0.9;
         keyboard.bindings = [
         { key = "p"; mods = "Alt"; action = "Paste"; }

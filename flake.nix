@@ -4,10 +4,8 @@
   inputs = {
     nix-darwin.url = "github:LnL7/nix-darwin";
 
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,25 +14,26 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nix-darwin, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nix-darwin, ... } @ inputs:
+    let
+      inherit (self) outputs;
+    in
+    {
+
+    overlays = import ./overlays/default.nix { inherit inputs; };
+
     nixosConfigurations.desktop-nixos-workstation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-
+        specialArgs = { inherit inputs outputs; };
         modules = [
-          #  This is required so we can use both stable and unstable nixpkgs
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                stable = nixpkgs-stable.legacyPackages.${prev.system};
-              })
-            ];
-          }
           ./hosts/desktop-nixos-workstation/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
+            # home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sevaho = import ./hosts/desktop-nixos-workstation/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs outputs; };
+
           }
         ];
     };
