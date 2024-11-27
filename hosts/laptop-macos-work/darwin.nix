@@ -73,6 +73,9 @@
 	homebrew = {
 		enable = true;
 
+	    brews = [
+		"pinentry-mac"
+	    ];
 	    casks = [
 	      "google-drive"
 	      "brave-browser"
@@ -83,9 +86,7 @@
 	      "iterm2"
 	      "windows-app"
 	      "spotify"
-	      "visual-studio-code"
-	      "desktoppr"
-	      "karabiner-elements"
+	      "wireshark"
 	    ];
 	  };
 

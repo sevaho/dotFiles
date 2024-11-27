@@ -18,11 +18,14 @@
         pkgs.hackgen-nf-font
         pkgs.nerdfonts
 
+        pkgs.sniffnet
+
 	# Terminal
         pkgs.htop
         pkgs.lazygit
         pkgs.helix
         pkgs.fzf
+        pkgs.gopass
     ];
 
     home.sessionVariables = {
@@ -43,10 +46,31 @@
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
+    programs.yazi = {
+        enable = true;
+    	enableFishIntegration = true;
+    };
+
+    programs.atuin = {
+        enable = true;
+    	enableFishIntegration = true;
+	flags = [
+		"--disable-up-arrow"
+        ];
+    };
+
+    programs.broot = {
+        enable = true;
+    	enableFishIntegration = true;
+    };
+
+
+    programs.gpg.enable = true;
+
     # Fuzzy finder
     programs.fzf = {
         enable = true;
-        enableZshIntegration = true;
+    	enableFishIntegration = true;
     };
 
     # Golang
@@ -155,13 +179,22 @@
         # autosuggestion.enable = true;
         # syntaxHighlighting.enable = true;
 
+	interactiveShellInit = ''
+	    set -g fish_key_bindings fish_default_key_bindings
+	      bind \cc kill-whole-line repaint
+	      bind \ck up-or-search
+	      bind \cj down-or-search
+	'';
+
         shellAliases = {
             ll = "ls -l";
             vim = "nvim";
             v = "nvim";
             gp = "git pull";
             gits = "git status";
+            gda = "git diff -a";
             lg = "lazygit";
+            lf = "yazi";
         };
         # history = {
         #         size = 10000;
@@ -172,6 +205,9 @@
     programs.zoxide = {
 	enable = true;
 	enableFishIntegration = true;
+	options = [
+	    "--cmd c"
+	];
     };
 
 
