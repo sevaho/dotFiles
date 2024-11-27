@@ -273,8 +273,8 @@
         live_config_reload = true;
         window.opacity = 0.9;
         keyboard.bindings = [
-        { key = "p"; mods = "Super"; action = "Paste"; }
-        { key = "c"; mods = "Super"; action = "Copy"; }
+        { key = "p"; mods = "Alt"; action = "Paste"; }
+        { key = "c"; mods = "Alt"; action = "Copy"; }
         { key = "k"; mods = "Super|Shift"; action = "IncreaseFontSize"; }
         { key = "j"; mods = "Super|Shift"; action = "DecreaseFontSize"; }
         { key = "Return"; mods = "Alt|Shift"; action = "SpawnNewInstance"; }
