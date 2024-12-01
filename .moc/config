@@ -1,6 +1,0 @@
-MusicDir            = ~/Music
-Keymap              = keymap
-StartInMusicDir     = yes
-ShowTime            = yes
-Theme               = alldefault
-Equalizer_SaveState = yes
