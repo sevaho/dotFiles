@@ -48,20 +48,26 @@
 
     programs.yazi = {
         enable = true;
-    	enableFishIntegration = true;
+    	enableZshIntegration = true;
     };
 
     programs.atuin = {
         enable = true;
-    	enableFishIntegration = true;
+    	enableZshIntegration = true;
 	flags = [
 		"--disable-up-arrow"
         ];
     };
 
+    programs.nix-index = {
+        enable = true;
+    	enableZshIntegration = true;
+    };
+
+
     programs.broot = {
         enable = true;
-    	enableFishIntegration = true;
+    	enableZshIntegration = true;
     };
 
 
@@ -70,7 +76,7 @@
     # Fuzzy finder
     programs.fzf = {
         enable = true;
-    	enableFishIntegration = true;
+    	enableZshIntegration = true;
     };
 
     # Golang
@@ -99,7 +105,8 @@
 
     programs.alacritty.enable = true;
     programs.alacritty.settings = {
-        terminal.shell.program = "${pkgs.fish}/bin/fish";
+        # terminal.shell.program = "${pkgs.fish}/bin/fish";
+        # terminal.shell.program = "/bin/zsh -c /etc/profiles/per-user/sevaho/bin/fish";
 
         mouse.hide_when_typing = true;
         window.opacity = 0.94;
@@ -111,10 +118,23 @@
         { key = "Return"; mods = "Alt|Shift"; action = "SpawnNewInstance"; }
         ];
 
+	# hints.enabled = [
+	# {regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";}
+	# { command = { program = "code", args = [ "--goto" ] }; }
+	# {mouse = { enabled = true; }; }
+	# ];
 	hints.enabled = [
-	  # {regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";}
-	  # { command = { program = "code", args = [ "--goto" ] }; }
-	  # {mouse = { enabled = true; }; }
+		{
+		# command = "xdg-open";
+		command = "open";
+		# command = { program = "cmd", args = [ "/c", "start", "" ] } # On Windows
+		hyperlinks = true;
+		post_processing = true;
+		persist = false;
+		mouse.enabled = true;
+		binding = { key = "O"; mods = "Super|Shift"; };
+		regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";
+		}
 	];
 
 	# Colors (Nordic)
@@ -167,6 +187,12 @@
             ll = "ls -l";
             vim = "nvim";
             v = "nvim";
+            gp = "git pull";
+            gits = "git status";
+            gda = "git diff -a";
+            lg = "lazygit";
+            lf = "yazi";
+	    zed = "/Applications/Zed.app/Contents/MacOS/cli";
         };
         history = {
                 size = 10000;
@@ -195,6 +221,7 @@
             gda = "git diff -a";
             lg = "lazygit";
             lf = "yazi";
+	    # zed = "/Applications/Zed.app/Contents/MacOS/cli";
         };
         # history = {
         #         size = 10000;
@@ -204,15 +231,11 @@
 
     programs.zoxide = {
 	enable = true;
-	enableFishIntegration = true;
+	enableZshIntegration = true;
 	options = [
 	    "--cmd c"
 	];
     };
-
-
-    programs.nix-index.enable = true;
-
 
 
     # This value determines the Home Manager release that your configuration is
