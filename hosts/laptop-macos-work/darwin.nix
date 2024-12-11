@@ -42,6 +42,7 @@
     services.skhd.skhdConfig = "
         # focus window
         lcmd - return : open -n /Applications/Alacritty.app
+        lcmd - d : open -n /Applications/Raycast.app
         lcmd - h : yabai -m window --focus west
         lcmd - j : yabai -m window --focus south
         lcmd - k : yabai -m window --focus north
@@ -87,6 +88,8 @@
 	      "windows-app"
 	      "spotify"
 	      "wireshark"
+	      "desktoppr"
+	      "zed"
 	    ];
 	  };
 
@@ -94,7 +97,6 @@
 
       system.activationScripts.postUserActivation.enable = true;
       system.activationScripts.postUserActivation.text = "
-        skhd -r
         /usr/local/bin/desktoppr ~/Git/Github/sevaho/dotFiles/assets/background.png
       ";
 
