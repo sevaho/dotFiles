@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   # https://nixos.wiki/wiki/Linux_kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   boot.kernelParams = [
         "radeon.si_support=0"
@@ -23,6 +23,7 @@
         "amdgpu.cik_support=1"
         "amdgpu.dc=1"
         "pcie_aspm=off"
+        "nvme_core.default_ps_max_latency_us=0"
   ];
 
 

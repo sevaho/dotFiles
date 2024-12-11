@@ -16,7 +16,9 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+
+  # Ignore until SSD crash issue with nvme read only is fixed
+  # boot.supportedFilesystems = [ "ntfs" ];
 
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd = {

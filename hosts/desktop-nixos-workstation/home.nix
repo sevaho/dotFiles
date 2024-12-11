@@ -105,10 +105,14 @@
         pkgs.killall
         pkgs.arc-theme
         pkgs.mpv
-        pkgs.uv
+        pkgs.unstable.uv
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
         pkgs.xdotool
+
+        pkgs.python3
+        pkgs.python3Packages.pipx
+        pkgs.python3Packages.distutils
 
         # Infra
 
