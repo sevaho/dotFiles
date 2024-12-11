@@ -145,7 +145,6 @@
         pkgs.pgcli
         pkgs.fastfetch
         pkgs.age
-        pkgs.helix
         pkgs.lazygit
         pkgs.lm_sensors
         pkgs.wget
@@ -153,6 +152,8 @@
         pkgs.eza
         pkgs.bat
         pkgs.unstable.neovim
+        pkgs.unstable.helix
+        pkgs.unstable.smartcat
         pkgs.ripgrep
         pkgs.ripgrep-all
         pkgs.entr
