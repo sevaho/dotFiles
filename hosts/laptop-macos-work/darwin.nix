@@ -78,10 +78,11 @@
 		"pinentry-mac"
 	    ];
 	    casks = [
+	      "kap"
 	      "google-drive"
 	      "brave-browser"
+	      "firefox"
 	      "obsidian"
-	      "raycast"
 	      "alacritty"
 	      "qutebrowser"
 	      "iterm2"
@@ -90,6 +91,8 @@
 	      "wireshark"
 	      "desktoppr"
 	      "zed"
+	      "ghostty"
+	      "libreoffice"
 	    ];
 	  };
 
