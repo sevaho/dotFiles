@@ -13,15 +13,22 @@
         ../../programs/git.nix
     ];
 
+    xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+            xdg-desktop-portal-gtk
+        ];
+    };
+
     xdg.mimeApps = {
         enable = true;
         defaultApplications = {
             "application/pdf" = "zathura.desktop";
-            "text/html" = "org.qutebrowser.qutebrowser.desktop";
-            "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-            "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-            "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
-            "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
+            "text/html" = "firefox.desktop";
+            "x-scheme-handler/http" = "firefox.desktop";
+            "x-scheme-handler/https" = "firefox.desktop";
+            "x-scheme-handler/about" = "firefox.desktop";
+            "x-scheme-handler/unknown" = "firefox.desktop";
         };
     };
 
@@ -108,6 +115,8 @@
         pkgs.unstable.uv
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
+        pkgs.firefox
+
         pkgs.xdotool
 
         pkgs.python3
@@ -131,6 +140,7 @@
 	
 	    # LANGUAGE SERVERS
         pkgs.gopls
+        pkgs.zls
         pkgs.nil
         pkgs.nixd
         pkgs.pgformatter
@@ -169,6 +179,7 @@
         pkgs.dfc
         pkgs.ncdu
         pkgs.tree-sitter
+        pkgs.devbox
 
 	    # Security testing tools
         pkgs.nmap
@@ -252,6 +263,8 @@
         XDG_STATE_HOME = "$HOME/.local/state";
     };
 
+    dconf.enable = true;
+
     # Direnv
     programs.direnv.enable = true;
     programs.direnv.nix-direnv.enable = true;
@@ -292,8 +305,8 @@
         general.live_config_reload = true;
         window.opacity = 0.9;
         keyboard.bindings = [
-        { key = "p"; mods = "Alt"; action = "Paste"; }
-        { key = "c"; mods = "Alt"; action = "Copy"; }
+        { key = "p"; mods = "Super"; action = "Paste"; }
+        { key = "c"; mods = "Super"; action = "Copy"; }
         { key = "k"; mods = "Super|Shift"; action = "IncreaseFontSize"; }
         { key = "j"; mods = "Super|Shift"; action = "DecreaseFontSize"; }
         { key = "Return"; mods = "Alt|Shift"; action = "SpawnNewInstance"; }
