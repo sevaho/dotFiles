@@ -7,8 +7,11 @@
       br0 = {
         useDHCP = false;
         ipv4.addresses = [ {
-            address = "192.168.0.195";
-            prefixLength = 24;
+            # address = "192.168.0.195";
+            # prefixLength = 24;
+
+            address = "192.168.68.100";
+            prefixLength = 22;
         }];
       };
     };
@@ -17,7 +20,8 @@
         interfaces = [ "enp70s0" ];
       };
     };
-    defaultGateway = "192.168.0.1";
+    # defaultGateway = "192.168.0.1";
+    defaultGateway = "192.168.68.1";
     nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
     firewall.allowedTCPPorts = [ 3389 8080 5000];

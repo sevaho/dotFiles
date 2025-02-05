@@ -176,7 +176,7 @@
    # Ban IP after 3 failures
     maxretry = 3;
     ignoreIP = [
-     "192.168.0.0/24"
+     "192.168.0.0/22"
     ];
     bantime = "1h"; # Ban IPs for one day on the first ban
     jails = {
