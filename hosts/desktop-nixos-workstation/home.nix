@@ -137,7 +137,7 @@
 
         # temporary mail
         pkgs.tmpmail
-	
+
 	    # LANGUAGE SERVERS
         pkgs.gopls
         pkgs.zls
@@ -287,6 +287,15 @@
 
     # GPG config
     programs.gpg.enable = true;
+
+    # Atuin
+    programs.atuin = {
+        enable = true;
+    	enableZshIntegration = true;
+        flags = [
+            "--disable-up-arrow"
+        ];
+    };
 
     # But of course
     # programs.git = import ../../programs/git.nix { inherit pkgs; };
