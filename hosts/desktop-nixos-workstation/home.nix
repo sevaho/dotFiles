@@ -116,6 +116,8 @@
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
         pkgs.firefox
+        pkgs.ventoy-full
+        pkgs.sysstat
 
         pkgs.xdotool
 
@@ -155,7 +157,6 @@
         pkgs.pgcli
         pkgs.fastfetch
         pkgs.age
-        pkgs.lazygit
         pkgs.lm_sensors
         pkgs.wget
         pkgs.atuin
@@ -170,6 +171,7 @@
         pkgs.tig
         pkgs.atac
         pkgs.unstable.yazi
+        pkgs.ueberzugpp
         pkgs.peek
         pkgs.openssl
         pkgs.ueberzugpp
@@ -368,6 +370,7 @@
     };
 
     programs.lazygit.enable = true;
+    programs.lazygit.package = pkgs.unstable.lazygit;
     programs.lazygit.settings = {
         services = {"gitlab.wegroup.io" = "gitlab:gitlab.wegroup.io"; };
     };
