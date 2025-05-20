@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   # https://nixos.wiki/wiki/Linux_kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
 
   boot.kernelParams = [
         "radeon.si_support=0"

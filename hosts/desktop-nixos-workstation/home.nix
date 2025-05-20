@@ -3,7 +3,6 @@
 
 {
 
-
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
     home.username = "sevaho";
@@ -13,12 +12,13 @@
         ../../programs/git.nix
     ];
 
-    xdg.portal = {
-        enable = true;
-        extraPortals = with pkgs; [
-            xdg-desktop-portal-gtk
-        ];
-    };
+    # xdg.portal = {
+    #     enable = false;
+    #     config.common.default = "*";
+    #     extraPortals = with pkgs; [
+    #         xdg-desktop-portal-gtk
+    #     ];
+    # };
 
     xdg.mimeApps = {
         enable = true;
@@ -112,7 +112,6 @@
         pkgs.killall
         pkgs.arc-theme
         pkgs.mpv
-        pkgs.unstable.uv
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
         pkgs.firefox
@@ -120,6 +119,8 @@
         pkgs.sysstat
 
         pkgs.xdotool
+
+        pkgs.unstable.uv
 
         pkgs.python3
         pkgs.python3Packages.pipx
@@ -162,8 +163,8 @@
         pkgs.atuin
         pkgs.eza
         pkgs.bat
-        pkgs.unstable.neovim
-        pkgs.unstable.helix
+        pkgs.neovim
+
         pkgs.unstable.smartcat
         pkgs.ripgrep
         pkgs.ripgrep-all
@@ -305,67 +306,72 @@
     # helix
     programs.helix = import ../../configs/helix.nix { inherit pkgs; };
 
-    # zsh
-    # TODO:  <12-06-24, Sebastiaan Van Hoecke> -Fix me
-    # programs.zsh = import ./zsh.nix { inherit pkgs; };
 
+    programs.k9s = {
+        enable = true;
+    };
 
     programs.alacritty.enable = true;
+
     programs.alacritty.settings = {
         mouse.hide_when_typing = true;
         general.live_config_reload = true;
         window.opacity = 0.9;
         keyboard.bindings = [
-        { key = "p"; mods = "Super"; action = "Paste"; }
-        { key = "c"; mods = "Super"; action = "Copy"; }
-        { key = "k"; mods = "Super|Shift"; action = "IncreaseFontSize"; }
-        { key = "j"; mods = "Super|Shift"; action = "DecreaseFontSize"; }
-        { key = "Return"; mods = "Alt|Shift"; action = "SpawnNewInstance"; }
+            { key = "p"; mods = "Super"; action = "Paste"; }
+            { key = "c"; mods = "Super"; action = "Copy"; }
+            { key = "v"; mods = "Super"; action = "ToggleViMode"; }
+            { key = "k"; mods = "Super|Shift"; action = "IncreaseFontSize"; }
+            { key = "j"; mods = "Super|Shift"; action = "DecreaseFontSize"; }
+            { key = "Return"; mods = "Alt|Shift"; action = "SpawnNewInstance"; }
         ];
 
-	hints.enabled = [
-	  # {regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";}
-	  # { command = { program = "code", args = [ "--goto" ] }; }
-	  # {mouse = { enabled = true; }; }
-	];
+        hints.enabled = [
+            {
+                binding = { key = "o"; mods = "Super"; };
+                regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\\\s{-}\\\\^⟨⟩`]+";
+                command = "xdg-open";
+                hyperlinks = true;
+                mouse = { enabled = true; };
+            }
+        ];
 
 	# Colors (Nordic)
-
-	font = {
-	  normal = {
-	    family = "Hack Nerd Font";
-	    style = "Regular";
-	  };
-	};
-	colors = {
-	  primary = {
-            # background = "#242933";
-            foreground = "#BBBDAF";
-	  };
-	  normal = {
- 	    black = "#191C1D";
- 	    red = "#BD6062";
- 	    green = "#A3D6A9";
- 	    yellow = "#F0DFAF";
- 	    blue = "#8FB4D8";
- 	    magenta = "#C7A9D9";
- 	    cyan = "#B6D7A8";
- 	    white = "#BDC5BD";
-          };
-	  bright = {
- 	    black = "#727C7C";
- 	    red = "#D18FAF";
- 	    green = "#B7CEB0";
- 	    yellow = "#BCBCBC";
- 	    blue = "#E0CF9F";
- 	    magenta = "#C7A9D9";
- 	    cyan = "#BBDA97";
- 	    white = "#BDC5BD";
-          };
-	  selection = {
-            text = "#000000";
-            background = "#F0DFAF";
-          };
+        font = {
+            normal = {
+                family = "Hack Nerd Font";
+                style = "Regular";
+            };
+        };
+	    colors = {
+            primary = {
+                    # background = "#242933";
+                    foreground = "#BBBDAF";
+            };
+            normal = {
+                black = "#191C1D";
+                red = "#BD6062";
+                green = "#A3D6A9";
+                yellow = "#F0DFAF";
+                blue = "#8FB4D8";
+                magenta = "#C7A9D9";
+                cyan = "#B6D7A8";
+                white = "#BDC5BD";
+                };
+            bright = {
+                black = "#727C7C";
+                red = "#D18FAF";
+                green = "#B7CEB0";
+                yellow = "#BCBCBC";
+                blue = "#E0CF9F";
+                magenta = "#C7A9D9";
+                cyan = "#BBDA97";
+                white = "#BDC5BD";
+                };
+            selection = {
+                text = "#000000";
+                background = "#F0DFAF";
+            };
         };
     };
 

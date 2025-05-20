@@ -1,5 +1,54 @@
 { config, lib, pkgs, ... }: {
   networking = {
+    hosts = {
+        # =============================================
+        # WEGROUP GOOGLE DNS
+        # =============================================
+        "10.0.4.31" = [
+            "vault.google.wegroup.be"
+            "cd.google.wegroup.be"
+        ];
+        "10.0.0.14" = ["harbor.internal.google.wegroup.be"];
+        "10.0.0.15" = ["drone.internal.google.wegroup.be"];
+        "10.0.0.16" = [
+            "search.internal.google.wegroup.be"
+            "drone.internal.azure.wegroup.be"
+        ];
+        "10.0.0.17" = [
+            "htmltopdf.internal.google.wegroup.be"
+            "vault.internal.azure.wegroup.be"
+        ];
+        "10.0.0.18" = ["htmltopdf2.internal.google.wegroup.be"];
+        "10.0.0.19" = ["house-property.internal.google.wegroup.be"];
+        "10.0.0.20" = ["pypi.internal.google.wegroup.be"];
+        "10.0.0.21" = ["dns.internal.google.wegroup.be"];
+        "10.0.0.23" = ["dekra.internal.google.wegroup.be"];
+        "10.25.0.2" = ["postgres.internal.google.wegroup.be"];
+
+        # =============================================
+        # WEGROUP AZURE DNS
+        # =============================================
+        "10.0.0.10" = ["pypi.internal.azure.wegroup.be"];
+        "10.0.0.22" = ["harbor.internal.azure.wegroup.be"];
+        "10.0.1.4" = [
+            "wg-tooling.postgres.database.azure.com"
+            "tooling.internal.postgres.database.azure.com"
+        ];
+        "10.0.1.5" = [
+            "wg-production-postgres-v15.postgres.database.azure.com"
+            "production.internal.postgres.database.azure.com"
+        ];
+        "10.0.1.6" = [
+            "wg-staging-postgres-v15.postgres.database.azure.com"
+            "staging.internal.postgres.database.azure.com"
+        ];
+        "10.0.8.4" = [
+            "wg-production-dns-d2mgxi4q.b7aa91d2-13f4-4565-af1c-8da13b99964a.privatelink.francecentral.azmk8s.io"
+        ];
+        "10.0.4.4" = [
+            "wg-staging-dns-y9liqo5l.9fae2481-40d0-4598-9155-9672978a28f7.privatelink.francecentral.azmk8s.io"
+        ];
+    };
     hostName = "asicli"; # Define your hostname.
     dhcpcd.enable = false;
 
