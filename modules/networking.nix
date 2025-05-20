@@ -30,18 +30,6 @@
         # =============================================
         "10.0.0.10" = ["pypi.internal.azure.wegroup.be"];
         "10.0.0.22" = ["harbor.internal.azure.wegroup.be"];
-        "10.0.1.4" = [
-            "wg-tooling.postgres.database.azure.com"
-            "tooling.internal.postgres.database.azure.com"
-        ];
-        "10.0.1.5" = [
-            "wg-production-postgres-v15.postgres.database.azure.com"
-            "production.internal.postgres.database.azure.com"
-        ];
-        "10.0.1.6" = [
-            "wg-staging-postgres-v15.postgres.database.azure.com"
-            "staging.internal.postgres.database.azure.com"
-        ];
         "10.0.8.4" = [
             "wg-production-dns-d2mgxi4q.b7aa91d2-13f4-4565-af1c-8da13b99964a.privatelink.francecentral.azmk8s.io"
         ];
@@ -56,9 +44,6 @@
       br0 = {
         useDHCP = false;
         ipv4.addresses = [ {
-            # address = "192.168.0.195";
-            # prefixLength = 24;
-
             address = "192.168.68.100";
             prefixLength = 22;
         }];
@@ -69,7 +54,6 @@
         interfaces = [ "enp70s0" ];
       };
     };
-    # defaultGateway = "192.168.0.1";
     defaultGateway = "192.168.68.1";
     nameservers = [ "1.1.1.1" "9.9.9.9" ];
 
