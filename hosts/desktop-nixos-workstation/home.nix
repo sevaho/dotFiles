@@ -164,6 +164,7 @@
         pkgs.eza
         pkgs.bat
         pkgs.neovim
+        pkgs.serpl
 
         pkgs.unstable.smartcat
         pkgs.ripgrep
