@@ -651,7 +651,7 @@ nnoremap <leader>f : NERDTreeToggle<CR>
 nnoremap <leader>t : Tagbar<CR>
 nnoremap <leader>T :belowright split <CR> :resize 6<CR> :set winfixheight <CR> :terminal <CR>
 " nnoremap <leader>T :Tags<cr>
-nnoremap <leader>c <c-w>c
+nnoremap <leader>q <c-w>c
 nnoremap <leader>s :split <cr>
 nnoremap <leader>S :vsplit <cr>
 nnoremap <leader>v :e ~/.config/nvim/init.vim <cr>

@@ -28,12 +28,12 @@
         # =============================================
         # WEGROUP AZURE DNS
         # =============================================
-        "10.0.0.10" = ["pypi.internal.azure.wegroup.be"];
+        "10.0.0.10" = ["pypi.azure.wegroup.be"];
         "10.0.0.22" = ["harbor.internal.azure.wegroup.be"];
         "10.0.8.4" = [
             "wg-production-dns-d2mgxi4q.b7aa91d2-13f4-4565-af1c-8da13b99964a.privatelink.francecentral.azmk8s.io"
         ];
-        "10.0.4.4" = [
+        "10.0.4.10" = [
             "wg-staging-dns-y9liqo5l.9fae2481-40d0-4598-9155-9672978a28f7.privatelink.francecentral.azmk8s.io"
         ];
     };

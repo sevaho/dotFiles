@@ -72,6 +72,14 @@
   # Minimal configuration for NFS support with Vagrant.
   services.nfs.server.enable = true;
 
+  services.pcscd.enable = true;
+  system.activationScripts.web-eid-app = {
+    text = ''
+        mkdir -p /usr/lib/x86_64-linux-gnu
+        ln -sf ${pkgs.eid-mw}/lib/pkcs11/beidpkcs11.so /usr/lib/x86_64-linux-gnu/libbeidpkcs11.so.0
+    '';
+  };
+
   # ===============================================
   # i3
   # ===============================================

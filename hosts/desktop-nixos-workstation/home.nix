@@ -58,7 +58,12 @@
         pkgs.zlib
         pkgs.pciutils
         pkgs.hackgen-nf-font
-        pkgs.nerdfonts
+        pkgs.nerd-fonts.hack
+        pkgs.nerd-fonts.zed-mono
+        pkgs.font-awesome
+        pkgs.nerd-fonts.jetbrains-mono
+        pkgs.nerd-fonts.fira-mono
+        pkgs.nerd-fonts.symbols-only
         pkgs.redshift
         pkgs.dunst
         pkgs.feh
@@ -114,11 +119,11 @@
         pkgs.mpv
         pkgs.ffmpeg_7-full
         pkgs.freerdp3
-        pkgs.firefox
-        pkgs.ventoy-full
         pkgs.sysstat
 
         pkgs.xdotool
+
+        pkgs.eid-mw
 
         pkgs.unstable.uv
 
@@ -142,6 +147,7 @@
         pkgs.tmpmail
 
 	    # LANGUAGE SERVERS
+        pkgs.pyright
         pkgs.gopls
         pkgs.zls
         pkgs.nil
@@ -163,8 +169,11 @@
         pkgs.atuin
         pkgs.eza
         pkgs.bat
+        pkgs.fd
         pkgs.neovim
         pkgs.serpl
+        pkgs.hurl
+        pkgs.unstable.wiremix
 
         pkgs.unstable.smartcat
         pkgs.ripgrep
@@ -184,6 +193,8 @@
         pkgs.ncdu
         pkgs.tree-sitter
         pkgs.devbox
+        pkgs.claude-code
+        pkgs.unstable.opencode
 
 	    # Security testing tools
         pkgs.nmap
@@ -192,13 +203,13 @@
         pkgs.zap
         pkgs.wireshark
         pkgs.metasploit
-        pkgs.ida-free
+        # pkgs.ida-free
 
 	    # AI
         pkgs.ollama
 
 	    # GAMES
-        pkgs.zeroad
+        # pkgs.zeroad
         pkgs.zulu17 # required for some minecraft mods
         pkgs.prismlauncher # minecraft
 
@@ -340,7 +351,7 @@
 	# Colors (Nordic)
         font = {
             normal = {
-                family = "Hack Nerd Font";
+                family = "Hack";
                 style = "Regular";
             };
         };
@@ -352,22 +363,22 @@
             normal = {
                 black = "#191C1D";
                 red = "#BD6062";
-                green = "#A3D6A9";
+                green = "#92c098";
                 yellow = "#F0DFAF";
-                blue = "#8FB4D8";
+                blue = "#80a2c2";
                 magenta = "#C7A9D9";
                 cyan = "#B6D7A8";
                 white = "#BDC5BD";
                 };
             bright = {
                 black = "#727C7C";
-                red = "#D18FAF";
+                red = "#bb5988";
                 green = "#B7CEB0";
                 yellow = "#BCBCBC";
                 blue = "#E0CF9F";
                 magenta = "#C7A9D9";
                 cyan = "#BBDA97";
-                white = "#BDC5BD";
+                white = "#f8f9f8";
                 };
             selection = {
                 text = "#000000";
@@ -384,6 +395,9 @@
 
 
     programs.nix-index.enable = true;
+
+    programs.firefox.enable = true;
+    # programs.firefox.nativeMessagingHosts.packages = [ "pkgs.web-eid-app" ];
 
 
     # This value determines the Home Manager release that your configuration is

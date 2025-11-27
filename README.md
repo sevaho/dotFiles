@@ -1,7 +1,11 @@
-#
+# dotFiles
 
-## Install macos nix config
+Personal dotfiles configuration using Nix.
 
-1. Install nix determinate
-2. Run nix install
-3. Reboot !!
+## Installation
+
+### macOS
+
+1. Install Nix using the Determinate Installer
+2. Run `nix install`
+3. Reboot
