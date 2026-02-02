@@ -11,6 +11,7 @@
       ../../modules/docker.nix
       ../../modules/i18n.nix
       ../../modules/networking.nix
+      ../../modules/flox.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

@@ -123,6 +123,7 @@
 
         pkgs.xdotool
 
+        # ID CARD READER
         pkgs.eid-mw
 
         pkgs.unstable.uv
@@ -130,8 +131,6 @@
         pkgs.python3
         pkgs.python3Packages.pipx
         pkgs.python3Packages.distutils
-
-        # Infra
 
         # android
         pkgs.usbutils
@@ -175,7 +174,6 @@
         pkgs.hurl
         pkgs.unstable.wiremix
 
-        pkgs.unstable.smartcat
         pkgs.ripgrep
         pkgs.ripgrep-all
         pkgs.entr
@@ -187,14 +185,12 @@
         pkgs.openssl
         pkgs.ueberzugpp
         pkgs.ttyper
-        pkgs.newsboat
         pkgs.pre-commit
         pkgs.dfc
         pkgs.ncdu
         pkgs.tree-sitter
         pkgs.devbox
-        pkgs.claude-code
-        pkgs.unstable.opencode
+        pkgs.unstable.claude-code
 
 	    # Security testing tools
         pkgs.nmap

@@ -12,6 +12,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flox.url = "github:flox/flox/latest";
+
+
   };
 
   outputs = { self, nixpkgs, home-manager, nix-darwin, ... } @ inputs:
